@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Accommodation;
+use App\Models\Category;
+use App\Models\OfferType;
 use App\Models\PageTag;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -13,9 +17,12 @@ class HomeController extends Controller
     public function home()
     {
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+        $offerType = OfferType::active()->get();
+        $categories = Category::active()->get();
+        $accomodation = Accommodation::active()->get();
+        $bedrooms = Property::select('bedrooms')->active()->groupBy('bedrooms')->get();
 
-
-        return view('frontend.home', compact('pagemeta'));
+        return view('frontend.home', compact('pagemeta','offerType','categories','accomodation','bedrooms'));
     }
     public function aboutUs()
     {

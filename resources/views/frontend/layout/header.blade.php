@@ -7,7 +7,7 @@
     <meta name="title" content="@yield('title') @if($slogan) | {{  $slogan }} @endif">
     <meta name="keyword" content="@yield('pageKeyword')">
     <meta name="description" content="@yield('pageDescription')">
-    <meta name="author" content="@if($name) {{  $name }} | @endif Xpertise Creative Studio">
+    <meta name="author" content="@if($name) {{  $name }} @endif">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{$website_url}}">
