@@ -28,7 +28,7 @@ Route::get('/clear-cache', function() {
  *******************/
 
 Route::namespace('App\Http\Controllers\Frontend')->group(function(){
-    Route::any('/', 'HomeController@home')->name('home');
+    Route::any('/', 'HomeController@home')->name('main');
     Route::any('about-us', 'HomeController@aboutUs')->name('about-us');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');

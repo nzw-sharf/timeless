@@ -1,11 +1,23 @@
-
+@import url('../fonts/stylesheet.css');
+/*--------------------------------------------------------------
+# Common
+--------------------------------------------------------------*/
+:root {
+    --primary-font: 'Garet Book';
+    --primary-bold-font: 'Garet';
+    --script-font: "AnastasiaScript";
+    --primary-black: #001515;
+    --primary-white: #ffffff;
+  
+  }
 body {
     top: 0;
     position: relative;
-    font-family: 'HK Grotesk';
-    font-weight: normal;
-    overflow-x:hidden;
+    font-family: var(--primary-font);
+    font-weight: 300;
     font-style: normal;
+    font-display: swap;
+    overflow-x:hidden;
 }
 body.modal-open {
     overflow: hidden !important;
@@ -17,13 +29,101 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: '';
+    font-family: var(--primary-font);
     font-weight: 500;
     font-style: normal;
 }
 p,
-small {
-    font-family: '';
-    font-weight: normal;
-    font-style: normal;
+small,a, ul li {
+    font-family: var(--primary-font);
+}
+
+/* Navbar */
+.mainNav {
+    background: transparent;
+    position: absolute;
+    top:0;
+    width: 100%;
+    left:0;
+    right:0;
+    z-index: 1;
+    min-height: 75px;
+}
+.mainNav.navbar-expand-lg .navbar-nav .nav-link {
+    color: var(--primary-white);
+    font-size: 0.89rem;
+    text-transform: uppercase;
+}
+.form-control:focus, .form-select:focus {
+    outline: 0  !important;
+    box-shadow:none !important;
+    border:0px !important
+}
+.btn-primary {
+    background-color: var(--primary-black) !important;
+    color: var(--primary-white);
+    font-size: 0.89rem !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    border:1px solid var(--primary-black) !important;
+}
+.text-sec {
+    font-size: 0.89rem;
+}
+/* banner */
+.mainBanner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 100vh;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    box-shadow: inset 0 0 0 2000px rgba(4, 28, 44, 0.75);
+    background-image: url('../images/blog-no-image.webp');
+    padding-top: 200px;
+}
+.bannerHead h5 {
+    font-size: 1.7rem;
+    font-family: var(--primary-font);
+    line-height: normal;
+
+}
+.sectionHead h5 {
+    font-size: 2.4rem;
+    font-family: var(--primary-font);
+    line-height: normal;
+}
+.bannerHead span, .sectionHead span {
+    font-family: var(--script-font);
+}
+.searchDiv {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid --primary-black;
+}
+.searchForm label {
+    font-size: 0.89rem;
+    color: var(--primary-white);
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 720px) {
+    .rowRev {
+        flex-direction: row-reverse;
+    }
+    .navbar-collapse {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top:75px;
+        right: 0;
+        text-align: left;
+        background: var(--primary-black);
+        padding: 20px;
+    }
 }
