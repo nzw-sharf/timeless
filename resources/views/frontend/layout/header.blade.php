@@ -28,7 +28,7 @@
     <title>@yield('title') @if($slogan) | {{  $slogan }} @endif</title>
     <link rel="canonical" href="{{url()->current()}}" />
     <!-- Favicon and touch icons -->
-    <link rel="icon" type="image/png" href="@if($favicon) {{  $favicon }} @else {{ asset('frontend/assets/images/favicon.png') }} @endif">
+    <link rel="icon" type="image/png" href="@if($favicon) {{  $favicon }} @endif">
     <link rel="shortcut icon" type="image/x-icon"
         href="{{ asset('frontend/assets/images/favicon.ico') }}" />
     <link rel="apple-touch-icon"

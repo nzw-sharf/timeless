@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg mainNav">
         <div class="container py-3">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="@if($logo) {{  $logo }} @else https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg @endif" alt="Bootstrap" width="30" height="24">
+                <img src="@if($logo) {{  $logo }} @else https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg @endif" alt="{{  $name }}" width="30" height="24">
             </a>
           
           <div class="d-flex rowRev">
@@ -33,12 +33,12 @@
                     <ul class="list-unstyled mb-0">
                         <li class="d-inline">
                             <a class="navbar-brand" href="mailto:{{ $email ? $email : ''}}">
-                                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+                                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="{{  $name }}" width="30" height="24">
                             </a>
                         </li>
                         <li class="d-inline">
                             <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">
-                                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+                                <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="{{  $name }}" width="30" height="24">
                             </a>
                         </li>
                     </ul>

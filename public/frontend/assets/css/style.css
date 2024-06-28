@@ -67,13 +67,27 @@ small,a, ul li {
     border:1px solid var(--primary-black) !important;
 }
 .text-sec {
-    font-size: 0.89rem;
+    font-size: 0.87rem;
 }
 .bg-primary {
     background-color: var(--primary-black) !important;
 }
 .p-relative {
     position: relative;
+}
+.text-secondary {
+    color: #c9c9c9 !important;
+}
+a {
+    text-decoration: none;
+}
+.btn-outline {
+    background-color: transparent !important;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: #fff !important;
+    border-radius: 10px;
 }
 /* banner */
 .mainBanner {
@@ -134,16 +148,83 @@ small,a, ul li {
     background-color: #efefef;
     border-radius: 15px 0px 0px 15px;
     border: 1px solid #c9c9c9;
+    border-right: 0px !important;
 }
 .bgVilla2{
     position: absolute;
     width: 100%;
     height: 100%;
     right: -47%;
-    left:0;
     top:0;
     bottom:0;
     background-color: #efefef;
+    z-index: -1;
+}
+/* property grid  */
+.propCont img {
+    width: 100%;
+    height:330px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.propCont .propDetOverlay {
+    position: absolute;
+    width: 100%;
+    height: 330px;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .7) 50%);
+    color: var(--primary-white);
+}
+.propDetOverlay .card-title {
+    color: var(--primary-white);
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    font-weight: 500 !important;
+}
+/* footer  */
+.footHead {
+    margin: 0 auto;
+    width: fit-content;
+}
+.footHead h6 {
+    text-transform: uppercase;
+}
+.footList li{
+    display: inline;
+    grid-template-columns: max-content max-content max-content;
+}
+
+.list-bar::before {
+    padding: 0 5px;
+    color: #ddd;
+    content: "|";
+    font-size: 16px;
+    font-family: "bootstrap-icons";
+    vertical-align: baseline;
+    line-height: 0.87rem;
+    display: inline;
+}
+.list-dot::before {
+    padding: 0 5px;
+    color: #ddd;
+    content: "\F287";
+    font-size: 8px;
+    font-family: "bootstrap-icons";
+    vertical-align: middle;
+    line-height: 0.87rem;
+    display: inline;
+ 
+}
+.footList li:first-child::marker {
+    list-style-type: none !important;
 }
 @media screen and (max-width: 720px) {
     .rowRev {
@@ -161,5 +242,8 @@ small,a, ul li {
     }
     .aboutImg {
         margin-right: auto;
+    }
+    .bgVilla2, .bgVilla {
+        right: 0;
     }
 }
