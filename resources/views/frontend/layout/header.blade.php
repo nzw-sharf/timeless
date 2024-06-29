@@ -28,7 +28,7 @@
     <title>@yield('title') @if($slogan) | {{  $slogan }} @endif</title>
     <link rel="canonical" href="{{url()->current()}}" />
     <!-- Favicon and touch icons -->
-    <link rel="icon" type="image/png" href="@if($favicon) {{  $favicon }} @else {{ asset('frontend/assets/images/favicon.png') }} @endif">
+    <link rel="icon" type="image/png" href="@if($favicon) {{  $favicon }} @endif">
     <link rel="shortcut icon" type="image/x-icon"
         href="{{ asset('frontend/assets/images/favicon.ico') }}" />
     <link rel="apple-touch-icon"
@@ -53,7 +53,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {{-- slider --}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>

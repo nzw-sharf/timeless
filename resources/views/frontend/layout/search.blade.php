@@ -3,7 +3,7 @@
     @csrf
     <div class="row g-2">
         
-        <div class="col my-auto">
+        <div class="col-6 col-md col-lg my-auto">
             <label for="">Buy/Sell/Rent</label>
             <select class="form-select" name="accomodation" id="accomodation">
                 <option value="" hidden></option>
@@ -13,7 +13,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col my-auto">
+        <div class="col-6 col-md col-lg  my-auto">
             <label for="">Residential/Commercial</label>
             <select class="form-select" name="accomodation" id="accomodation">
                 <option value="" hidden></option>
@@ -23,7 +23,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col my-auto">
+        <div class="col-6 col-md col-lg my-auto">
             <label for="">Type Of Property</label>
             <select class="form-select" name="accomodation" id="accomodation">
                 <option value="" hidden></option>
@@ -33,7 +33,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col my-auto">
+        <div class="col-6 col-md col-lg my-auto">
             <label for="">No.of Bedrooms</label>
             <select class="form-select" name="status"  id="status" required>
                 <option value="" hidden></option>
