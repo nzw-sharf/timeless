@@ -46,7 +46,7 @@
                     <div class="col-12 col-lg-4 col-md-4 ">
                         <div class="footHead">
                             <h6 class="">Lorem Ipsum</h6>
-                            <ul class="footList list-unstyled mb-0 ps-0">
+                            <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">
                                     <a class="navbar-brand text-sec" href="">
                                         Buy
