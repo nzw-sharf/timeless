@@ -31,14 +31,16 @@ h4,
 h5,
 h6 {
     font-family: var(--primary-font);
-    font-weight: 300;
+    font-weight: 500;
     font-style: normal;
 }
 p,
 small,a, ul li {
     font-family: var(--primary-font);
 }
-
+.w-fit-content {
+    width: fit-content;
+}
 /* Navbar */
 .mainNav {
     background: transparent;
@@ -49,6 +51,16 @@ small,a, ul li {
     right:0;
     z-index: 1;
     min-height: 75px;
+}
+.navBarWhite {
+    background: #ffffff !important;
+    position:  relative !important;
+}
+.navBarWhite img{
+   filter: invert(1);
+}
+.navBarWhite.navbar-expand-lg .navbar-nav .nav-link {
+    color: var(--primary-black) !important;
 }
 .mainNav.navbar-expand-lg .navbar-nav .nav-link {
     color: var(--primary-white);
@@ -103,6 +115,9 @@ a {
     color: #fff !important;
     padding: 2px 10px;
 }
+.bgGradient{
+    background-image:linear-gradient(90deg, var(--secondary-grey) 45%, var(--primary-white) 45%);
+}
 /* banner */
 .mainBanner {
     position: relative;
@@ -118,8 +133,12 @@ a {
     background-repeat: no-repeat !important;
     background-position: center !important;
     box-shadow: inset 0 0 0 2000px rgba(4, 28, 44, 0.75);
-    background-image: url('../images/blog-no-image.webp');
+    background-image: url('../images/banner/homeBg.webp');
     padding-top: 200px;
+    padding-bottom: 200px;
+}
+.homeBanner {
+    padding-bottom: 0 !important;
 }
 .bannerHead h5 {
     font-size: 2.5rem;
@@ -137,6 +156,10 @@ a {
 }
 .secHead h5 {
     font-size: 1.5rem;
+    font-family: var(--primary-font);
+}
+.secHead h6 {
+    font-size: 1.3rem;
     font-family: var(--primary-font);
 }
 .secHead span {
@@ -174,20 +197,40 @@ a {
     background-color: #f7f7f7;
     z-index: -1;
 }
+.bgBlog1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -23%;
+    top: 0;
+    bottom: 0;
+    background-color: #f7f7f7;
+    z-index: -1;
+}
+.bgBlog2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -23%;
+    top: 0;
+    bottom: 0;
+    background-color: #f7f7f7;
+    z-index: -1;
+}
 /* property grid  */
 .propCont {
     font-size: 0.82rem;
 }
 .propCont img {
     width: 100%;
-    height:425px;
+    height:350px;
     object-fit: cover;
     border-radius: 15px;
 }
 .propCont .propDetOverlay {
     position: absolute;
     width: 100%;
-    height: 425px;
+    height: 350px;
     top:0;
     left:0;
     right: 0;
@@ -207,7 +250,7 @@ a {
     font-weight: 700 !important;
 }
 .partnerImg img {
-    width: 100%;
+    width: 150px !important;
     height:100px;
     object-fit: contain;
     object-position: center;
@@ -258,6 +301,28 @@ a {
     object-position: center;
     object-fit: cover;
 }
+.blogCardNew .blogSubtitle {
+    display: none;
+}
+
+#blogSlide .owl-item.active.center .blogCardNew .blogSubtitle {
+    display: block;
+}
+#blogSlide .owl-stage{
+    display: block !important;
+  }
+  
+  #blogSlide .owl-item {
+    display: inline-block;
+    float: none;
+    vertical-align: text-bottom;
+}
+.blogImgMain {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
 /* footer  */
 .footHead {
     margin: 0 auto;
@@ -299,6 +364,9 @@ a {
     .rowRev {
         flex-direction: row-reverse;
     }
+    .colRev {
+        flex-direction: column-reverse;
+    }
     .navbar-collapse {
         position: absolute;
         width: 100%;
@@ -332,5 +400,26 @@ a {
     }
     .footHead{
         width: 100% !important;
+    }
+    .navbar-toggler-icon {
+        filter: invert(1);
+         --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-list' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E") !important;
+    }
+    .navBarWhite .navbar-toggler-icon {
+        filter: invert(0) !important;
+    }
+    .navbar-toggler, .navbar-toggler:focus, .navbar-toggler:active{
+        border:0px !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+    }
+    .bgGradient {
+        background-image: linear-gradient(90deg, var(--secondary-grey) 100%, var(--primary-white) 100%);
+    }
+    .bgBlog1, .bgBlog2 {
+        width: 80% !important;
+        height: 350px !important;
+        right: 0;
+        left: 0;
     }
 }

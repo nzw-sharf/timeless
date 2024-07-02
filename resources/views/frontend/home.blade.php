@@ -11,7 +11,7 @@
 @endif
 @section('content')
 
-<section class="mainBanner">
+<section class="homeBanner mainBanner">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
                         <div class="aboutImg">
-                            <img src="{{asset('frontend/assets/images/blog-no-image.webp')}}" alt="{{  $name }}"
-                                srcset="{{asset('frontend/assets/images/blog-no-image.webp')}}" class="img-fluid">
+                            <img src="{{asset('frontend/assets/images/about.webp')}}" alt="{{  $name }}"
+                                srcset="{{asset('frontend/assets/images/about.webp')}}" class="img-fluid">
                         </div>
                         <div class="text-center pt-4">
                             <p class="text-sec">For Luxury Living &nbsp; <button type="submit"
@@ -125,9 +125,8 @@
                     <div class="col-12 col-lg-6 col-md-6 p-relative my-auto">
                         <div class="bgVilla2"></div>
                         <div class="d-flex flex-column justify-content-center py-5  h-100">
-                            <img src="{{asset('frontend/assets/images/blog-no-image.webp')}}" alt="{{  $name }}"
-                                srcset="{{asset('frontend/assets/images/blog-no-image.webp')}}"
-                                class="img-fluid rounded-4">
+                            <img src="{{asset('frontend/assets/images/about2.webp')}}" alt="{{  $name }}"
+                                srcset="{{asset('frontend/assets/images/about2.webp')}}" class="img-fluid rounded-4">
                         </div>
                     </div>
                 </div>
@@ -153,44 +152,86 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i=0;$i<6;$i++) <div class="col-12 col-lg-4 col-md-4">
-                        <div class="card border-0">
-                            <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/no-image.webp')}}"
-                                        class="card-img-top" alt="{{  $name }}"></a>
-                                <div class="propDetOverlay">
-                                    <a href="http://">
-                                        <h5 class="card-title mb-0">Card title</h5>
-                                    </a>
-                                    <div class="d-flex justify-content-between">
-                                        <div class="my-auto">
-                                            <p class="mb-0 text-sec">$ 0000000</p>
-                                        </div>
-                                        <div class="my-auto">
-                                            <a class="btn btn-outline" href="">Details</a>
+                    @for ($i=1;$i<4;$i++) 
+                        <div class="col-12 col-lg-4 col-md-4 col-xl-3">
+                            <div class="card border-0 mb-3">
+                                <div class="propCont p-relative">
+                                    <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
+                                            class="card-img-top" alt="{{  $name }}"></a>
+                                    <div class="propDetOverlay">
+                                        <a href="http://">
+                                            <h5 class="card-title mb-0">Card title</h5>
+                                        </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="my-auto">
+                                                <p class="mb-0 text-sec">$ 0000000</p>
+                                            </div>
+                                            <div class="my-auto">
+                                                <a class="btn btn-outline" href="">Details</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="d-flex justify-content-between p-2">
+                                    <div class="pe-1">
+                                        <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                    <div class="px-1">
+                                        <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                    <div class="ps-1">
+                                        <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                </div>
                             </div>
-
-
-                            <ul class="d-flex justify-content-between p-2">
-                                <div class="pe-1">
-                                    <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                        alt="{{  $name }}" width="30" height="24"> <span class="align-middle">3</span>
-                                </div>
-                                <div class="px-1">
-                                    <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                        alt="{{  $name }}" width="30" height="24"> <span class="align-middle">3</span>
-                                </div>
-                                <div class="ps-1">
-                                    <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                        alt="{{  $name }}" width="30" height="24"> <span class="align-middle">3</span>
-                                </div>
-                            </ul>
                         </div>
+                    @endfor
+                    @for ($i=1;$i<4;$i++) 
+                        <div class="col-12 col-lg-4 col-md-4 col-xl-3">
+                            <div class="card border-0 mb-3">
+                                <div class="propCont p-relative">
+                                    <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
+                                            class="card-img-top" alt="{{  $name }}"></a>
+                                    <div class="propDetOverlay">
+                                        <a href="http://">
+                                            <h5 class="card-title mb-0">Card title</h5>
+                                        </a>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="my-auto">
+                                                <p class="mb-0 text-sec">$ 0000000</p>
+                                            </div>
+                                            <div class="my-auto">
+                                                <a class="btn btn-outline" href="">Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex justify-content-between p-2">
+                                    <div class="pe-1">
+                                        <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                    <div class="px-1">
+                                        <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                    <div class="ps-1">
+                                        <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
+                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
                 </div>
-                @endfor
+
 
             </div>
         </div>
@@ -215,10 +256,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i=0;$i<3;$i++) <div class="col-12 col-lg-4 col-md-4">
+                    @for ($i=1;$i<4;$i++) <div class="col-12 col-lg-4 col-md-4 col-xl-3">
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/no-image.webp')}}"
+                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
                                         class="card-img-top" alt="{{  $name }}"></a>
                                 <div class="propDetOverlay">
                                     <a href="http://">
@@ -258,8 +299,8 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 mt-auto">
                         <div class="">
-                            <img src="{{asset('frontend/assets/images/blog-no-image.webp')}}" alt="{{  $name }}"
-                                srcset="{{asset('frontend/assets/images/blog-no-image.webp')}}" class="img-fluid">
+                            <img src="{{asset('frontend/assets/images/ceo.webp')}}" alt="{{  $name }}"
+                                srcset="{{asset('frontend/assets/images/ceo.webp')}}" class="img-fluid">
                         </div>
 
                     </div>
@@ -292,9 +333,9 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
-                    @for ($i=0;$i<9;$i++) <div class="item">
+                    @for ($i=1;$i<10;$i++) <div class="item">
                         <div class="partnerImg">
-                            <img src="{{asset('frontend/assets/images/no-image.webp')}}" class="img-fluid"
+                            <img src="{{asset('frontend/assets/images/partners/'.$i.'.webp')}}" class="img-fluid"
                                 alt="{{  $name }}">
                         </div>
                 </div>
@@ -317,11 +358,12 @@
                     </div>
                     <div class="col-12 col-lg-10 col-md-11">
                         <div id="clientSlide" class="owl-carousel owl-theme">
-                            @for ($i=0;$i<9;$i++) <div class="item">
+                            @for ($i=0;$i<5;$i++) 
+                            <div class="item">
                                 <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                                         <div class="testiImg py-3">
-                                            <img src="{{asset('frontend/assets/images/no-user.webp')}}"
+                                            <img src="{{asset('frontend/assets/images/testimonial.webp')}}"
                                                 class="img-fluid rounded-circle" alt="{{  $name }}">
                                         </div>
                                     </div>
@@ -347,7 +389,7 @@
                                     </div>
                                 </div>
 
-                        </div>
+                            </div>
                         @endfor
                     </div>
                 </div>
@@ -368,14 +410,14 @@
                     </div>
                     <div class="col-12 col-lg-7 col-md-6">
                         <div class="card blogCard border-0">
-                            <img src="{{asset('frontend/assets/images/no-image.webp')}}" class="card-img-top"
-                                alt="{{$name}}">
+                            <a href="{{url('media/1')}}"><img src="{{asset('frontend/assets/images/blogs/blog1.webp')}}" class="card-img-top"
+                                alt="{{$name}}"></a>
                             <div class="card-body rounded-bottom bg-secondary">
-                                <h5 class="card-title fw-bold">Card title</h5>
+                                <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
                                 <p class="card-text text-sec">Some quick example text to build on the card title and
                                     make up the bulk of the card's content.Some quick example text to build on the card
                                     title and make up the bulk of the card's content.</p>
-                                <a href="#" class="fw-bold text-primary">Read More...</a>
+                                <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
                             </div>
                         </div>
                     </div>
@@ -383,16 +425,18 @@
                         <div class="card mb-4 blogCardSide border-0">
                             <div class="row g-0 h-100">
                                 <div class="col-md-5">
-                                    <img src="{{asset('frontend/assets/images/no-image.webp')}}"
+                                    <a href="{{url('media/1')}}">
+                                    <img src="{{asset('frontend/assets/images/blogs/blog2.webp')}}"
                                         class="img-fluid rounded-start" alt="{{$name}}">
+                                    </a>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body d-flex h-100 bg-secondary rounded-end">
                                         <div class=" my-auto">
-                                            <h5 class="card-title fw-bold">Card title</h5>
-                                        <p class="card-text text-sec">Some quick example text to build on the
-                                            card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="fw-bold text-primary">Read More...</a>
+                                            <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
+                                            <p class="card-text text-sec">Some quick example text to build on the
+                                                card title and make up the bulk of the card's content.</p>
+                                            <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
                                         </div>
                                     </div>
                                 </div>
@@ -401,34 +445,23 @@
                         <div class="card blogCardSide border-0">
                             <div class="row g-0 h-100">
                                 <div class="col-md-5">
-                                    <img src="{{asset('frontend/assets/images/no-image.webp')}}"
+                                    <a href="{{url('media/1')}}">
+                                    <img src="{{asset('frontend/assets/images/blogs/blog3.webp')}}"
                                         class="img-fluid rounded-start" alt="{{$name}}">
+                                    </a>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body d-flex h-100 bg-secondary rounded-end">
                                         <div class=" my-auto">
-                                            <h5 class="card-title fw-bold">Card title</h5>
-                                        <p class="card-text text-sec">Some quick example text to build on the
-                                            card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="fw-bold text-primary">Read More...</a>
+                                            <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
+                                            <p class="card-text text-sec">Some quick example text to build on the
+                                                card title and make up the bulk of the card's content.</p>
+                                            <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-md-12">
-
                     </div>
                 </div>
             </div>

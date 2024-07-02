@@ -1,0 +1,8 @@
+[7/2/2024, 12:26:53 AM] layer "+00 00000 00000": Expected Either a default asset specification or a layer asset specification but "+" found.
+[7/2/2024, 12:26:53 AM] layer "companyname@domain.com": Unsupported extension: com
+[7/2/2024, 12:26:53 AM] layer "Phone 000 000 0000 Email companyname@domain.com WhatsApp 000 00": Expected end of input but "W" found.
+[7/2/2024, 12:26:53 AM] layer "wallpapersden.com_burj-al-arab-hd-dubai_1920x1080": Expected end of input but "_" found.
+[7/2/2024, 12:26:53 AM] layer "wallpapersden.com_burj-al-arab-hd-dubai_1920x1080": Expected end of input but "_" found.
+[7/2/2024, 12:26:53 AM] layer "100+": Expected end of input but "+" found.
+[7/2/2024, 12:26:53 AM] layer "300+": Expected end of input but "+" found.
+[7/2/2024, 12:26:53 AM] layer "50+": Expected end of input but "+" found.
