@@ -15,20 +15,20 @@
                                 <ul class="list-unstyled">
                                     <li class="d-inline px-2">
                                         <a class="navbar-brand" href="{{ $instagram ? $instagram : ''}}">
-                                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                                alt="{{  $name }}" width="30" height="24">
+                                            <img src="{{asset('frontend/assets/images/icons/instagram.svg')}}"
+                                                alt="{{  $name }}" width="27" height="27">
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $facebook ? $facebook : ''}}">
-                                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                                alt="{{  $name }}" width="30" height="24">
+                                        <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">
+                                            <img src="{{asset('frontend/assets/images/icons/whatsapp.svg')}}"
+                                                alt="{{  $name }}" width="27" height="27">
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
                                         <a class="navbar-brand" href="{{ $twitter ? $twitter : ''}}">
-                                            <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-                                                alt="{{  $name }}" width="30" height="24">
+                                            <img src="{{asset('frontend/assets/images/icons/twitter.svg')}}"
+                                                alt="{{  $name }}" width="27" height="27">
                                         </a>
                                     </li>
                                 </ul>
@@ -83,10 +83,10 @@
                                     <span class="text-secondary">Phone: </span> <a class="navbar-brand text-sec" href="tel:+{{$contact_number ? $contact_number :'' }}">{{$contact_number ? $contact_number :'0000000000' }}</a>
                                 </li>
                                 <li class="text-sec">
-                                    <span class="text-secondary">Email: </span> <a  class="navbar-brand text-sec" href="tel:+{{$email ? $email :'' }}">{{$email ? $email :'000000000000000000' }}</a>
+                                    <span class="text-secondary">Email: </span> <a  class="navbar-brand text-sec" href="mailto:+{{$email ? $email :'' }}">{{$email ? $email :'info@company.com' }}</a>
                                 </li>
                                 <li class="text-sec">
-                                    <span class="text-secondary">WhatsApp: </span> <a  class="navbar-brand text-sec" href="tel:+{{$contact_number ? $contact_number :'' }}{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">{{ $whatsapp_number ? $whatsapp_number : '000000000000'}}</a>
+                                    <span class="text-secondary">WhatsApp: </span> <a  class="navbar-brand text-sec" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">{{ $whatsapp_number ? $whatsapp_number : '000000000000'}}</a>
                                 </li>
                             </ul>
                         </div>

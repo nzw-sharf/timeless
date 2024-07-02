@@ -54,4 +54,13 @@ class HomeController extends Controller
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         return view('frontend.thankYou', compact('pagemeta'));
     }
+    public function media()
+    {
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+        return view('frontend.blogs', compact('pagemeta'));
+    }
+    public function singleBlog($slug)
+    {
+        return view('frontend.singleBlog', compact('slug'));
+    }
 }
