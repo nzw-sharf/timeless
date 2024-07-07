@@ -25,7 +25,55 @@ class CronController extends Controller
 {
 
 
+    public function addNewXML(){
+        <?php
 
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => false,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>'{
+"bedRoomNum": [],
+"cityIds": [],
+"communityIds": [],
+"completionStatus" : "",
+"dateEnd": "",
+"dateStart" : "",
+"developerIds": [],
+"endPrice":0,
+"esize": 0,
+"listingType" : "SELL",
+"name" : "",
+"page" : 1,
+"propertyType": [],
+"regionIds" : [],
+"size" : 10,
+"sort" : "ID",
+"sortType" : "DESC",
+"startPrice":0,
+"ssize": 0,
+"status" : "ACTIVE"
+}
+',
+  CURLOPT_HTTPHEADER => array(
+    'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+    'Content-Type: application/json'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+    }
 
     public function addxml()
     {
