@@ -7,8 +7,8 @@
                         <div class="text-center mx-auto pb-5">
                             <div class="pb-5">
                                 <a class="navbar-brand" href="{{url('/')}}">
-                                    <img src="@if($logo) {{  $logo }} @else https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg @endif"
-                                        alt="{{  $name }}" width="30" height="24">
+                                    <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif"
+                                        alt="{{  $name }}" width="140" class="img-fluid">
                                 </a>
                             </div>
                             <div class="">
@@ -38,14 +38,15 @@
                     <div class="col-12 col-lg-4 col-md-4 ">
                         <div class="footHead">
                             <div>
-                                <h6>Lorem Ipsum</h6>
-                            <p class="text-sec">when an unknown printer took a galley of type and scrambled</p>
+                                <h6>THE OFFICE</h6>
+                            <p class="text-sec">The Opus by Zaha Hadid
+                                Office C103 • Business Bay • Dubai</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 ">
                         <div class="footHead">
-                            <h6 class="">Lorem Ipsum</h6>
+                            <h6 class="">THE PROPERTIES</h6>
                             <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">
                                     <a class="navbar-brand text-sec" href="">
@@ -77,7 +78,7 @@
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 ">
                         <div class="footHead">
-                            <h6>Lorem Ipsum</h6>
+                            <h6>CONTACT DETAILS</h6>
                             <ul class="list-unstyled ps-0">
                                 <li class="text-sec">
                                     <span class="text-secondary">Phone: </span> <a class="navbar-brand text-sec" href="tel:+{{$contact_number ? $contact_number :'' }}">{{$contact_number ? $contact_number :'0000000000' }}</a>

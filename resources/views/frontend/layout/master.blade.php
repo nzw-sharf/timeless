@@ -126,7 +126,7 @@
         $('#blogSlide').owlCarousel({
            
             loop:true,
-            margin:50,
+            margin:20,
             autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
@@ -143,6 +143,42 @@
                 },
                 1000:{
                     items:3,
+                }
+            }
+        })
+        $('#areaguideSlide').owlCarousel({
+            center: true,
+            loop:false,
+            margin:20,
+            nav:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:4,
+                }
+            }
+        })
+        $('#managementSlide').owlCarousel({
+            center: false,
+            loop:false,
+            margin:20,
+            nav:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:4,
                 }
             }
         })

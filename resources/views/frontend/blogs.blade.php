@@ -11,18 +11,20 @@
 @endif
 @section('content')
 <section class="mainBanner" style="min-height:80vh;">
-
+<div class="overlayBG"></div>
 </section>
-<section class="bgGradient py-5">
+<section class="bgGradient pb-5">
     <div class="container-fluid ">
         <div class="row">
             <div class="col-12 col-lg-4 col-md-4 my-auto">
                 <div class="p-3 p-lg-5 p-md-4 m-auto w-fit-content h-100">
                     <div>
-                        <div class="sectionHead">
-                            <h5>Lorem</br> <span> Ipsum is simply Dummy Text</span></h5>
+                        <div class="sectionHead lineAfter">
+                            <h5>The Latest</br> <span> News & Views</span></h5>
                         </div>
                         <div class="text-start pt-4">
+                            <p class="text-sec">Lorem ipsum doler it simit, lorem
+                                ipsum haoe audieos doler.</p>
                             <p class="text-sec"><button type="button" class="btn btn-primary">Read More</button>
                             </p>
                         </div>
@@ -120,14 +122,24 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
-                    @for ($i=1;$i<10;$i++) 
-                    <div class="item">
+                    <div class="item my-auto">
                         <div class="partnerImg">
-                            <img src="{{asset('frontend/assets/images/partners/'.$i.'.webp')}}" class="img-fluid"
+                            <img src="{{asset('frontend/assets/images/publications/arabian-business.png')}}" class="img-fluid"
                                 alt="{{  $name }}">
                         </div>
                     </div>
-                    @endfor
+                    <div class="item my-auto">
+                        <div class="partnerImg">
+                            <img src="{{asset('frontend/assets/images/publications/national.svg')}}" class="img-fluid"
+                                alt="{{  $name }}">
+                        </div>
+                    </div>
+                    <div class="item my-auto">
+                        <div class="partnerImg">
+                            <img src="{{asset('frontend/assets/images/publications/emirates.png')}}" class="img-fluid"
+                                alt="{{  $name }}">
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -135,7 +147,7 @@
     </div>
 </section>
 <section>
-    <div class="container py-5">
+    <div class="container-fluid py-5">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
@@ -145,39 +157,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    @for ($i=1;$i<5;$i++) 
-                    <div class="col-12 col-lg-3 col-md-3">
-                        <div class="card border-0 mb-3">
-                            <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top" alt="{{  $name }}"></a>
-                                <div class="propDetOverlay">
-                                    <a href="http://">
-                                        <h5 class="card-title mb-0">Card title</h5>
-                                    </a>
+                    <div class="col-12 col-lg-12">
+                        <div id="areaguideSlide" class="owl-carousel owl-theme">
+                            @for ($i=1;$i<5;$i++) 
+                            <div class="item my-auto">
+                                <div class="card border-0 mb-3">
+                                    <div class="propCont p-relative">
+                                        <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
+                                                class="card-img-top rounded-0" alt="{{  $name }}"></a>
+                                        <div class="commuDetOverlay">
+                                            <a href="http://">
+                                                <h5 class="card-title mb-0">Card title</h5>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
+                            @endfor
                         </div>
-                    </div>
-                    @endfor
-                    @for ($i=1;$i<5;$i++) 
-                    <div class="col-12 col-lg-3 col-md-3">
-                        <div class="card border-0 mb-3">
-                            <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top" alt="{{  $name }}"></a>
-                                <div class="propDetOverlay">
-                                    <a href="http://">
-                                        <h5 class="card-title mb-0">Card title</h5>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    @endfor
+                
 
                 </div>
             </div>
