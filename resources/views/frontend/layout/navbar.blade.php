@@ -16,10 +16,10 @@
                     <a class="nav-link {{ request()->route()->named('main') ? 'active' : '' }}" href="{{url('/')}}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ request()->route()->named('properties') ? 'active' : '' }}" href="#">Properties</a>
+                    <a class="nav-link {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}">Properties</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link {{ request()->route()->named('media') ? 'active' : '' }}" href="#">Media</a>
+                    <a class="nav-link {{ request()->route()->named('media') ? 'active' : '' }}" href="{{route('media')}}">Media</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {{ request()->route()->named('about-us') ? 'active' : '' }}" href="{{route('about-us')}}">About Us</a>

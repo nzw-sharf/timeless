@@ -132,7 +132,7 @@ a {
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    /* box-shadow: inset 0 0 0 2000px rgba(4, 28, 44, 0.75); */
+    box-shadow: inset 0 0 0 2000px rgba(4, 28, 44, 0.5);
     background-image: url('../images/banner/homeBg.webp');
     padding-top: 200px;
     padding-bottom: 200px;
@@ -176,6 +176,25 @@ a {
 .secHead span {
     font-family: var(--script-font);
     font-size: 2rem;
+}
+.secHeadNew h5 span{
+    font-family: var(--script-font);
+    font-size: 2.5rem;
+}
+.secHeadNew h5::before,
+.secHeadNew h5::after {
+    display: inline-block;
+    content: "";
+    border-top: 1px solid var(--primary-black);
+    width: 35%;
+    transform: translateY(-1.5rem);
+}
+.secHeadNew h5::before {
+    margin-right: 2rem;
+}
+.secHeadNew h5::after {
+    transform: translateY(0rem);
+    margin-left: 2rem;
 }
 .searchDiv {
     background: rgba(255, 255, 255, 0.39);
@@ -235,7 +254,7 @@ border: 1px solid rgba(255, 255, 255, 1);
 .propCont {
     font-size: 0.82rem;
 }
-.propCont img {
+.propCont .propIMg {
     width: 100%;
     height:350px;
     object-fit: cover;
@@ -256,6 +275,9 @@ border: 1px solid rgba(255, 255, 255, 1);
     justify-content: end;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .7) 50%);
     color: var(--primary-white);
+}
+#exclusiveSlide .propCont .propDetOverlay, #exclusiveSlide .propCont .propIMg {
+    height: 450px !important;
 }
 .propCont .commuDetOverlay {
     position: absolute;
@@ -292,6 +314,9 @@ border: 1px solid rgba(255, 255, 255, 1);
     font-size: 0.92rem;
     text-transform: uppercase;
     font-weight: 700 !important;
+}
+.filterInverse {
+    filter: invert(1);
 }
 .partnerImg img {
     width: 200px !important;
@@ -367,6 +392,37 @@ border: 1px solid rgba(255, 255, 255, 1);
     object-fit: cover;
     object-position: center;
 }
+
+#exclusiveSlide .filterInverse{
+    width: 20px !important;
+    display: inline-flex !important;
+}
+
+.listingForm label{
+    font-size: 0.87rem !important;
+    color: var(--primary-black);
+    margin-bottom: 1rem;
+}
+.listingForm .form-control::placeholder,.listingForm .form-control option{
+    font-size: 0.87rem !important;
+    color: #868686;
+}
+.listingForm .form-control, .listingForm .form-control:hover, .listingForm .form-control:focus{
+    border: 1px solid #f1f0f0 !important;
+    border-radius: 5px;
+    font-size: 0.87rem;
+    color: var(--primary-black) !important;
+    padding: .75rem !important;
+    margin-bottom: 1.5rem;
+}
+.processRound {
+    font-size: 2rem;
+    font-family: var(--primary-bold-font);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
 /* footer  */
 .footHead {
     margin: 0 auto;
@@ -404,17 +460,44 @@ border: 1px solid rgba(255, 255, 255, 1);
 .footList li:first-child::marker {
     list-style-type: none !important;
 }
-#managementSlide .owl-prev, #areaguideSlide .owl-prev {
+.owl-carousel .owl-prev {
     position: absolute;
     top: 25%;
     left: 25%;
-    font-size: 4rem;
+    font-size: 4rem !important;
 }
-#managementSlide .owl-next, #areaguideSlide .owl-next {
+.owl-carousel .owl-next {
     position: absolute;
     top: 25%;
     right: 0;
-    font-size: 4rem;
+    font-size: 4rem !important;
+}
+#processSlide.owl-carousel .owl-prev {
+    left: -5% !important;
+}
+#processSlide.owl-carousel .owl-next {
+    right: -5% !important;
+}
+#processSlide.owl-carousel .owl-stage {
+   display: flex;
+}
+#processSlide.owl-carousel .item {
+    display: flex;
+    flex: 1 0 auto;
+    height: 100%;
+}
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: transparent !important;
+    color: var(--primary-black) !important;
+    text-decoration: none;
+}
+#exclusiveSlide.owl-carousel .owl-prev {
+    left: -5% !important;
+    top:32% !important;
+}
+#exclusiveSlide.owl-carousel .owl-next {
+    top: 32% !important;
+    right: -5%;
 }
 .aboutImg2 img {
     width: 50%;
@@ -483,5 +566,16 @@ border: 1px solid rgba(255, 255, 255, 1);
         height: 350px !important;
         right: 0;
         left: 0;
+    }
+    .owl-carousel .owl-prev {
+        left: 0%;
+    }
+    #exclusiveSlide.owl-carousel .owl-prev {
+        left: 0% !important;
+        color: #ffffff !important;
+    }
+    #exclusiveSlide.owl-carousel .owl-next {
+        right: 0%;
+        color: #ffffff !important;
     }
 }

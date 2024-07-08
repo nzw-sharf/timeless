@@ -30,6 +30,7 @@ Route::get('/clear-cache', function() {
 Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('/', 'HomeController@home')->name('main');
     Route::any('about-us', 'HomeController@aboutUs')->name('about-us');
+    Route::any('properties', 'HomeController@properties')->name('properties');
     Route::any('media', 'HomeController@media')->name('media');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
