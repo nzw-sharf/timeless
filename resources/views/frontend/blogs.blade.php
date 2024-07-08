@@ -105,21 +105,13 @@
 </section>
 
 <section>
-    <div class="container py-5">
+    <div class="container-fluid py-5">
         <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead text-center">
-                            <h5><span>Publications</span></h5>
-                        </div>
-                    </div>
+            <div class="col-12 col-lg-12 col-md-12">
+                <div class="secHead text-center mb-5">
+                    <h5><span>Publications</span></h5>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid pb-5">
-        <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
                     <div class="item my-auto">
@@ -149,34 +141,28 @@
 <section>
     <div class="container-fluid py-5">
         <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead pb-4  text-center">
-                            <h5>Area<span>Guide</span></h5>
-                        </div>
-                    </div>
+            <div class="col-12 col-lg-12 col-md-12">
+                <div class="secHead pb-4  text-center">
+                    <h5>Area<span>Guide</span></h5>
                 </div>
-                    <div class="col-12 col-lg-12">
-                        <div id="areaguideSlide" class="owl-carousel owl-theme">
-                            @for ($i=1;$i<5;$i++) 
-                            <div class="item my-auto">
-                                <div class="card border-0 mb-3">
-                                    <div class="propCont p-relative">
-                                        <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                                class="card-img-top rounded-0" alt="{{  $name }}"></a>
-                                        <div class="commuDetOverlay">
-                                            <a href="http://">
-                                                <h5 class="card-title mb-0">Card title</h5>
-                                            </a>
-                                        </div>
-                                    </div>
+            </div>
+            <div class="col-12 col-lg-12">
+                <div id="areaguideSlide" class="owl-carousel owl-theme">
+                    @for ($i=1;$i<5;$i++) 
+                    <div class="item">
+                        <div class="card border-0 mb-3">
+                            <div class="propCont p-relative">
+                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
+                                        class="card-img-top rounded-0" alt="{{  $name }}" /></a>
+                                <div class="commuDetOverlay">
+                                    <a href="http://">
+                                        <h5 class="card-title mb-0">Card title</h5>
+                                    </a>
                                 </div>
                             </div>
-                            @endfor
                         </div>
-                
-
+                    </div>
+                    @endfor
                 </div>
             </div>
         </div>
