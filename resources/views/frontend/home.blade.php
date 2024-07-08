@@ -156,7 +156,7 @@
                             <div class="card border-0 mb-3">
                                 <div class="propCont p-relative">
                                     <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
-                                            class="card-img-top" alt="{{  $name }}"></a>
+                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
                                     <div class="propDetOverlay">
                                         <a href="http://">
                                             <h5 class="card-title mb-0">Card title</h5>
@@ -176,15 +176,15 @@
                                 <div class="d-flex justify-content-between p-2">
                                     <div class="pe-1">
                                         <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
                                     </div>
-                                    <div class="px-1">
+                                    <div class="px-2">
                                         <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
                                     </div>
                                     <div class="ps-1">
                                         <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
+                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                             <div class="card border-0 mb-3">
                                 <div class="propCont p-relative">
                                     <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
-                                            class="card-img-top" alt="{{  $name }}"></a>
+                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
                                     <div class="propDetOverlay">
                                         <a href="http://">
                                             <h5 class="card-title mb-0">Card title</h5>
@@ -258,7 +258,7 @@
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
                                 <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top" alt="{{  $name }}"></a>
+                                        class="card-img-top propIMg" alt="{{  $name }}"></a>
                                 <div class="propDetOverlay">
                                     <a href="http://">
                                         <h5 class="card-title mb-0">Card title</h5>

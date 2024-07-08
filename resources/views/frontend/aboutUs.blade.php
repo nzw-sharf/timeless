@@ -80,7 +80,7 @@
                             <div class="propCont p-relative">
                                 <a href="http://"><img
                                         src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
-                                        class="card-img-top rounded-0" alt="{{ $name }}"></a>
+                                        class="card-img-top rounded-0 propIMg" alt="{{ $name }}"></a>
                                 <div class="managDetOverlay">
                                     <h5 class="card-title mb-0">Name Here</h5>
                                     <p class="text-sec mb-0">Designation</p>
@@ -93,7 +93,7 @@
                     <div class="card border-0 mb-3">
                         <div class="propCont p-relative">
                             <a href="http://"><img src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
-                                    class="card-img-top rounded-0" alt="{{ $name }}"></a>
+                                    class="card-img-top rounded-0 propIMg" alt="{{ $name }}"></a>
                             <div class="managDetOverlay">
                                 <h5 class="card-title mb-0">Name Here</h5>
                                 <p class="text-sec mb-0">Designation</p>

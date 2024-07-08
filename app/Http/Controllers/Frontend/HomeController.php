@@ -30,6 +30,12 @@ class HomeController extends Controller
 
         return view('frontend.aboutUs', compact('pagemeta'));
     }
+    public function properties()
+    {
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+
+        return view('frontend.properties', compact('pagemeta'));
+    }
 
     public function contact()
     {

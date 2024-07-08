@@ -39,7 +39,7 @@
                             <div class="blogCardNew ">
                                 <div class="propCont p-relative">
                                     <a href="http://"><img src="{{asset('frontend/assets/images/blogs/blog'.$i.'.webp')}}"
-                                            class="card-img-top" alt="{{  $name }}"></a>
+                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
                                 </div>
                                 <div class="py-3 blogSubtitle">
                                     <p class="text-sec mb-0">
@@ -153,7 +153,7 @@
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
                                 <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top rounded-0" alt="{{  $name }}" /></a>
+                                        class="card-img-top rounded-0 propIMg" alt="{{  $name }}" /></a>
                                 <div class="commuDetOverlay">
                                     <a href="http://">
                                         <h5 class="card-title mb-0">Card title</h5>
