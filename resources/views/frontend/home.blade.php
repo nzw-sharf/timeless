@@ -329,16 +329,9 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
-                    @for ($i=1;$i<5;$i++) <div class="item">
+                    @for ($i=1;$i<7;$i++) <div class="item">
                         <div class="partnerImg">
                             <img src="{{asset('frontend/assets/images/partners/'.$i.'.webp')}}" class="img-fluid"
-                                alt="{{  $name }}">
-                        </div>
-                </div>
-                @endfor
-                    @for ($i=5;$i<7;$i++) <div class="item">
-                        <div class="partnerImg">
-                            <img src="{{asset('frontend/assets/images/partners/'.$i.'.png')}}" class="img-fluid"
                                 alt="{{  $name }}">
                         </div>
                 </div>

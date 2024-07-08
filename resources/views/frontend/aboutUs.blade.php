@@ -1,13 +1,13 @@
 @extends('frontend.layout.master')
 
 @if ($pagemeta)
-    @section('title', $pagemeta->meta_title)
-    @section('pageDescription', $pagemeta->meta_description)
-    @section('pageKeyword', $pagemeta->meta_keywords)
+@section('title', $pagemeta->meta_title)
+@section('pageDescription', $pagemeta->meta_description)
+@section('pageKeyword', $pagemeta->meta_keywords)
 @else
-    @section('title',  'About Us | '.$name)
-    @section('pageDescription', $website_description)
-    @section('pageKeyword', $website_keyword)
+@section('title', 'About Us | '.$name)
+@section('pageDescription', $website_description)
+@section('pageKeyword', $website_keyword)
 @endif
 @section('content')
 <section class="mainBanner justify-content-center" style="">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div>
-                           
+
                             <div class="pe-0 pe-md-3 pe-lg-5">
                                 <p class="text-sec">We are a boutique luxury real estate firm, connecting discerning
                                     clients to the most desirable homes. We offer a bespoke service
@@ -68,50 +68,43 @@
 <section>
     <div class="container-fluid py-5">
         <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead pb-4  text-center">
-                            <h5>Our<span>Management</span></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-12">
-                    <div id="managementSlide" class="owl-carousel owl-theme">
-                        @for ($i = 1; $i < 5; $i++)
-                            <div class="item my-auto">
-                                <div class="card border-0 mb-3">
-                                    <div class="propCont p-relative">
-                                        <a href="http://"><img
-                                                src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
-                                                class="card-img-top rounded-0" alt="{{ $name }}"></a>
-                                        <div class="managDetOverlay">
-                                           <h5 class="card-title mb-0">Name Here</h5>
-                                                <p class="text-sec mb-0">Designation</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
-                        @for ($i = 1; $i < 5; $i++)
-                            <div class="item my-auto">
-                                <div class="card border-0 mb-3">
-                                    <div class="propCont p-relative">
-                                        <a href="http://"><img
-                                                src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
-                                                class="card-img-top rounded-0" alt="{{ $name }}"></a>
-                                        <div class="managDetOverlay">
-                                           <h5 class="card-title mb-0">Name Here</h5>
-                                                <p class="text-sec mb-0">Designation</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
-                    </div>
+            <div class="col-12 col-lg-12 col-md-12">
+                <div class="secHead pb-4  text-center">
+                    <h5>Our<span>Management</span></h5>
                 </div>
             </div>
+            <div class="col-12 col-lg-12">
+                <div id="managementSlide" class="owl-carousel owl-theme">
+                    @for ($i = 1; $i < 5; $i++) <div class="item my-auto">
+                        <div class="card border-0 mb-3">
+                            <div class="propCont p-relative">
+                                <a href="http://"><img
+                                        src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
+                                        class="card-img-top rounded-0" alt="{{ $name }}"></a>
+                                <div class="managDetOverlay">
+                                    <h5 class="card-title mb-0">Name Here</h5>
+                                    <p class="text-sec mb-0">Designation</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                @endfor
+                @for ($i = 1; $i < 5; $i++) <div class="item my-auto">
+                    <div class="card border-0 mb-3">
+                        <div class="propCont p-relative">
+                            <a href="http://"><img src="{{ asset('frontend/assets/images/community/' . $i . '.webp') }}"
+                                    class="card-img-top rounded-0" alt="{{ $name }}"></a>
+                            <div class="managDetOverlay">
+                                <h5 class="card-title mb-0">Name Here</h5>
+                                <p class="text-sec mb-0">Designation</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            @endfor
         </div>
+    </div>
+    </div>
     </div>
 </section>
 <section>
