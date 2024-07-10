@@ -148,6 +148,11 @@ return [
         'Blog',
         'News'
     ],
+    'offerType'=> [
+        'NEW' => 'Off-Plan',
+        'SELL' => 'Resale',
+        'RENT' => 'Rental',
+    ],
     'rating'=>[
         1,
         2,

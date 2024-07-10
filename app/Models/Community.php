@@ -27,7 +27,7 @@ class Community extends Model implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at'
-    ];
+    ]; 
     /**
      * The richtext attributes
      *
@@ -65,10 +65,7 @@ class Community extends Model implements HasMedia
      */
     public function getMainImageAttribute()
     {
-        if(url_exists($this->getFirstMediaUrl('mainImages', 'resize'))){
-            return $this->getFirstMediaUrl('mainImages', 'resize');
-        }
-        return false;
+      return $this->getFirstMediaUrl('mainImages', 'resize'); 
         //return $this->getFirstMediaUrl('mainImages', 'resize');
     }
     public function getImageGalleryAttribute()

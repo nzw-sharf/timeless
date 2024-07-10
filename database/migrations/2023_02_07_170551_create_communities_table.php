@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longText('slug');
             $table->longText('emirates')->nullable();
             $table->string('status')->default('active');
+            $table->tinyInteger('is_display_home')->default(0);
             $table->longText('meta_title')->nullable();
             $table->longText('meta_keywords')->nullable();
             $table->longText('meta_description')->nullable();

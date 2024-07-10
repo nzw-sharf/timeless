@@ -25,8 +25,8 @@
                         <div class="text-start pt-4">
                             <p class="text-sec">Lorem ipsum doler it simit, lorem
                                 ipsum haoe audieos doler.</p>
-                            <p class="text-sec"><button type="button" class="btn btn-primary">Read More</button>
-                            </p>
+                            {{-- <p class="text-sec"><button type="button" class="btn btn-primary">Read More</button>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -34,23 +34,22 @@
             <div class="col-12 col-lg-8 col-md-8 my-auto">
                 <div class="my-auto">
                     <div id="blogSlide" class="owl-carousel owl-centered">
-                        @for ($i=1;$i<4;$i++) 
+                        @foreach ($latestBlog as $latest)
                         <div class="item mt-auto">
                             <div class="blogCardNew ">
                                 <div class="propCont p-relative">
-                                    <a href="http://"><img src="{{asset('frontend/assets/images/blogs/blog'.$i.'.webp')}}"
-                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
+                                    <a href="{{ url('media/' . $latest->slug) }}"><img src="{{$latest->mainImage}}"
+                                            class="card-img-top propIMg" alt="{{$latest->title}}"></a>
                                 </div>
                                 <div class="py-3 blogSubtitle">
-                                    <p class="text-sec mb-0">
-                                        when an unknown printer took a galley of type and scrambled it to
-                                    make a type specimen book.
+                                    <p class="text-sec mb-0 fw-bold">
+                                        {{$latest->title}}
                                     </p>
                                 </div>
     
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -61,44 +60,45 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-12 col-lg-12 col-md-12">
-                @for ($i=1;$i<4;$i++) 
-                      @if ($i % 2 != 0)
-                        <div class="row my-5 p-relative">
-                            <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
-                                <a href="{{url('media/1')}}"><img src="{{asset('frontend/assets/images/blogs/blog1.webp')}}" class="img-fluid rounded-5 blogImgMain"
-                                    alt="{{$name}}" ></a>
-                            </div>
-                            <div class="col-12 col-lg-7 col-md-6 my-auto">
-                                <div class="bgBlog1"></div>
-                                <div class="p-2 p-lg-5 p-md-4 h-100 ">
-                                    <a href="{{url('media/1')}}"><h5 class="fw-bold  text-primary">Card title</h5></a>
-                                    <p class="card-text text-sec">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.Some quick example text to build on the card
-                                        title and make up the bulk of the card's content.</p>
-                                    <a href="{{url('media/1')}}" class="fw-bold btn btn-primary">Read More...</a>
-                                </div>
-                            </div>
-                        </div>
-                      @else
-                      <div class="row my-5 p-relative colRev"> 
-                        <div class="col-12 col-lg-7 col-md-6 my-auto">
-                            <div class="bgBlog2"></div>
-                            <div class="p-2 p-lg-5 p-md-4 h-100 ">
-                                <a href="{{url('media/1')}}"><h5 class="fw-bold  text-primary">Card title</h5></a>
-                                <p class="card-text text-sec">Some quick example text to build on the card title and
-                                    make up the bulk of the card's content.Some quick example text to build on the card
-                                    title and make up the bulk of the card's content.</p>
-                                <a href="{{url('media/1')}}" class="fw-bold btn btn-primary">Read More...</a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
-                            <a href="{{url('media/1')}}"><img src="{{asset('frontend/assets/images/blogs/blog1.webp')}}" class="img-fluid rounded-5 blogImgMain"
-                                alt="{{$name}}" ></a>
-                        </div>
-                        
+                @foreach ($blogs as $key=>$blog)
+                @if (($key+1) % 2 != 0)
+                <div class="row my-5 p-relative">
+                    <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
+                        <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="img-fluid rounded-5 blogImgMain"
+                            alt="{{$blog->title}}" ></a>
                     </div>
-                      @endif
-                @endfor
+                    <div class="col-12 col-lg-7 col-md-6 my-auto">
+                        <div class="bgBlog1"></div>
+                        <div class="p-2 p-lg-5 p-md-4 h-100 ">
+                            <a href="{{ url('media/' . $blog->slug) }}"><h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
+                            <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
+                            <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold btn btn-primary">Read More...</a>
+                        </div>
+                    </div>
+                </div>
+              @else
+              <div class="row my-5 p-relative colRev"> 
+                <div class="col-12 col-lg-7 col-md-6 my-auto">
+                    <div class="bgBlog2"></div>
+                    <div class="p-2 p-lg-5 p-md-4 h-100 ">
+                        <a href="{{ url('media/' . $blog->slug) }}"><h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
+                        <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
+                        <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold btn btn-primary">Read More...</a>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
+                    <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="img-fluid rounded-5 blogImgMain"
+                        alt="{{$blog->title}}" ></a>
+                </div>
+                
+            </div>
+              @endif
+                @endforeach
+            </div>
+            <div class="col-12 col-lg-12">
+                <div class="d-flex justify-content-center">
+                    {{ $blogs->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -148,21 +148,21 @@
             </div>
             <div class="col-12 col-lg-12">
                 <div id="areaguideSlide" class="owl-carousel owl-theme">
-                    @for ($i=1;$i<5;$i++) 
+                    @foreach ($communities as $comm)
                     <div class="item">
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top rounded-0 propIMg" alt="{{  $name }}" /></a>
+                                <a href="http://"><img src="{{$comm->mainIMage}}"
+                                        class="card-img-top rounded-0 propIMg" alt="{{  $comm->name }}" /></a>
                                 <div class="commuDetOverlay">
                                     <a href="http://">
-                                        <h5 class="card-title mb-0">Card title</h5>
+                                        <h5 class="card-title mb-0">{{  $comm->name }}</h5>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

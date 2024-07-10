@@ -34,6 +34,9 @@ h6 {
     font-weight: 500;
     font-style: normal;
 }
+.fs-14 {
+    font-size: 14px;
+}
 p,
 small,a, ul li {
     font-family: var(--primary-font);
@@ -210,6 +213,22 @@ border: 1px solid rgba(255, 255, 255, 1);
     color: var(--primary-white);
     margin-bottom: 10px;
 }
+.searchForm .form-control::placeholder {
+    font-size: 0.82rem !important;
+}
+.modalViewFormCont .form-control {
+    background-color: transparent;
+    border: 1px solid #ffffff !important;
+    border-radius: 10px;
+}
+.modalViewFormCont label {
+    font-size: 0.89rem;
+    color: var(--primary-white);
+    margin-bottom: 10px;
+}
+.modalViewFormCont .form-control::placeholder {
+    font-size: 0.82rem !important;
+}
 .aboutImg {
     margin-right: -47%;
 }
@@ -249,6 +268,9 @@ border: 1px solid rgba(255, 255, 255, 1);
     bottom: 0;
     background-color: #f7f7f7;
     z-index: -1;
+}
+#partnerSlide .owl-stage{
+    display: flex;
 }
 /* property grid  */
 .propCont {
@@ -323,6 +345,7 @@ border: 1px solid rgba(255, 255, 255, 1);
     height:100%;
     object-fit: contain;
     object-position: center;
+    transform: scale(0.8);
 }
 .testiImg img{
     width: 180px !important;
@@ -423,6 +446,150 @@ border: 1px solid rgba(255, 255, 255, 1);
     width: 50px;
     text-align: center;
 }
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+}
+.pagination .page-item .page-link {
+    border-radius: 5px;
+    border-color: var(--primary-black);
+    color: var(--primary-black);
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 2px 5px;
+}
+.pagination .page-item.active .page-link{
+    border-radius: 5px;
+    border-color: var(--primary-black);
+    color: #fff;
+    background-color: var(--primary-black);
+}
+.pagination .page-item .page-link:focus {
+    z-index: 3;
+    color: #fff;
+    background-color: var(--primary-black);
+    outline: 0;
+    box-shadow: none !important;
+}
+/* single property  */
+.custom-range {
+    width: 40px !important;
+  }
+  .propListSmall li+li:before {
+    padding: 0 5px;
+    color: #ddd;
+    content: "|";
+    font-size: 15px;
+    font-family: "bootstrap-icons";
+}
+.propListSmall li small {
+    white-space: nowrap;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.agentImageSingle {
+    width:125px;
+    height: 125px;
+    object-fit: cover;
+object-position: top;
+}
+.gallerContentSingle {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+    position: relative;
+}
+.gallerContentSingle>div {
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gallerContentSingle .gallery-img .firstImg{
+    width: calc(70% - 10px);
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    float: left;
+    align-items: center;
+}
+
+.gallerContentSingle .image_count_content {
+    position: absolute;
+    display: flex;
+    bottom: 8px;
+    left: 8px;
+    z-index: 1;
+}
+.gallerContentSingle .image_count_content div{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    font-size: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 0 1px rgb(0 0 0 / 20%), 0 1px 2px rgb(0 0 0 / 6%), 0 4px 8px rgb(0 0 0 / 6%);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.gallerContentSingle .gallery-img img {
+    position: relative !important;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+/*    object-position: right bottom;*/
+}
+
+.gallerContentSingle .gallery-img .sideImg {
+    width: calc(30% - 10px);
+    height: calc(50% - 5px);
+    overflow: hidden;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.breadcrumb li,
+.breadcrumbBlue li {
+    display: inline;
+}
+.breadcrumb li a {
+    color: #fff !important;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+.breadcrumbBlue li a {
+    color: var(--primary-black) !important;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+.breadcrumb li+li:before {
+    padding: 0 8px;
+    color: #fff;
+    content: "\F285";
+    font-size: 10px;
+    font-family: "bootstrap-icons";
+}
+.breadcrumbBlue li+li:before {
+    padding: 0 5px;
+    color: var(--primary-black);
+    content: "\F285";
+    font-size: 10px;
+    font-family: "bootstrap-icons";
+}
+#similarListing .Icons{
+    width: 20px !important;
+    display: inline-flex !important;
+}
 /* footer  */
 .footHead {
     margin: 0 auto;
@@ -499,12 +666,54 @@ border: 1px solid rgba(255, 255, 255, 1);
     top: 32% !important;
     right: -5%;
 }
+#AmenitySlide.owl-carousel .owl-prev {
+    left: -5% !important;
+    font-size: 1rem !important;
+}
+#AmenitySlide.owl-carousel .owl-next {
+    right: -5%;
+    font-size: 1rem !important;
+}
 .aboutImg2 img {
     width: 50%;
     border: 2px solid #ffffff;
     margin-top: -20%;
     margin-left: -25%;
 }
+.amenityImg50 {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  .fs-12 {
+    font-size: 12px !important;
+  }
+  .position-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .projectiMGS {
+    width: 100%;
+    height: 350PX;
+    object-fit: cover;
+  }
+  .latestTabs .nav-item .nav-link.active {
+    color: #fff !important;
+    border: 1px solid var(--primary-black) !important;
+    background-color: var(--primary-black) !important;
+  }
+  .latestTabs .nav-item .nav-link {
+    color: var(--primary-black);
+    border: 1px solid var(--secondary-grey);
+    border-radius: 10px;
+    margin: 5px 10px 5px 0;
+    padding: 5px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
 @media screen and (max-width: 720px) {
     .rowRev {
         flex-direction: row-reverse;
@@ -577,5 +786,12 @@ border: 1px solid rgba(255, 255, 255, 1);
     #exclusiveSlide.owl-carousel .owl-next {
         right: 0%;
         color: #ffffff !important;
+    }
+    #AmenitySlide.owl-carousel .owl-prev {
+        left: 0% !important;
+    
+    }
+    #AmenitySlide.owl-carousel .owl-next {
+        right: 0%;
     }
 }

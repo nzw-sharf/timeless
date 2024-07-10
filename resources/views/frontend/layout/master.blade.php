@@ -25,6 +25,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        {{-- Lightbox --}}
+<script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js" defer></script>
     <script>
         $(document).ready(function() {
             
@@ -75,6 +77,21 @@
 
         $("#fullNumber").val(fullNumber);
     });
+    $(".readMorePropBtn").click(function(e) {
+        e.preventDefault();
+        $(".textLessProp").removeClass("d-block").addClass("d-none");
+        $(".textExtraProp").removeClass("d-none").addClass("d-content");
+        $(this).removeClass("d-block").addClass("d-none");
+        $(".readLessPropBtn").removeClass("d-none").addClass("d-block");
+    });
+
+    $(".readLessPropBtn").click(function(e) {
+        e.preventDefault();
+        $(".textExtraProp").removeClass("d-content").addClass("d-none");
+        $(".textLessProp").removeClass("d-none").addClass("d-block");
+        $(".readMorePropBtn").removeClass("d-none").addClass("d-block");
+        $(this).removeClass("d-block").addClass("d-none");
+    });
     </script>
     <script>
         $('#partnerSlide').owlCarousel({
@@ -105,6 +122,29 @@
             loop:true,
             
             margin:30,
+            autoplay:false,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            nav:false,
+            dots: false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:1,
+                },
+                1000:{
+                    items:1,
+                }
+            }
+        })
+        $('#propGallery').owlCarousel({
+           
+            loop:true,
+            
+            margin:10,
             autoplay:false,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
@@ -164,6 +204,28 @@
                 }
             }
         })
+        $('#similarListing').owlCarousel({
+            center: false,
+            loop:true,
+            margin:20,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            nav:false,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:3,
+                }
+            }
+        })
         $('#managementSlide').owlCarousel({
             center: false,
             loop:false,
@@ -200,6 +262,24 @@
                 }
             }
         })
+        $('#AmenitySlide').owlCarousel({
+            center: false,
+            loop:true,
+            margin:20,
+            nav:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:2,
+                },
+                600:{
+                    items:3,
+                },
+                1000:{
+                    items:5,
+                }
+            }
+        })
         $('#exclusiveSlide').owlCarousel({
             center: false,
             loop:false,
@@ -207,6 +287,28 @@
             nav:true,
             dots:false,
             items:1
+        })
+        $('#projDetailSlide').owlCarousel({
+            center: false,
+            loop:true,
+            margin:30,
+            autoplay:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            nav:false,
+            dots:false,
+            responsive:{
+                0:{
+                    items:2,
+                },
+                600:{
+                    items:3,
+                },
+                1000:{
+                    items:4,
+                }
+            }
         })
     </script>
 </body>

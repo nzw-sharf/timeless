@@ -27,7 +27,7 @@
 
                                 <a href="{{ route('dashboard.communities.create') }}" class="btn btn-block btn-primary">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
-                                    New Community
+                                   Get All Community
                                 </a>
 
                             </div>
@@ -40,6 +40,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Status</th>
+                                        <th>Display Home</th>
                                         <th>Added By</th>
                                         <th>Added At</th>
                                         <th class="text-right">Action</th>
@@ -54,6 +55,12 @@
                                                 <span
                                                     class="badge @if ($community->status === 'active') bg-success @else bg-danger @endif">
                                                     {{ $community->status }}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="badge @if ($community->is_display_home === 1) bg-success @else bg-danger @endif">
+                                                    {{ $community->is_display_home == 1  ? 'Yes': 'No'}}
                                                 </span>
                                             </td>
                                             <td>{{ $community->user->name }}</td>

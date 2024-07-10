@@ -86,7 +86,7 @@
                                     </div>
 
 
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="mainImage">Main Image</label>
                                             <div class="custom-file  @error('mainImage') is-invalid @enderror">
@@ -101,12 +101,27 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        
                                         @if ($community->mainImage)
                                             <img src="{{ $community->mainImage }}" alt="{{ $community->mainImage }}"
                                                 height="200">
                                         @endif
                                     </div>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="is_display_home">Is Display on Home Page?</label>
+                                            <select class="form-control @error('is_display_home') is-invalid @enderror" id="is_display_home" name="is_display_home">
+                                                <option value="1" @if($community->is_display_home == 1) selected @endif>Yes</option>
+                                                <option value="0" @if($community->is_display_home == 0) selected @endif>No</option>
+                                            </select>
+                                            @error('is_display_home')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="imageGallery">Image Gallery</label>
                                             <div class="custom-file  @error('imageGallery') is-invalid @enderror">
@@ -234,7 +249,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="short_description">Short Description<small class="text-danger">(Not more 300 characters)</small></label>

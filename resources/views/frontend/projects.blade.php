@@ -5,7 +5,7 @@
 @section('pageDescription', $pagemeta->meta_description)
 @section('pageKeyword', $pagemeta->meta_keywords)
 @else
-@section('title', 'Properties | '.$name)
+@section('title', 'Projects | '.$name)
 @section('pageDescription', $website_description)
 @section('pageKeyword', $website_keyword)
 @endif
@@ -33,7 +33,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead py-4">
-                            <h5>Exclusive<span>Listings</span></h5>
+                            <h5>Exclusive<span>Projects</span></h5>
                         </div>
                     </div>
 
@@ -44,12 +44,12 @@
                             <div class="item">
                                 <div class="card border-0 mb-3">
                                     <div class="propCont p-relative">
-                                        <a href="{{ url('property/' . $exclu['propertyId']) }}"><img
+                                        <a href="{{ url('project/' . $exclu['propertyId']) }}"><img
                                                 src="{{$exclu['photos'][0]}}" class="card-img-top propIMg"
                                                 alt="{{$exclu['title']}}"></a>
                                         <div class="propDetOverlay">
                                             <div class="border-bottom">
-                                                <a href="{{ url('property/' . $exclu['propertyId']) }}">
+                                                <a href="{{ url('project/' . $exclu['propertyId']) }}">
                                                     <h5 class="card-title text-uppercase">{{$exclu['title']}}</h5>
                                                 </a>
                                             </div>
@@ -58,7 +58,7 @@
                                                     <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
                                                         alt="{{$exclu['title']}}" class="img-fluid filterInverse"
                                                         width="20">
-                                                    <span class="align-middle">&nbsp; {{$exclu['bedRooms']== 0 ? 'TBA' : $exclu['bedRooms'] }}</span>
+                                                    <span class="align-middle">&nbsp; {{$exclu['newParam']['bedroomMin'] . '-' .$exclu['newParam']['bedroomMax'] }}</span>
                                                 </div>
                                                 {{-- <div class="px-2">
                                                     <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
@@ -70,8 +70,7 @@
                                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
                                                         alt="{{$exclu['title']}}" width="20"
                                                         class="img-fluid filterInverse">
-                                                    <span class="align-middle">&nbsp; {{$exclu['size'].'
-                                                        Sq.Ft.'}}</span>
+                                                    <span class="align-middle">&nbsp; {{$exclu['newParam']['minSize'] . '-'. $exclu['newParam']['maxSize'].' Sq.Ft.'}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,7 +95,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead pb-4">
-                            <h5>Property<span>Listings</span></h5>
+                            <h5>Off Plan <span>Developments</span></h5>
                             <p class="text-sec">Discover the epitome of luxury living with Timeless Properties' featured
                                 listings. Our exclusive portfolio showcases the finest residences in Dubai, meticulously
                                 curated to meet the highest standards of elegance and sophistication. Each property
@@ -107,15 +106,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($properties as $prop)
+                    @foreach ($projects as $prop)
                     <div class="col-12 col-lg-4 col-md-4 col-xl-4">
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
-                                <a href="{{ url('property/' . $prop['propertyId']) }}"><img
-                                        src="{{$prop['photos'][0]}}"
+                                <a href="{{ url('project/' . $prop['propertyId']) }}"><img src="{{$prop['photos'][0]}}"
                                         class="card-img-top propIMg" alt="{{$prop['title']}}"></a>
                                 <div class="propDetOverlay">
-                                    <a href="{{ url('property/' . $prop['propertyId']) }}">
+                                    <a href="{{ url('project/' . $prop['propertyId']) }}">
                                         <h5 class="card-title mb-0">{{$prop['title']}}</h5>
                                     </a>
                                     <div class="d-flex justify-content-between">
@@ -123,29 +121,25 @@
                                             <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
                                         </div>
                                         <div class="my-auto">
-                                            <a class="btn btn-outline"
-                                                href="{{ url('property/' . $prop['propertyId']) }}">Details</a>
+                                            <a class="btn btn-outline" href="{{ url('project/' . $prop['propertyId']) }}">Details</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div class="d-flex justify-content-between p-3">
+                            <div class="d-flex justify-content-between p-2">
                                 <div class="pe-1">
                                     <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                        alt="{{$prop['title']}}" width="25" height="25"> <span
-                                        class="align-middle">&nbsp;{{$prop['bedRooms'] == 0 ? 'TBA' : $prop['bedRooms'] }}</span>
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['bedroomMin'] . '-' .$prop['newParam']['bedroomMax'] }}</span>
                                 </div>
-                                {{-- <div class="px-1">
+                                {{-- <div class="px-2">
                                     <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                        alt="{{$prop['title']}}" width="25" height="25"> <span
-                                        class="align-middle">3</span>
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
                                 </div> --}}
                                 <div class="ps-1">
                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                        alt="{{$prop['title']}}" width="25" height="25"> <span
-                                        class="align-middle">&nbsp;{{$prop['size'].' Sq.Ft.'}}</span>
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].' Sq.Ft.'}}</span>
                                 </div>
                             </div>
                         </div>

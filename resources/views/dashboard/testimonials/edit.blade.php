@@ -46,22 +46,6 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="logo">Client Image</label>
-                                            <div class="custom-file   @error('image') is-invalid @enderror">
-                                                <input type="file" class="custom-file-input  @error('image') is-invalid @enderror" id="image" name="image"
-                                                accept="image/*">
-                                                <label class="custom-file-label" for="image">Choose file</label>
-                                            </div>
-                                            <img src="{{ $testimonial->image }}" alt="{{ $testimonial->name }}" style="width:100px;height:100px;object-fit:cover;">
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="status">Status</label>
@@ -78,50 +62,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="agent_id">Agent Name</label>
-                                            <select data-placeholder="Select Agent" style="width: 100%;" class=" form-control select1 @error('agent_id') is-invalid @enderror" id="agent_id" name="agent_id" required>
-                                                @foreach ($agents as $agent)
-                                                <option value="{{ $agent->id }}" @if ($testimonial->agent_id === $agent->id) selected @endif>{{ $agent->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('agent_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="rating">Rating</label>
-                                            <select data-placeholder="Select Rating" style="width: 100%;" class=" form-control select1 @error('rating') is-invalid @enderror" id="rating" name="rating" required>
-                                                @foreach (config('constants.rating') as $value)
-                                                <option value="{{ $value }}" @if ($testimonial->rating == $value)  selected @endif>{{ $value }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('rating')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="name">Testimonial Title</label>
-                                            <input type="text" value="{{ $testimonial->feedback_title }}"
-                                                class="form-control @error('feedback_title') is-invalid @enderror" id="feedback_title"
-                                                placeholder="Enter Testimonial Title" name="feedback_title" required>
-                                            @error('feedback_title')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                  
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="feedback">Feedback</label>

@@ -31,12 +31,15 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('/', 'HomeController@home')->name('main');
     Route::any('about-us', 'HomeController@aboutUs')->name('about-us');
     Route::any('properties', 'HomeController@properties')->name('properties');
+    Route::any('projects', 'HomeController@projects')->name('projects');
     Route::any('media', 'HomeController@media')->name('media');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
     Route::any('terms-conditions', 'HomeController@termsConditions')->name('terms-conditions');
     Route::any('thank-you', 'HomeController@thankYou')->name('thank-you');
     Route::any('media/{slug}', 'HomeController@singleBlog')->name('singleBlog');
+    Route::any('project/{slug}', 'HomeController@singleProject')->name('singleProject');
+    Route::any('property/{slug}', 'HomeController@singleProperty')->name('singleProperty');
     
 });
 

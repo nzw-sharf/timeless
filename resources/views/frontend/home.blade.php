@@ -11,7 +11,7 @@
 @endif
 @section('content')
 
-<section class="homeBanner mainBanner">
+<section class="homeBanner mainBanner ">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
@@ -138,6 +138,7 @@
         </div>
     </div>
 </section>
+@if (count($properties) > 0)
 <section>
     <div class="container">
         <div class="row">
@@ -151,84 +152,46 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i=1;$i<4;$i++) 
-                        <div class="col-12 col-lg-4 col-md-4 col-xl-3">
-                            <div class="card border-0 mb-3">
-                                <div class="propCont p-relative">
-                                    <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
-                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
-                                    <div class="propDetOverlay">
-                                        <a href="http://">
-                                            <h5 class="card-title mb-0">Card title</h5>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="my-auto">
-                                                <p class="mb-0 text-sec">$ 0000000</p>
-                                            </div>
-                                            <div class="my-auto">
-                                                <a class="btn btn-outline" href="">Details</a>
-                                            </div>
+                    @foreach ($properties as $prop)
+                    <div class="col-12 col-lg-4 col-md-4 col-xl-3">
+                        <div class="card border-0 mb-3">
+                            <div class="propCont p-relative">
+                                <a href="{{ url('project/' . $prop['propertyId']) }}"><img src="{{$prop['photos'][0]}}"
+                                        class="card-img-top propIMg" alt="{{$prop['title']}}"></a>
+                                <div class="propDetOverlay">
+                                    <a href="{{ url('project/' . $prop['propertyId']) }}">
+                                        <h5 class="card-title mb-0">{{$prop['title']}}</h5>
+                                    </a>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="my-auto">
+                                            <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
+                                        </div>
+                                        <div class="my-auto">
+                                            <a class="btn btn-outline" href="{{ url('project/' . $prop['propertyId']) }}">Details</a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
 
-                                <div class="d-flex justify-content-between p-2">
-                                    <div class="pe-1">
-                                        <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
-                                    </div>
-                                    <div class="px-2">
-                                        <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
-                                    </div>
-                                    <div class="ps-1">
-                                        <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                            alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
-                                    </div>
+                            <div class="d-flex justify-content-between p-2">
+                                <div class="pe-1">
+                                    <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['bedroomMin'] . '-' .$prop['newParam']['bedroomMax'] }}</span>
+                                </div>
+                                {{-- <div class="px-2">
+                                    <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
+                                </div> --}}
+                                <div class="ps-1">
+                                    <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].' Sq.Ft.'}}</span>
                                 </div>
                             </div>
                         </div>
-                    @endfor
-                    @for ($i=1;$i<4;$i++) 
-                        <div class="col-12 col-lg-4 col-md-4 col-xl-3">
-                            <div class="card border-0 mb-3">
-                                <div class="propCont p-relative">
-                                    <a href="http://"><img src="{{asset('frontend/assets/images/properties/p'.$i.'.webp')}}"
-                                            class="card-img-top propIMg" alt="{{  $name }}"></a>
-                                    <div class="propDetOverlay">
-                                        <a href="http://">
-                                            <h5 class="card-title mb-0">Card title</h5>
-                                        </a>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="my-auto">
-                                                <p class="mb-0 text-sec">$ 0000000</p>
-                                            </div>
-                                            <div class="my-auto">
-                                                <a class="btn btn-outline" href="">Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="d-flex justify-content-between p-2">
-                                    <div class="pe-1">
-                                        <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
-                                    </div>
-                                    <div class="px-1">
-                                        <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
-                                    </div>
-                                    <div class="ps-1">
-                                        <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                            alt="{{  $name }}" width="25" height="25"> <span class="align-middle">3</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endfor
+                    </div>
+                    @endforeach
+                    
                 </div>
 
 
@@ -237,6 +200,8 @@
     </div>
     </div>
 </section>
+@endif
+
 <section>
     <div class="container py-5">
         <div class="row">
@@ -254,21 +219,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for ($i=1;$i<4;$i++) <div class="col-12 col-lg-4 col-md-4 col-xl-3">
+                    @foreach ($communities as $comm)
+                    <div class="col-12 col-lg-4 col-md-4 col-xl-3">
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
-                                <a href="http://"><img src="{{asset('frontend/assets/images/community/'.$i.'.webp')}}"
-                                        class="card-img-top propIMg" alt="{{  $name }}"></a>
+                                <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainImage}}"
+                                        class="card-img-top propIMg" alt="{{$comm->name}}"></a>
                                 <div class="propDetOverlay">
-                                    <a href="http://">
-                                        <h5 class="card-title mb-0">Card title</h5>
+                                    <a href="{{ url('area/' . $comm->slug) }}">
+                                        <h5 class="card-title mb-0">{{$comm->name}}</h5>
                                     </a>
                                 </div>
                             </div>
 
                         </div>
                 </div>
-                @endfor
+                    @endforeach
 
             </div>
         </div>
@@ -329,13 +295,21 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
-                    @for ($i=1;$i<7;$i++) <div class="item">
+                    @foreach ($developers as $dev)
+                    <div class="item h-100 my-auto d-flex flex-column justify-content-center">
+                        <div class="partnerImg">
+                            <img src="{{$dev['logoUrl']}}" class="img-fluid"
+                                alt="{{$dev['name']}}">
+                        </div>
+                    </div>
+                    @endforeach
+                    {{-- @for ($i=1;$i<7;$i++) <div class="item">
                         <div class="partnerImg">
                             <img src="{{asset('frontend/assets/images/partners/'.$i.'.webp')}}" class="img-fluid"
                                 alt="{{  $name }}">
                         </div>
                 </div>
-                @endfor
+                @endfor --}}
             </div>
 
         </div>
@@ -349,12 +323,12 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead text-center">
-                            <h5>Lorem Ipsum<span>Dummy Text</span></h5>
+                            <h5>What Our<span>Clients Say</span></h5>
                         </div>
                     </div>
                     <div class="col-12 col-lg-10 col-md-11">
                         <div id="clientSlide" class="owl-carousel owl-theme">
-                            @for ($i=0;$i<5;$i++) 
+                            @foreach ($testimonials as $testi)
                             <div class="item">
                                 <div class="row">
                                     <div class="col-12 col-lg-6 col-md-6 my-auto">
@@ -370,13 +344,8 @@
                                                     class="img-fluid" alt="{{  $name }}"></div>
                                             <div class="secHead">
 
-                                                <p class="text-sec mb-5">when an unknown printer took a galley of type
-                                                    and scrambled it to
-                                                    make a type specimen book. It has survived not only five
-                                                    centuries.when an unknown printer took a galley of type and
-                                                    scrambled it to
-                                                    make a type specimen book. It has survived not only</p>
-                                                <p class="text-sec fs-italic fw-bold">- Example Name</p>
+                                                <p class="text-sec mb-5">{{$testi->feedback}}</p>
+                                                <p class="text-sec fs-italic fw-bold">- {{$testi->client_name}}</p>
                                             </div>
                                             <div class="quote2"><img
                                                     src="{{asset('frontend/assets/images/icons/quote.png')}}"
@@ -386,7 +355,8 @@
                                 </div>
 
                             </div>
-                        @endfor
+                            @endforeach
+                           
                     </div>
                 </div>
             </div>
@@ -404,60 +374,45 @@
                             <h5>Blogs</h5>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-7 col-md-6">
-                        <div class="card blogCard border-0">
-                            <a href="{{url('media/1')}}"><img src="{{asset('frontend/assets/images/blogs/blog1.webp')}}" class="card-img-top"
-                                alt="{{$name}}"></a>
-                            <div class="card-body rounded-bottom bg-secondary">
-                                <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
-                                <p class="card-text text-sec">Some quick example text to build on the card title and
-                                    make up the bulk of the card's content.Some quick example text to build on the card
-                                    title and make up the bulk of the card's content.</p>
-                                <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
+                    @foreach ($blogs as $blog)
+                        @if ($loop->first)
+                        <div class="col-12 col-lg-7 col-md-6">
+                            <div class="card blogCard border-0">
+                                <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="card-img-top"
+                                    alt="{{$blog->title}}"></a>
+                                <div class="card-body rounded-bottom bg-secondary">
+                                    <a href="{{ url('media/' . $blog->slug) }}"><h5 class="card-title fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
+                                    <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
+                                    <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold text-primary">Read More...</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        @endif
+                    @endforeach
                     <div class="col-12 col-lg-5 col-md-6">
+                    @foreach ($blogs as $blog)
+                        @if (!$loop->first)
                         <div class="card mb-4 blogCardSide border-0">
                             <div class="row g-0 h-100">
                                 <div class="col-md-5">
-                                    <a href="{{url('media/1')}}">
-                                    <img src="{{asset('frontend/assets/images/blogs/blog2.webp')}}"
-                                        class="img-fluid rounded-start" alt="{{$name}}">
+                                    <a href="{{ url('media/' . $blog->slug) }}">
+                                    <img src="{{$blog->mainImage}}"
+                                        class="img-fluid rounded-start" alt="{{$blog->title}}">
                                     </a>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body d-flex h-100 bg-secondary rounded-end">
                                         <div class=" my-auto">
-                                            <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
-                                            <p class="card-text text-sec">Some quick example text to build on the
-                                                card title and make up the bulk of the card's content.</p>
-                                            <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
+                                            <a href="{{ url('media/' . $blog->slug) }}"><h5 class="card-title fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
+                                            <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 100) . '...' !!}</p>
+                                            <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold text-primary">Read More...</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card blogCardSide border-0">
-                            <div class="row g-0 h-100">
-                                <div class="col-md-5">
-                                    <a href="{{url('media/1')}}">
-                                    <img src="{{asset('frontend/assets/images/blogs/blog3.webp')}}"
-                                        class="img-fluid rounded-start" alt="{{$name}}">
-                                    </a>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body d-flex h-100 bg-secondary rounded-end">
-                                        <div class=" my-auto">
-                                            <a href="{{url('media/1')}}"><h5 class="card-title fw-bold  text-primary">Card title</h5></a>
-                                            <p class="card-text text-sec">Some quick example text to build on the
-                                                card title and make up the bulk of the card's content.</p>
-                                            <a href="{{url('media/1')}}" class="fw-bold text-primary">Read More...</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+                    @endforeach
                     </div>
                 </div>
             </div>
