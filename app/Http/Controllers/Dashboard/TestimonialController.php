@@ -54,17 +54,8 @@ class TestimonialController extends Controller
             $testimonial = new Testimonial;
             $testimonial->client_name = $request->client_name;
             $testimonial->status = $request->status;
-            $testimonial->feedback_title = $request->feedback_title;
             $testimonial->feedback = $request->feedback;
-            if ($request->hasFile('image')) {
-                $img =  $request->file('image');
-                $imgExt = $img->getClientOriginalExtension();
-
-                $imageName =  Str::slug($request->client_name).'.'.$imgExt;
-                $testimonial->addMediaFromRequest('image')->usingFileName($imageName)->toMediaCollection('images', 'testimonialFiles');
-            }
-            $testimonial->rating = $request->rating;
-            $testimonial->agent_id = $request->agent_id;
+           
             $testimonial->user_id = Auth::user()->id;
             $testimonial->save();
 
@@ -118,17 +109,8 @@ class TestimonialController extends Controller
 
             $testimonial->client_name = $request->client_name;
             $testimonial->status = $request->status;
-            $testimonial->feedback_title = $request->feedback_title;
             $testimonial->feedback = $request->feedback;
-            if ($request->hasFile('image')) {
-                $testimonial->clearMediaCollection('images');
-                $img =  $request->file('image');
-                $imgExt = $img->getClientOriginalExtension();
-                $imageName =  Str::slug($request->client_name).'.'.$imgExt;
-                $testimonial->addMediaFromRequest('image')->usingFileName($imageName)->toMediaCollection('images', 'testimonialFiles');
-            }
-            $testimonial->rating = $request->rating;
-            $testimonial->agent_id = $request->agent_id;
+            
             $testimonial->user_id = Auth::user()->id;
             $testimonial->save();
             return response()->json([

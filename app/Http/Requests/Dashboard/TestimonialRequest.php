@@ -29,11 +29,7 @@ class TestimonialRequest extends FormRequest
                 {
                     return [
                         'client_name' => ['required','min:3','max:225'],
-                        'feedback_title' => ['required','min:3','max:225'],
-                        'image' => ['required','image',  'max:2048'],
-                        'feedback' => ['required','min:3','max:500'],
-                        'rating'=>['required', Rule::in(config('constants.rating'))],
-                        'agent_id' => ['required', Rule::exists('agents','id')],
+                        'feedback' => ['required','min:3'],
                         'status' => ['required', Rule::in(array_keys(config('constants.statuses')))]
                     ];
                 }
@@ -42,11 +38,7 @@ class TestimonialRequest extends FormRequest
                 {
                     return [
                         'client_name' => ['required','min:3','max:225'],
-                        'feedback_title' => ['required','min:3','max:225'],
-                        'image' => ['image', 'image',  'max:2048'],
-                        'feedback' => ['required','min:3','max:500'],
-                        'rating'=>['required', Rule::in(config('constants.rating'))],
-                        'agent_id' => ['required', Rule::exists('agents','id')],
+                        'feedback' => ['required','min:3'],
                         'status' => ['required', Rule::in(array_keys(config('constants.statuses')))]
                     ];
                 }

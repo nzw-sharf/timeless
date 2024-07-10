@@ -41,7 +41,6 @@
                                     <tr>
                                         <th>SN</th>
                                         <th>Client Name</th>
-                                        <th>Agent Name</th>
                                         <th>Status</th>
                                         <th>Added At</th>
                                         <th>Added By</th>
@@ -53,7 +52,6 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $testimonial->client_name }}</td>
-                                            <td>{{ $testimonial->agent->name }}</td>
                                             <td>
                                                 <span
                                                     class="badge @if ($testimonial->status === 'active') bg-success @else bg-danger @endif">
