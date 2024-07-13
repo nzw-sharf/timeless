@@ -11,6 +11,7 @@ use App\Models\OfferType;
 use App\Models\PageTag;
 use App\Models\Property;
 use App\Models\Testimonial;
+use App\Utils\Paginate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,7 @@ class HomeController extends Controller
         $groupApi = [
             ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/developer/list', '{"size": 6}'],
             ['GET', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/house/type/list', '{}'],
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE","listingType":"NEW","size":8,"sort" : "ID",
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"NEW","size":8,"sort" : "ID",
     "sortType":"DESC"}'],
         ];
         $response1 = [];
@@ -89,18 +90,19 @@ class HomeController extends Controller
 
         return view('frontend.aboutUs', compact('pagemeta'));
     }
+    
     public function properties(Request $request)
     {
         $groupApi = [
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE",
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"RENT",
     "sort" : "ID",
     "sortType":"DESC"}'],
-    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE",
+    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"RENT",
     "sort" : "ID",
     "sortType":"DESC"}'],
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE",
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"SELL",
     "sort" : "ID",
     "sortType":"DESC","size":6}'],
@@ -157,13 +159,18 @@ class HomeController extends Controller
     }
     public function projects(Request $request)
     {
+        if(isset($request->page)){
+            $page = $request->page;
+        }else{
+            $page=1;
+        }
         $groupApi = [
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE",
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"NEW",
     "sort" : "ID",
-    "sortType":"DESC","size":9}'],
+    "sortType":"DESC","size":-1}'],
     
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties/', '{"status" : "ACTIVE",
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"NEW",
     "sort" : "ID",
     "sortType":"DESC","size":6}'],
@@ -205,13 +212,14 @@ class HomeController extends Controller
         }
 
          $propArray = json_decode($response1[0], true);
+
         $projects = $propArray['data']['list'];
-       
+        $projects = Paginate::paginate($projects,9);
         $ExcArray = json_decode($response1[1], true);
         $exclusive = $ExcArray['data']['list'];
         
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
-
+       
         return view('frontend.projects', compact('pagemeta','exclusive','projects'));
     }
     public function contact()
@@ -280,7 +288,7 @@ class HomeController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties',
+            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -359,7 +367,7 @@ class HomeController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless Properties',
+            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -386,5 +394,10 @@ class HomeController extends Controller
         $similar = json_decode($response1, true);
         $similarProperty = $similar['data']['list'];
         return view('frontend.singleProperty', compact('property', 'similarProperty'));
+    }
+    public function singlearea($slug)
+    {
+        $community = Community::where('slug',$slug)->first();
+        return view('frontend.singlearea', compact('community'));
     }
 }
