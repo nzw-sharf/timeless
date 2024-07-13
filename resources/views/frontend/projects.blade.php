@@ -146,6 +146,13 @@
                     </div>
                     @endforeach
                 </div>
+                <div class="row">
+                    <div class="col-12 col-lg-12 col-md-12">
+                       <div class="py-5 justify-content-center">
+                        {{  $projects->appends(request()->input())->links() }}
+                       </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
