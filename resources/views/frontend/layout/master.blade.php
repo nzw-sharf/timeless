@@ -310,6 +310,12 @@
                 }
             }
         })
+        $('#category').on('change', function() {
+            
+            let val= this.value ;
+            if(val == "NEW"){
+                $('#searchForm').attr('action','{{route('projects')}}');
+            }});
     </script>
 </body>
 

@@ -26,6 +26,7 @@
         </div>
     </div>
 </section>
+@if (count($exclusive) > 0)
 <section>
     <div class="container">
         <div class="row p-relative">
@@ -89,6 +90,8 @@
     </div>
     </div>
 </section>
+@endif
+
 <section>
     <div class="container">
         <div class="row">
@@ -107,6 +110,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    @if(count($properties) > 0)
                     @foreach ($properties as $prop)
                     <div class="col-12 col-lg-4 col-md-4 col-xl-4">
                         <div class="card border-0 mb-3">
@@ -151,6 +155,13 @@
                         </div>
                     </div>
                     @endforeach
+                    @else
+                    <div class="col-12 col-lg-12 col-md-12 col-xl-12">
+                        <div class="text-center py-4">
+                            <p class="text-sec">No Property Found</p>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

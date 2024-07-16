@@ -77,11 +77,8 @@ class Agent extends Model implements HasMedia
     {
         // return $this->getFirstMediaUrl('images', 'resize');
 
-        if($this->getFirstMediaUrl('images', 'resize')){
-            return $this->getFirstMediaUrl('images', 'resize');
-        }else{
-            return asset('frontend/assets/images/no-user.webp');
-        }
+        return $this->getFirstMediaUrl('images', 'resize');
+       
     }
     public function getFirstNameAttribute($value)
     {
