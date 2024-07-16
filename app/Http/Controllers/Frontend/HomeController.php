@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Accommodation;
+use App\Models\Agent;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Community;
@@ -87,26 +88,45 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
-
-        return view('frontend.aboutUs', compact('pagemeta'));
+        $agents = Agent::active()->take(8)->get();
+        return view('frontend.aboutUs', compact('pagemeta', 'agents'));
     }
-    
+
     public function properties(Request $request)
     {
-        $groupApi = [
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+
+        if ($request->isMethod('post')) {
+
+            if (isset($request->category)) {
+                $groupApi = [
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",    "listingType":"' . $request->category . '","name":"' . $request->keyword . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',     "sort" : "ID","sortType":"DESC"}'],
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",   "listingType":"' . $request->category . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',"sort" : "ID","name":"' . $request->keyword . '",   "sortType":"DESC","size":6}'],
+
+                ];
+            } else {
+                $groupApi = [
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"RENT",
-    "sort" : "ID",
+    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',
     "sortType":"DESC"}'],
-    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
-    "listingType":"RENT",
-    "sort" : "ID",
-    "sortType":"DESC"}'],
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"SELL",
-    "sort" : "ID",
+    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',
+    "sortType":"DESC"}'],
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+    "listingType":"SELL","startPrice":' . ($request->price ? $request->price : 0) . ',
+    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],
     "sortType":"DESC","size":6}'],
-        ];
+                ];
+            }
+        } else {
+            $groupApi = [
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC"}'],
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC"}'],
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC","size":6}'],
+            ];
+        }
+        // dd($groupApi);
         $response1 = [];
         foreach ($groupApi as $key => $api) {
             $method = $api[0];
@@ -142,39 +162,57 @@ class HomeController extends Controller
 
             curl_close($curl);
         }
+        if (isset($request->category)) {
+            $sell = json_decode($response1[0], true);
+            // $propArray = json_decode($response1[0], true);
+            $properties = $sell['data']['list'];
+
+            $ExcArray = json_decode($response1[1], true);
+            $exclusive = $ExcArray['data']['list'];
+        } else {
+            $sell = json_decode($response1[0], true);
+            $rent = json_decode($response1[1], true);
+            $mergedarray = array_merge($rent['data']['list'], $sell['data']['list']);
+            // $propArray = json_decode($response1[0], true);
+            $properties = $mergedarray;
+
+            $ExcArray = json_decode($response1[2], true);
+            $exclusive = $ExcArray['data']['list'];
+        }
 
 
-        $sell = json_decode($response1[0], true);
-        $rent = json_decode($response1[1], true);
-        $mergedarray = array_merge($rent['data']['list'],$sell['data']['list']);
-        // $propArray = json_decode($response1[0], true);
-        $properties = $mergedarray;
-       
-        $ExcArray = json_decode($response1[2], true);
-        $exclusive = $ExcArray['data']['list'];
-        
+
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
 
-        return view('frontend.properties', compact('pagemeta','exclusive','properties'));
+        return view('frontend.properties', compact('pagemeta', 'exclusive', 'properties'));
     }
     public function projects(Request $request)
     {
-        if(isset($request->page)){
+        if (isset($request->page)) {
             $page = $request->page;
-        }else{
-            $page=1;
+        } else {
+            $page = 1;
         }
-        $groupApi = [
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
-    "listingType":"NEW",
-    "sort" : "ID",
-    "sortType":"DESC","size":-1}'],
+        if ($request->has('keyword') || $request->has('accomodation') || $request->has('bedroom') || $request->has('price')) {
+            $groupApi = [
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":-1,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . '}'],
     
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
-    "listingType":"NEW",
-    "sort" : "ID",
-    "sortType":"DESC","size":6}'],
-        ];
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":6,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . '}'],
+            ];
+        }else{
+            $groupApi = [
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+        "listingType":"NEW",
+        "sort" : "ID",
+        "sortType":"DESC","size":-1}'],
+    
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+        "listingType":"NEW",
+        "sort" : "ID",
+        "sortType":"DESC","size":6}'],
+            ];
+        }
+       
         $response1 = [];
         foreach ($groupApi as $key => $api) {
             $method = $api[0];
@@ -211,16 +249,16 @@ class HomeController extends Controller
             curl_close($curl);
         }
 
-         $propArray = json_decode($response1[0], true);
+        $propArray = json_decode($response1[0], true);
 
         $projects = $propArray['data']['list'];
-        $projects = Paginate::paginate($projects,9);
+        $projects = Paginate::paginate($projects, 9);
         $ExcArray = json_decode($response1[1], true);
         $exclusive = $ExcArray['data']['list'];
-        
+
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
-       
-        return view('frontend.projects', compact('pagemeta','exclusive','projects'));
+
+        return view('frontend.projects', compact('pagemeta', 'exclusive', 'projects'));
     }
     public function contact()
     {
@@ -336,7 +374,7 @@ class HomeController extends Controller
         curl_close($curl);
         $amnity = json_decode($response2, true);
         $amenities = $amnity['data'];
-        return view('frontend.singleProject', compact('project', 'similarProjects','amenities'));
+        return view('frontend.singleProject', compact('project', 'similarProjects', 'amenities'));
     }
     public function singleProperty($slug)
     {
@@ -397,7 +435,7 @@ class HomeController extends Controller
     }
     public function singlearea($slug)
     {
-        $community = Community::where('slug',$slug)->first();
+        $community = Community::where('slug', $slug)->first();
         return view('frontend.singlearea', compact('community'));
     }
 }

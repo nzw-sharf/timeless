@@ -1,5 +1,5 @@
 
-<form action="" method="post" class="searchForm">
+<form action="{{route('properties')}}" method="post" class="searchForm" id="searchForm">
     @csrf
     <div class="row g-2">
         <div class="col-6 col-md col-lg  my-auto">
@@ -8,7 +8,7 @@
         </div>
         <div class="col-6 col-md col-lg my-auto">
             <label for="">Buy/Sell/Rent</label>
-            <select class="form-select" name="accomodation" id="accomodation">
+            <select class="form-select" name="category" id="category">
                 <option value="" hidden></option>
                 @foreach ($offerType as $key => $offer)
                     <option value="{{ $key }}">{{ $offer }}
@@ -22,7 +22,7 @@
             <select class="form-select" name="accomodation" id="accomodation">
                 <option value="" hidden></option>
                 @foreach ($accomodation as $acc)
-                    <option value="{{ $acc['value'] }}">{{ $acc['key'] }}
+                    <option value="{{ '"'.$acc['value'].'"' }}">{{ $acc['key'] }}
                     </option>
                 @endforeach
             </select>

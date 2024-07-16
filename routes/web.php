@@ -33,6 +33,7 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('properties', 'HomeController@properties')->name('properties');
     Route::any('projects', 'HomeController@projects')->name('projects');
     Route::any('media', 'HomeController@media')->name('media');
+    Route::any('search', 'HomeController@search')->name('search');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
     Route::any('terms-conditions', 'HomeController@termsConditions')->name('terms-conditions');

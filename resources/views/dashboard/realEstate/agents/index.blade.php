@@ -26,7 +26,7 @@
                             <div class="row float-right">
                                 <a href="{{ route('dashboard.agents.create') }}" class="btn btn-block btn-primary">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
-                                    New Agent
+                                    Get Agents
                                 </a>
                             </div>
                         </div>

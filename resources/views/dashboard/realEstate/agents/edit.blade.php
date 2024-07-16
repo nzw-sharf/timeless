@@ -303,6 +303,20 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
+                                            <label for="logo">Avatar<small class="text-danger">(Prefer Size 300x200)</small></label>
+
+                                            @if($agent->avatar)
+                                            <img src="{{ $agent->avatar }}" alt="{{ $agent->name }}" height="300">
+                                            @endif
+                                            @error('image')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
                                             <label for="license_number">License Number</label>
                                             <input type="text" value="{{ $agent->license_number }}"
                                                 class="form-control @error('license_number') is-invalid @enderror" id="license_number"

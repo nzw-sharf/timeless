@@ -42,15 +42,58 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $languages = Language::active()->latest()->get();
-        $services = Service::mainService()->active()->latest()->get();
-        $developers = Developer::active()->latest()->get();
-        $communities = Community::active()->latest()->get();
-        $projects = Project::mainProject()->active()->latest()->get();
+        $curl = curl_init();
 
-        return view('dashboard.realEstate.agents.create', compact('projects','communities','developers','languages','services'));
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{"status":"ACTIVE"}',
+            CURLOPT_HTTPHEADER => array(
+                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        $communitiesArray = json_decode($response, true);
+        
+        $communityVal = $communitiesArray['data']['list'];
+        
+        foreach ($communityVal as $key => $comm) {
+                $community = Agent::where('id', $comm['agent']['id'])->first();
+                if (!empty($community)) {
+                } else {
+                    $comnty = new Agent();
+                    $comnty->id = $comm['agent']['id'];
+                    $comnty->name = $comm['agent']['name'];
+                    $comnty->email = $comm['agent']['email'];
+                    $comnty->contact_number = $comm['agent']['phone'];
+                    $comnty->avatar = $comm['agent']['avatar'];
+                    $comnty->status = config('constants.active');
+                    $comnty->user_id = 1;
+                    $comnty->save();
+                }
+    
+           
+        }
+       
+
+        $agents = Agent::with('user')
+            ->applyFilters($request->only(['status']))
+            ->latest()
+            ->get();
+
+        return view('dashboard.realEstate.agents.index', compact('agents'));
     }
 
     /**

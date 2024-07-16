@@ -26,9 +26,15 @@
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $twitter ? $twitter : ''}}">
-                                            <img src="{{asset('frontend/assets/images/icons/twitter.svg')}}"
-                                                alt="{{  $name }}" width="27" height="27">
+                                        <a class="navbar-brand" href="{{ $facebook ? $facebook : ''}}">
+                                            <img src="{{asset('frontend/assets/images/icons/facebook.svg')}}"
+                                                alt="{{  $name }}" width="40" height="40">
+                                        </a>
+                                    </li>
+                                    <li class="d-inline px-2">
+                                        <a class="navbar-brand" href="{{ $linkedin ? $linkedin : ''}}">
+                                            <img src="{{asset('frontend/assets/images/icons/linkedin.svg')}}"
+                                                alt="{{  $name }}" width="40" height="40">
                                         </a>
                                     </li>
                                 </ul>
@@ -39,8 +45,7 @@
                         <div class="footHead">
                             <div>
                                 <h6>THE OFFICE</h6>
-                            <p class="text-sec">The Opus by Zaha Hadid
-                                Office C103 • Business Bay • Dubai</p>
+                            <p class="text-sec">{{$address ? $address : ''}}</p>
                             </div>
                         </div>
                     </div>

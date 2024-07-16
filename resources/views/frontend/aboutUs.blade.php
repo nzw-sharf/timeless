@@ -39,14 +39,7 @@
                         <div>
 
                             <div class="pe-0 pe-md-3 pe-lg-5">
-                                <p class="text-sec">We are a boutique luxury real estate firm, connecting discerning
-                                    clients to the most desirable homes. We offer a bespoke service
-                                    that is built on the highest levels of attention to detail & discretion.
-                                    We meticulously select brokers who have demonstrated exceptional
-                                    success in the luxury market to position our brand as a leader in
-                                    luxury real estate. With a proven track record selling off market, our
-                                    team ensure you receive the highest level of expert advice & deliver
-                                    tailored solutions.</p>
+                                <p class="text-sec">Welcome to Timeless Properties, where we redefine luxury and convenience in the Dubai real estate market. With a legacy of over 25 years, we specialize in offering exclusive properties that are unavailable through any other agency in the region, thanks to our loyal network of sellers. Our expansive network extends beyond borders, connecting you with esteemed buyers, sellers, and influential figures worldwide. At Timeless Properties, we prioritize your experience, ensuring each step of your real estate journey is effortless and unforgettable. From initial consultation to closing, our expert team provides personalized guidance and support, guaranteeing a seamless transaction tailored to your unique preferences and requirements. Discover the unparalleled service and opportunities that await you with Timeless Properties.</p>
                             </div>
                         </div>
                     </div>
@@ -125,13 +118,17 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="partnerSlide" class="owl-carousel owl-theme">
-                    @for ($i=1;$i<7;$i++) <div class="item">
+                    @foreach ($agents as $agent)
+                    @if ($agent->email != 'info@timeless-properties.com')
+                    <div class="item">
                         <div class="partnerImg">
-                            <img src="{{asset('frontend/assets/images/testimonial.webp')}}" class="img-fluid"
-                                alt="{{  $name }}">
+                            <img src="{{$agent->image ? $agent->image : $agent->avatar}}" class="img-fluid"
+                                alt="{{  $agent->name }}">
                         </div>
-                </div>
-                @endfor
+                    </div>
+                    @endif
+                   
+                    @endforeach
             </div>
 
         </div>
