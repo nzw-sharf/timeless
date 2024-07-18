@@ -10,14 +10,14 @@
 @section('pageKeyword', $website_keyword)
 @endif
 @section('content')
-<section class="mainBanner justify-content-center" style="">
+<section class="mainBanner justify-content-center" style="background-image:url('{{asset('frontend/assets/images/banner/aboutus.webp')}}');min-height:80vh;">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="bannerHead text-center text-white">
-                            <h5>About<span> Us</span></h5>
+                            <h5>About<span> Timeless Properties</span></h5>
                         </div>
                     </div>
                 </div>
@@ -117,15 +117,23 @@
     <div class="container-fluid pb-5">
         <div class="row">
             <div class="col-12 col-lg-12">
-                <div id="partnerSlide" class="owl-carousel owl-theme">
+                <div id="agentSlide" class="owl-carousel owl-theme">
                     @foreach ($agents as $agent)
                     @if ($agent->email != 'info@timeless-properties.com')
-                    <div class="item">
-                        <div class="partnerImg">
-                            <img src="{{$agent->image ? $agent->image : $agent->avatar}}" class="img-fluid"
-                                alt="{{  $agent->name }}">
-                        </div>
+                    <div class="item my-auto">
+                            <div class="card border-0 mb-3">
+                                <div class="propCont p-relative">
+                                    <a href="http://"><img
+                                            src="{{$agent->image ? $agent->image : $agent->avatar}}"
+                                            class="card-img-top rounded-0 propIMg" alt="{{ $name }}"></a>
+                                    <div class="propDetOverlay rounded-0">
+                                        <h5 class="card-title mb-0">{{  $agent->name }}</h5>
+                                        <p class="text-sec mb-0">Property Consultant</p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
+                    
                     @endif
                    
                     @endforeach

@@ -45,7 +45,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
                     'Content-Type: application/json'
                 ),
             ));
@@ -145,7 +145,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
                     'Content-Type: application/json'
                 ),
             ));
@@ -180,6 +180,118 @@ class HomeController extends Controller
             $exclusive = $ExcArray['data']['list'];
         }
 
+
+
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+
+        return view('frontend.properties', compact('pagemeta', 'exclusive', 'properties'));
+    }
+    public function rent(Request $request)
+    {
+
+        $groupApi = [
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC"}'],
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC","size":6}'],
+            ];
+        // dd($groupApi);
+        $response1 = [];
+        foreach ($groupApi as $key => $api) {
+            $method = $api[0];
+            $url = $api[1];
+            $data = isset($api[2]) ? $api[2] : null;
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => $method,
+                CURLOPT_POSTFIELDS => $data,
+                CURLOPT_HTTPHEADER => array(
+                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'Content-Type: application/json'
+                ),
+            ));
+
+            // Optional: If you need to set headers or handle other options, do it here
+
+            $response = curl_exec($curl);
+
+            if ($response === false) {
+                echo 'cURL Error: ' . curl_error($curl);
+            } else {
+                $response1[$key] = $response;
+            }
+
+            curl_close($curl);
+        }
+        $sell = json_decode($response1[0], true);
+            // $propArray = json_decode($response1[0], true);
+            $properties = $sell['data']['list'];
+
+            $ExcArray = json_decode($response1[1], true);
+            $exclusive = $ExcArray['data']['list'];
+     
+
+
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+
+        return view('frontend.properties', compact('pagemeta', 'exclusive', 'properties'));
+    }
+    public function buy(Request $request)
+    {
+
+        $groupApi = [
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC"}'],
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC","size":6}'],
+            ];
+        // dd($groupApi);
+        $response1 = [];
+        foreach ($groupApi as $key => $api) {
+            $method = $api[0];
+            $url = $api[1];
+            $data = isset($api[2]) ? $api[2] : null;
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => $method,
+                CURLOPT_POSTFIELDS => $data,
+                CURLOPT_HTTPHEADER => array(
+                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'Content-Type: application/json'
+                ),
+            ));
+
+            // Optional: If you need to set headers or handle other options, do it here
+
+            $response = curl_exec($curl);
+
+            if ($response === false) {
+                echo 'cURL Error: ' . curl_error($curl);
+            } else {
+                $response1[$key] = $response;
+            }
+
+            curl_close($curl);
+        }
+        $sell = json_decode($response1[0], true);
+            // $propArray = json_decode($response1[0], true);
+            $properties = $sell['data']['list'];
+
+            $ExcArray = json_decode($response1[1], true);
+            $exclusive = $ExcArray['data']['list'];
+     
 
 
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
@@ -231,7 +343,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
                     'Content-Type: application/json'
                 ),
             ));
@@ -312,7 +424,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8'
+                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
             ),
         ));
 
@@ -342,7 +454,7 @@ class HomeController extends Controller
                 "developerIds":[' . $devId . ']
             }',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
                 'Content-Type: application/json'
             ),
         ));
@@ -365,7 +477,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8'
+                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').''
             ),
         ));
 
@@ -390,7 +502,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8'
+                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').''
             ),
         ));
 
@@ -421,7 +533,7 @@ class HomeController extends Controller
                 "developerIds":[' . $devId . ']
             }',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
                 'Content-Type: application/json'
             ),
         ));

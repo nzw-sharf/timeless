@@ -11,29 +11,60 @@
 @endif
 @section('content')
 
-<section class="homeBanner mainBanner ">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="bannerHead text-center text-white">
-                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+<section class="homeBanner mainBanner2 ">
+     <div id="carouselExampleControls" class="carousel slide homeCarousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-lg-12">
+                        <div class="searchDiv">
+                            @include('frontend.layout.search')
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-12 col-lg-12">
-                <div class="searchDiv">
-                    @include('frontend.layout.search')
+          </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{asset('frontend/assets/images/banner/homeBg1.webp')}}" class="d-block w-100"
+                    alt="timeless properties">
+                <div class="carousel-caption ">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+                    </div>
                 </div>
             </div>
+            <div class="carousel-item">
+                <img src="{{asset('frontend/assets/images/banner/homeBg2.webp')}}" class="d-block w-100"
+                    alt="timeless properties">
+                    <div class="carousel-caption ">
+                        <div class="bannerHead text-center text-white">
+                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+                        </div>
+                    </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{asset('frontend/assets/images/banner/homeBg3.webp')}}" class="d-block w-100"
+                    alt="timeless properties">
+                    <div class="carousel-caption ">
+                        <div class="bannerHead text-center text-white">
+                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+                        </div>
+                    </div>
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+    
 </section>
 
 <section class="bgDubai">
@@ -147,7 +178,12 @@
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead pb-4">
                             <h5>Featured<span>Properties</span></h5>
-                            <p class="text-sec">Discover the epitome of luxury living with Timeless Properties' featured listings. Our exclusive portfolio showcases the finest residences in Dubai, meticulously curated to meet the highest standards of elegance and sophistication. Each property reflects our commitment to excellence, offering unparalleled comfort and style for discerning buyers. Explore these exceptional homes and find your perfect sanctuary with Timeless Properties.</p>
+                            <p class="text-sec">Discover the epitome of luxury living with Timeless Properties' featured
+                                listings. Our exclusive portfolio showcases the finest residences in Dubai, meticulously
+                                curated to meet the highest standards of elegance and sophistication. Each property
+                                reflects our commitment to excellence, offering unparalleled comfort and style for
+                                discerning buyers. Explore these exceptional homes and find your perfect sanctuary with
+                                Timeless Properties.</p>
                         </div>
                     </div>
                 </div>
@@ -167,7 +203,8 @@
                                             <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
                                         </div>
                                         <div class="my-auto">
-                                            <a class="btn btn-outline" href="{{ url('project/' . $prop['propertyId']) }}">Details</a>
+                                            <a class="btn btn-outline"
+                                                href="{{ url('project/' . $prop['propertyId']) }}">Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -176,22 +213,26 @@
 
                             <div class="d-flex justify-content-between p-2">
                                 <div class="pe-1">
-                                    <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['bedroomMin'] . '-' .$prop['newParam']['bedroomMax'] }}</span>
+                                    <img src="{{asset('frontend/assets/images/icons/bed.svg')}}" alt="{{  $name }}"
+                                        width="20" class="img-fluid"> <span class="align-middle">
+                                        &nbsp;{{$prop['newParam']['bedroomMin'] . '-' .$prop['newParam']['bedroomMax']
+                                        }}</span>
                                 </div>
                                 {{-- <div class="px-2">
-                                    <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
+                                    <img src="{{asset('frontend/assets/images/icons/bath.svg')}}" alt="{{  $name }}"
+                                        width="20" class="img-fluid"> <span class="align-middle"> &nbsp;3</span>
                                 </div> --}}
                                 <div class="ps-1">
-                                    <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].' Sq.Ft.'}}</span>
+                                    <img src="{{asset('frontend/assets/images/icons/area.svg')}}" alt="{{  $name }}"
+                                        width="20" class="img-fluid"> <span class="align-middle">
+                                        &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].'
+                                        Sq.Ft.'}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    
+
                 </div>
 
 
@@ -212,9 +253,10 @@
                             <h5>Discover<span>Dubai</span></h5>
                             <p class="text-sec">Get to know the city with our Area Guides!</p>
 
-                            <p class="text-sec"> Everything you need to know about living in Dubai's top communities. 
-                                Our local area guides provide detailed information about living options, schools, shopping and other activities
-                                </p>
+                            <p class="text-sec"> Everything you need to know about living in Dubai's top communities.
+                                Our local area guides provide detailed information about living options, schools,
+                                shopping and other activities
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -233,12 +275,12 @@
                             </div>
 
                         </div>
-                </div>
+                    </div>
                     @endforeach
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <section class="bg-primary text-white">
@@ -252,7 +294,12 @@
                                 <h5>Founder & Director</br> <span>Adam Farani</span></h5>
                             </div>
                             <div class="pe-0 pe-md-3 pe-lg-5">
-                                <p class="text-sec">With Timeless Properties, you have discovered an agency with over 25 years of unparalleled excellence in the real estate industry. Under the visionary leadership of CEO & Founder Adam Farani, an esteemed and award-winning pioneer in Dubai's real estate market, our company offers an unmatched level of service, expertise, and discretion. Whether you are buying or selling, experience the pinnacle of luxury and professionalism with Timeless Properties.</p>
+                                <p class="text-sec">With Timeless Properties, you have discovered an agency with over 25
+                                    years of unparalleled excellence in the real estate industry. Under the visionary
+                                    leadership of CEO & Founder Adam Farani, an esteemed and award-winning pioneer in
+                                    Dubai's real estate market, our company offers an unmatched level of service,
+                                    expertise, and discretion. Whether you are buying or selling, experience the
+                                    pinnacle of luxury and professionalism with Timeless Properties.</p>
                             </div>
                             <div class=" pt-4">
                                 <button type="submit" class="btn btn-white">GET IN TOUCH</button>
@@ -297,9 +344,8 @@
                 <div id="partnerSlide" class="owl-carousel owl-theme">
                     @foreach ($developers as $dev)
                     <div class="item h-100 my-auto d-flex flex-column justify-content-center">
-                        <div class="partnerImg">
-                            <img src="{{$dev['logoUrl']}}" class="img-fluid"
-                                alt="{{$dev['name']}}">
+                        <div class="partnerImg mx-auto">
+                            <img src="{{$dev['logoUrl']}}" class="img-fluid" alt="{{$dev['name']}}">
                         </div>
                     </div>
                     @endforeach
@@ -356,12 +402,12 @@
 
                             </div>
                             @endforeach
-                           
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <section>
@@ -375,44 +421,54 @@
                         </div>
                     </div>
                     @foreach ($blogs as $blog)
-                        @if ($loop->first)
-                        <div class="col-12 col-lg-7 col-md-6">
-                            <div class="card blogCard border-0">
-                                <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="card-img-top"
-                                    alt="{{$blog->title}}"></a>
-                                <div class="card-body rounded-bottom bg-secondary">
-                                    <a href="{{ url('media/' . $blog->slug) }}"><h5 class="card-title fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
-                                    <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
-                                    <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold text-primary">Read More...</a>
-                                </div>
+                    @if ($loop->first)
+                    <div class="col-12 col-lg-7 col-md-6">
+                        <div class="card blogCard border-0">
+                            <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}"
+                                    class="card-img-top" alt="{{$blog->title}}"></a>
+                            <div class="card-body rounded-bottom bg-secondary">
+                                <a href="{{ url('media/' . $blog->slug) }}">
+                                    <h5 class="card-title fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0,
+                                        50) }}</h5>
+                                </a>
+                                <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}
+                                </p>
+                                <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold text-primary">Read
+                                    More...</a>
                             </div>
                         </div>
-                        @endif
+                    </div>
+                    @endif
                     @endforeach
                     <div class="col-12 col-lg-5 col-md-6">
-                    @foreach ($blogs as $blog)
+                        @foreach ($blogs as $blog)
                         @if (!$loop->first)
                         <div class="card mb-4 blogCardSide border-0">
                             <div class="row g-0 h-100">
                                 <div class="col-md-5">
                                     <a href="{{ url('media/' . $blog->slug) }}">
-                                    <img src="{{$blog->mainImage}}"
-                                        class="img-fluid rounded-start" alt="{{$blog->title}}">
+                                        <img src="{{$blog->mainImage}}" class="img-fluid rounded-start"
+                                            alt="{{$blog->title}}">
                                     </a>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body d-flex h-100 bg-secondary rounded-end">
                                         <div class=" my-auto">
-                                            <a href="{{ url('media/' . $blog->slug) }}"><h5 class="card-title fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
-                                            <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 100) . '...' !!}</p>
-                                            <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold text-primary">Read More...</a>
+                                            <a href="{{ url('media/' . $blog->slug) }}">
+                                                <h5 class="card-title fw-bold  text-primary">{{
+                                                    substr(strip_tags($blog->title), 0, 50) }}</h5>
+                                            </a>
+                                            <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 100)
+                                                . '...' !!}</p>
+                                            <a href="{{ url('media/' . $blog->slug) }}"
+                                                class="fw-bold text-primary">Read More...</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endif
-                    @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -31,6 +31,8 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('/', 'HomeController@home')->name('main');
     Route::any('about-us', 'HomeController@aboutUs')->name('about-us');
     Route::any('properties', 'HomeController@properties')->name('properties');
+    Route::any('rent', 'HomeController@rent')->name('rent');
+    Route::any('buy', 'HomeController@buy')->name('buy');
     Route::any('projects', 'HomeController@projects')->name('projects');
     Route::any('media', 'HomeController@media')->name('media');
     Route::any('search', 'HomeController@search')->name('search');
