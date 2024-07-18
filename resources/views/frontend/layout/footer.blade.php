@@ -54,7 +54,7 @@
                             <h6 class="">THE PROPERTIES</h6>
                             <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">
-                                    <a class="navbar-brand text-sec" href="">
+                                    <a class="navbar-brand text-sec" href="{{route('buy')}}">
                                         Buy
                                     </a>
                                 </li>
@@ -64,7 +64,7 @@
                                     </a>
                                 </li>
                                 <li class="list-dot">
-                                    <a class="navbar-brand text-sec" href="">
+                                    <a class="navbar-brand text-sec" href="{{route('rent')}}">
                                         Rent
                                     </a>
                                 </li>

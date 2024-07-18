@@ -97,7 +97,7 @@
         $('#partnerSlide').owlCarousel({
            
             loop:true,
-            
+            center: false,
             margin:30,
             autoplay:true,
             autoplayTimeout:4000,
@@ -114,6 +114,29 @@
                 },
                 1000:{
                     items:4,
+                }
+            }
+        });
+        $('#agentSlide').owlCarousel({
+           
+            loop:true,
+            center: false,
+            margin:30,
+            autoplay:true,
+            autoplayTimeout:4000,
+            autoplayHoverPause:true,
+            responsiveClass:true,
+            nav:false,
+            dots: false,
+            responsive:{
+                0:{
+                    items:2,
+                },
+                600:{
+                    items:3,
+                },
+                1000:{
+                    items:5,
                 }
             }
         });

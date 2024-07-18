@@ -109,7 +109,7 @@
         <div class="row">
             <div class="col-12 col-lg-12 col-md-12">
                 <div class="secHead text-center mb-5">
-                    <h5><span>Publications</span></h5>
+                    <h5>Featured <span>Publications</span></h5>
                 </div>
             </div>
             <div class="col-12 col-lg-12">

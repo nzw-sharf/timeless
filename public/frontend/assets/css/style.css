@@ -148,6 +148,38 @@ a {
     padding-top: 200px;
     padding-bottom: 200px;
 }
+.mainBanner2 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 100vh;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    box-shadow: inset 0 0 0 2000px rgba(4, 28, 44, 0.5);
+    background-image: url('../images/banner/homeBg.webp');
+    
+}
+
+.homeCarousel img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.homeCarousel .carousel-caption {
+left: 50%;
+        position: absolute;
+        top: 55%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+        z-index: 5;
+}
 .overlayBG {
     position: absolute; bottom: 0; width: 100%; height: 350px; z-index: 2; 
     background:rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%) repeat scroll 0 0;
@@ -303,7 +335,8 @@ border: 1px solid rgba(255, 255, 255, 1);
     display: flex;
     flex-direction: column;
     justify-content: end;
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .7) 50%);
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 90%) repeat scroll 0 0;
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .7) 50%); */
     color: var(--primary-white);
 }
 #exclusiveSlide .propCont .propDetOverlay, #exclusiveSlide .propCont .propIMg {
@@ -728,6 +761,10 @@ object-position: top;
     border-radius: 0px !important;
   }
 @media screen and (max-width: 720px) {
+    .carousel-indicators {
+        margin-right:0% !important;
+        margin-left:0% !important;
+    }
     .rowRev {
         flex-direction: row-reverse;
     }
@@ -806,5 +843,8 @@ object-position: top;
     }
     #AmenitySlide.owl-carousel .owl-next {
         right: 0%;
+    }
+    .secHeadNew h5::before, .secHeadNew h5::after {
+        width: 9% !important;
     }
 }

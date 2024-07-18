@@ -18,7 +18,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-6 col-md-6">
                         <div class="bannerHead text-center text-white">
-                            <h5>Discover the perfect place to<span> live, love, and grow with us!</span></h5>
+                            <h5>Find your most ideal investment opportunity with <span> Timeless Properties</span></h5>
                         </div>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHeadNew text-center py-4">
-                            <h5><span>Our Process</span></h5>
+                            <h5>Our <span>Process</span></h5>
                         </div>
                     </div>
 
