@@ -152,10 +152,10 @@
                     <div class="item">
                         <div class="card border-0 mb-3">
                             <div class="propCont p-relative">
-                                <a href="http://"><img src="{{$comm->mainIMage}}"
+                                <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainIMage}}"
                                         class="card-img-top rounded-0 propIMg" alt="{{  $comm->name }}" /></a>
                                 <div class="commuDetOverlay">
-                                    <a href="http://">
+                                    <a href="{{ url('area/' . $comm->slug) }}">
                                         <h5 class="card-title mb-0">{{  $comm->name }}</h5>
                                     </a>
                                 </div>
