@@ -13,17 +13,7 @@
 
 <section class="homeBanner mainBanner2 ">
      <div id="carouselExampleControls" class="carousel slide homeCarousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <div class="container">
-                <div class="row py-5">
-                    <div class="col-12 col-lg-12">
-                        <div class="searchDiv">
-                            @include('frontend.layout.search')
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
+       
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('frontend/assets/images/banner/homeBg1.webp')}}" class="d-block w-100"
@@ -53,6 +43,17 @@
                     </div>
             </div>
         </div>
+        <div class="searchBottom">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-12 col-lg-12">
+                        <div class="searchDiv">
+                            @include('frontend.layout.search')
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
