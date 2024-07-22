@@ -790,6 +790,22 @@ object-position: top;
     border-radius: 0px !important;
   }
 @media screen and (max-width: 720px) {
+    .homeCarousel .carousel-caption {
+        left: 10%;
+        -webkit-transform: translate(-5%, -50%);
+        transform: translate(-5%, -50%);
+        width: 80%;
+    }
+    .bannerHead h5 {
+        font-size: 1.5rem;
+    }
+    .searchDiv {
+        padding: 20px;
+    }
+    .searchBottom {
+        margin-left: 0px  !important;
+        margin-right: 0px  !important;
+    }
     .carousel-indicators {
         margin-right:0% !important;
         margin-left:0% !important;
