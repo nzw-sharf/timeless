@@ -44,6 +44,7 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('project/{slug}', 'HomeController@singleProject')->name('singleProject');
     Route::any('property/{slug}', 'HomeController@singleProperty')->name('singleProperty');
     Route::any('area/{slug}', 'HomeController@singlearea')->name('singlearea');
+    Route::any('agentDetails', 'HomeController@agentDetails'); 
     
 });
 

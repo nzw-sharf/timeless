@@ -73,7 +73,7 @@ class HomeController extends Controller
         $propArray = json_decode($response1[2], true);
         $properties = $propArray['data']['list'];
 
-        $communities = Community::active()->where('is_display_home', 1)->take(4)->get();
+        $communities = Community::active()->where('is_display_home', 1)->take(12)->get();
 
 
 
@@ -395,12 +395,19 @@ class HomeController extends Controller
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         return view('frontend.thankYou', compact('pagemeta'));
     }
+    public function agentDetails(Request $request) {
+        $agent = Agent::where('id', $request->teamId)->first();
+     
+        $html = view('frontend.agentDetails', compact('agent'))->render();
+
+            return response()->json(['success' => true, 'html' => $html,'url' => request()->getRequestUri()]);
+    }
     public function media()
     {
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         $latestBlog = Article::active()->take(6)->get();
         $blogs = Article::active()->paginate(8);
-        $communities = Community::active()->where('is_display_home', 1)->take(8)->get();
+        $communities = Community::active()->where('is_display_home', 1)->take(12)->get();
         return view('frontend.blogs', compact('pagemeta', 'latestBlog', 'blogs', 'communities'));
     }
     public function singleBlog($slug)

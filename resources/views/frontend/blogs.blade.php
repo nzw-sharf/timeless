@@ -12,6 +12,19 @@
 @section('content')
 <section class="mainBanner" style="min-height:80vh;">
 <div class="overlayBG"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-12 col-md-12">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Take a look at the latest Real Estate  <span> News & Insights</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
 <section class="bgGradient pb-5">
     <div class="container-fluid ">
@@ -20,7 +33,7 @@
                 <div class="p-3 p-lg-5 p-md-4 m-auto w-fit-content h-100">
                     <div>
                         <div class="sectionHead lineAfter">
-                            <h5>The Latest</br> <span> News & Views</span></h5>
+                            <h5>The Latest</br> <span> News & Insights</span></h5>
                         </div>
                         <div class="text-start pt-4">
                             <p class="text-sec">Lorem ipsum doler it simit, lorem
@@ -35,7 +48,7 @@
                 <div class="my-auto">
                     <div id="blogSlide" class="owl-carousel owl-centered">
                         @foreach ($latestBlog as $latest)
-                        <div class="item mt-auto">
+                        <div class="item">
                             <div class="blogCardNew ">
                                 <div class="propCont p-relative">
                                     <a href="{{ url('media/' . $latest->slug) }}"><img src="{{$latest->mainImage}}"
