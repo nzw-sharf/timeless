@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="bannerHead text-center text-white">
-                            <h5>Contact<span> Us</span></h5>
+                            <h5>Get in<span> Touch</span></h5>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
-                    <div class="col-12 col-lg-6 col-md-6 my-auto">
+                    <div class="col-12 col-lg-5 col-md-5 my-auto">
                         <div>
                             <div class="secHead mb-3">
                                 <h5>Get In <span>Touch</span></h5>
@@ -85,7 +85,7 @@
                                </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-6">
+                    <div class="col-12 col-lg-6 col-md-6 offset-md-1 offset-lg-1">
                         <ul class="list-unstyled">
                             <li class="text-sec mb-3">
                                 <p class="text-para fw-bold mb-1">Call Us</p>

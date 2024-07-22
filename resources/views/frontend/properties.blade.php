@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-lg-6 col-md-6">
+                    <div class="col-12 col-lg-12 col-md-12">
                         <div class="bannerHead text-center text-white">
                             <h5>Find your most ideal investment opportunity with <span> Timeless Properties</span></h5>
                         </div>
@@ -120,7 +120,7 @@
                                         class="card-img-top propIMg" alt="{{$prop['title']}}"></a>
                                 <div class="propDetOverlay">
                                     <a href="{{ url('property/' . $prop['propertyId']) }}">
-                                        <h5 class="card-title mb-0">{{$prop['title']}}</h5>
+                                        <h5 class="card-title">{{$prop['title']}}</h5>
                                     </a>
                                     <div class="d-flex justify-content-between">
                                         <div class="my-auto">

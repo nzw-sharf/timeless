@@ -113,7 +113,7 @@
                     items:3,
                 },
                 1000:{
-                    items:4,
+                    items:6,
                 }
             }
         });
@@ -210,8 +210,8 @@
             }
         })
         $('#areaguideSlide').owlCarousel({
-            center: true,
-            loop:false,
+            center: false,
+            loop:true,
             margin:20,
             nav:true,
             dots:false,
@@ -339,6 +339,67 @@
             if(val == "NEW"){
                 $('#searchForm').attr('action','{{route('projects')}}');
             }});
+    </script>
+    <script>
+         if (window.location.pathname == "/" ) {
+
+var counted = 0;
+
+window.onscroll = function() {
+
+
+    var oTop = $('#counter').offset().top - window.innerHeight;
+
+    if (counted == 0 && $(window).scrollTop() > oTop) {
+        $('.counter').each(function() {
+            var $this = $(this),
+                countTo = $this.attr('data-count');
+            $({
+                countNum: $this.text()
+            }).animate({
+                    countNum: countTo
+                },
+
+                {
+
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                        //alert('finished');
+                    }
+
+                });
+        });
+        counted = 1;
+
+    }
+
+};
+}
+$('.teamDeatBtn').on('click', function() {
+            var teamId = $(this).attr('teamId');
+           
+            $.ajax({
+                url: "/agentDetails",
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    teamId: teamId
+                },
+                dataType: 'json',
+                success: function(response) {
+                   $('.teamDetails').html(response.html);
+                   $('#agentFull').modal('toggle');;
+                }
+
+            });
+        });
     </script>
 </body>
 

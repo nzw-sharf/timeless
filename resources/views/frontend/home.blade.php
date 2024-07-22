@@ -76,8 +76,8 @@
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div>
                             <div class="sectionHead">
-                                <h5>Timeless
-                                    Properties</br> <span>Luxury Real Estate</span></h5>
+                                <h5>Luxury Real Estate</br> <span>Timeless
+                                    Properties</span></h5>
                             </div>
                             <div class="pe-0 pe-md-3 pe-lg-5">
                                 <p class="text-sec">We are a boutique luxury real estate firm, connecting discerning
@@ -106,27 +106,30 @@
         </div>
     </div>
 </section>
-<section class="py-5 bg-primary">
+<section class="py-5 bg-primary" id="counter">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row text-center">
-                    <div class="col-12 col-lg-4 col-md-4 my-auto">
-                        <div class="text-white sectionHead py-3">
-                            <h5 class="fw-bold">2B AED</h5>
-                            <p class="text-sec mb-0"> in Sales Revenue in the UAE alone.</p>
+                    <div class="col-12 col-lg-4 col-md-4">
+                        <div class="text-white sectionHeadNew py-3">
+                            <h5 class="fw-bold"><span class="counter"
+                                data-count="2">0</span>Billion AED</h5>
+                            <p class="text-sec mb-0"> in Sales Revenue in the UAE alone</p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 my-auto">
-                        <div class="text-white sectionHead py-3">
-                            <h5 class="fw-bold">15,000+</h5>
-                            <p class="text-sec mb-0"> HNWI's in our Network that are ready for business.</p>
+                    <div class="col-12 col-lg-4 col-md-4">
+                        <div class="text-white sectionHeadNew py-3">
+                            <h5 class="fw-bold"><span class="counter"
+                                data-count="15000">0</span>+</h5>
+                            <p class="text-sec mb-0"> HNWI's in our Network that are ready for business</p>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-4 my-auto">
-                        <div class="text-white sectionHead py-3">
-                            <h5 class="fw-bold">25+</h5>
-                            <p class="text-sec mb-0"> Years of Global Real Estate Experience.</p>
+                    <div class="col-12 col-lg-4 col-md-4">
+                        <div class="text-white sectionHeadNew py-3">
+                            <h5 class="fw-bold"><span class="counter"
+                                data-count="25">0</span>+</h5>
+                            <p class="text-sec mb-0"> Years of Global Real Estate Experience</p>
                         </div>
                     </div>
                 </div>
@@ -142,7 +145,7 @@
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div class="secHead pe-0 pe-md-3 pe-lg-5 pb-4 ps-3">
                             <h5>Discover Our Most
-                                Luxurious <span>Villa Retreat!</span></h5>
+                                Luxurious <br><span>Villa Retreat!</span></h5>
                         </div>
                         <div class="bgVilla">
                             <div class="">
@@ -154,7 +157,7 @@
                             </div>
                         </div>
                         <div class="text-start pt-4 px-3">
-                            <p class="text-sec"><button type="submit" class="btn btn-primary">GET IN DETAILS</button>
+                            <p class="text-sec"><button type="submit" class="btn btn-primary">GET  DETAILS</button>
                             </p>
                         </div>
                     </div>
@@ -197,7 +200,7 @@
                                         class="card-img-top propIMg" alt="{{$prop['title']}}"></a>
                                 <div class="propDetOverlay">
                                     <a href="{{ url('project/' . $prop['propertyId']) }}">
-                                        <h5 class="card-title mb-0">{{$prop['title']}}</h5>
+                                        <h5 class="card-title">{{$prop['title']}}</h5>
                                     </a>
                                     <div class="d-flex justify-content-between">
                                         <div class="my-auto">
@@ -260,26 +263,29 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    @foreach ($communities as $comm)
-                    <div class="col-12 col-lg-4 col-md-4 col-xl-3">
-                        <div class="card border-0 mb-3">
-                            <div class="propCont p-relative">
-                                <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainImage}}"
-                                        class="card-img-top propIMg" alt="{{$comm->name}}"></a>
-                                <div class="propDetOverlay">
-                                    <a href="{{ url('area/' . $comm->slug) }}">
-                                        <h5 class="card-title mb-0">{{$comm->name}}</h5>
-                                    </a>
+                    <div class="col-12 col-lg-12 col-md-12">
+                        <div id="areaguideSlide" class="owl-carousel owl-theme">
+                            @foreach ($communities as $comm)
+                            <div class="item">
+                                <div class="card border-0 mb-3">
+                                    <div class="propCont p-relative">
+                                        <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainImage}}"
+                                                class="card-img-top propIMg" alt="{{$comm->name}}"></a>
+                                        <div class="propDetOverlay">
+                                            <a href="{{ url('area/' . $comm->slug) }}">
+                                                <h5 class="card-title mb-0">{{$comm->name}}</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+        
                                 </div>
                             </div>
-
+                            @endforeach
+        
                         </div>
                     </div>
-                    @endforeach
-
                 </div>
+               
             </div>
         </div>
     </div>
@@ -345,8 +351,9 @@
                 <div id="partnerSlide" class="owl-carousel owl-theme">
                     @foreach ($developers as $dev)
                     <div class="item h-100 my-auto d-flex flex-column justify-content-center">
-                        <div class="partnerImg mx-auto">
+                        <div class="partnerImg mx-auto text-center">
                             <img src="{{$dev['logoUrl']}}" class="img-fluid" alt="{{$dev['name']}}">
+                            <p class="text-sec">{{$dev['name']}}</p>
                         </div>
                     </div>
                     @endforeach
@@ -373,18 +380,18 @@
                             <h5>What Our<span>Clients Say</span></h5>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-10 col-md-11">
+                    <div class="col-12 col-lg-12 col-md-12">
                         <div id="clientSlide" class="owl-carousel owl-theme">
                             @foreach ($testimonials as $testi)
                             <div class="item">
                                 <div class="row">
-                                    <div class="col-12 col-lg-6 col-md-6 my-auto">
+                                    <div class="col-12 col-lg-3 col-md-3 my-auto">
                                         <div class="testiImg py-3">
                                             <img src="{{asset('frontend/assets/images/testimonial.webp')}}"
                                                 class="img-fluid rounded-circle" alt="{{  $name }}">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 col-md-6 my-auto">
+                                    <div class="col-12 col-lg-9 col-md-9 my-auto">
                                         <div class="testiDesc p-3 p-lg-5 p-md-4 pb-2 pb-lg-2 pb-md-2">
                                             <div class="quote1"><img
                                                     src="{{asset('frontend/assets/images/icons/quote.png')}}"
