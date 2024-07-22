@@ -45,13 +45,13 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
                         <div class="aboutImg">
+                            <img src="{{asset('frontend/assets/images/aboutNew.webp')}}" alt="{{  $name }}"
+                                srcset="{{asset('frontend/assets/images/aboutNew.webp')}}" class="img-fluid">
+                        </div>
+                        {{-- <div class="aboutImg2">
                             <img src="{{asset('frontend/assets/images/about.webp')}}" alt="{{  $name }}"
                                 srcset="{{asset('frontend/assets/images/about.webp')}}" class="img-fluid">
-                        </div>
-                        <div class="aboutImg2">
-                            <img src="{{asset('frontend/assets/images/about.webp')}}" alt="{{  $name }}"
-                                srcset="{{asset('frontend/assets/images/about.webp')}}" class="img-fluid">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

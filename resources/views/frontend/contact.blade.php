@@ -10,7 +10,7 @@
 @endif
 @section('content')
     
-<section class="mainBanner justify-content-center" style="">
+<section class="mainBanner justify-content-center" style="background-image:url('{{asset('frontend/assets/images/banner/contactBg.webp')}}');min-height:80vh;">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
@@ -103,6 +103,9 @@
                                 alt="{{  $name }}" width="30" class="img-fluid"> &nbsp;<span class="align-middle">{{$email ? $email :'info@company.com' }}</span></a>
                             </li>
                         </ul>
+                        <div class="py-3">
+                            <img src="{{asset('frontend/assets/images/contact.webp')}}" alt="timeless" class="img-fluid" width="85%">
+                        </div>
                     </div>
                 </div>
             </div>

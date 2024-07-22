@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function home()
     {
         $groupApi = [
-            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/developer/list', '{"size": 6}'],
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/developer/list', '{"size": 13}'],
             ['GET', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/house/type/list', '{}'],
             ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"NEW","size":8,"sort" : "ID",
     "sortType":"DESC"}'],
