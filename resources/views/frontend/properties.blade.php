@@ -175,7 +175,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHeadNew text-center py-4">
-                            <h5><span>List With Us!</span></h5>
+                            <h5>List<span> With Us!</span></h5>
                         </div>
                     </div>
 

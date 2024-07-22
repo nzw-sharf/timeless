@@ -42,6 +42,15 @@
                         </div>
                     </div>
             </div>
+            <div class="carousel-item">
+                <img src="{{asset('frontend/assets/images/banner/homeBg4.webp')}}" class="d-block w-100"
+                    alt="timeless properties">
+                    <div class="carousel-caption ">
+                        <div class="bannerHead text-center text-white">
+                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+                        </div>
+                    </div>
+            </div>
         </div>
         <div class="searchBottom">
             <div class="container">
@@ -315,8 +324,8 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 mt-auto">
                         <div class="">
-                            <img src="{{asset('frontend/assets/images/ceo.webp')}}" alt="{{  $name }}"
-                                srcset="{{asset('frontend/assets/images/ceo.webp')}}" class="img-fluid">
+                            <img src="{{asset('frontend/assets/images/ceo.png')}}" alt="{{  $name }}"
+                                srcset="{{asset('frontend/assets/images/ceo.png')}}" class="img-fluid">
                         </div>
 
                     </div>

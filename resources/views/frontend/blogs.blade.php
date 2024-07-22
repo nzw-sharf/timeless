@@ -10,7 +10,7 @@
 @section('pageKeyword', $website_keyword)
 @endif
 @section('content')
-<section class="mainBanner" style="min-height:80vh;">
+<section class="mainBanner"  style="background-image:url('{{asset('frontend/assets/images/banner/blogBg.webp')}}');min-height:80vh;">
 <div class="overlayBG"></div>
 <div class="container">
     <div class="row">

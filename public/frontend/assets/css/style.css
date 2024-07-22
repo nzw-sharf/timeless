@@ -243,6 +243,9 @@ z-index: 5;
     font-family: var(--script-font);
     font-size: 2rem;
 }
+.secHeadNew h5{
+    font-size: 2.5rem;
+}
 .secHeadNew h5 span{
     font-family: var(--script-font);
     font-size: 2.5rem;
