@@ -5,7 +5,7 @@
                 <div class="row text-white">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="text-center mx-auto pb-5">
-                            <div class="pb-5">
+                            <div class="pb-5"  data-aos="fade-up">
                                 <a class="navbar-brand" href="{{url('/')}}">
                                     <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif"
                                         alt="{{  $name }}" width="140" class="img-fluid">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 ">
-                        <div class="footHead">
+                        <div class="footHead" >
                             <div>
                                 <h6>THE OFFICE</h6>
                             <p class="text-sec">{{$address ? $address : ''}}</p>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4 ">
-                        <div class="footHead">
+                        <div class="footHead" >
                             <h6 class="">THE PROPERTIES</h6>
                             <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">

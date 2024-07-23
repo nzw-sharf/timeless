@@ -9,7 +9,7 @@ $output .= '<div class="row">
                 <div class="col-12 col-lg-12">
                     <div class="p-3 propCard">
                                     <div class="row">
-                                        <div class="col-lg-8 col-8 my-auto">
+                                        <div class="col-lg-8 col-8 my-auto order-1 order-md-1 order-lg-1">
                                             <div class="agentDesc">
                                                 <h5 class="text-primary text-uppercase fw-bold">'.
                                                      $agent->name .'</h5>
@@ -20,8 +20,7 @@ $output .= '<div class="row">
                                                     class="text-decoration-none text-primary fs-14"><i
                                                         class="fa fa-phone"></i> '.$phone.'
                                                         </a>
-                                            </div>
-                                               <div class="mb-2 ">
+                                            </div><div class="mb-2 ">
                                                 <a href="mailto:'.$email.'"
                                                     class="text-decoration-none text-primary fs-14"><i
                                                         class="fa fa-envelope"></i> '.$email.'</a>
@@ -51,7 +50,7 @@ $output .= '<div class="row">
                                         </div>
                                             </div>
                                         </div>
-                                        <div class="col-4 col-lg-4 my-auto">
+                                        <div class="col-4 col-lg-4 my-auto order-2 order-md-2 order-lg-2">
                                             <div class="agntImage">
                                                 <center><img src="'.asset($image).'"
                                                         alt="agent" class="img-fluid rounded-circle shadow"
