@@ -15,9 +15,20 @@
                   <li class="nav-item">
                     <a class="nav-link {{ request()->route()->named('main') ? 'active' : '' }}" href="{{url('/')}}">Home</a>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}">Properties</a>
+                  </li> --}}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ (request()->route()->named('rent') || request()->route()->named('buy') || request()->route()->named('projects')) ? 'active' : '' }}"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Properties
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{route('projects')}}">Off-Plan</a></li>
+                      <li><a class="dropdown-item" href="{{route('rent')}}">Rent</a></li>
+                      <li><a class="dropdown-item" href="{{route('buy')}}">Buy</a></li>
+                    </ul>
                   </li>
+          
                   <li class="nav-item">
                     <a class="nav-link {{ request()->route()->named('media') ? 'active' : '' }}" href="{{route('media')}}">Media</a>
                   </li>

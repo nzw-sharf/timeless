@@ -436,7 +436,7 @@
                                                 </a>
                                                 <div class="d-flex justify-content-between">
                                                     <div class="my-auto">
-                                                        <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
+                                                        <p class="mb-0 text-sec">AED {{number_format($prop['price'])}}</p>
                                                     </div>
                                                     <div class="my-auto">
                                                         <a class="btn btn-outline" href="{{ url('property/' . $prop['propertyId']) }}">Details</a>

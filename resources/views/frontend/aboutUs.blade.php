@@ -124,7 +124,7 @@
                         <a class="text-decoration-none teamDeatBtn" style="cursor:pointer;" teamId="{{ $agent->id }}">
                             <div class="card border-0 mb-3">
                                 
-                                <div class="propCont p-relative">
+                                <div class="propCont agentContNew p-relative">
                                     <img
                                             src="{{$agent->image ? $agent->image : $agent->avatar}}"
                                             class="card-img-top rounded-0 propIMg" alt="{{ $name }}">
@@ -132,6 +132,29 @@
                                     <div class="propDetOverlay rounded-0">
                                         <a class="text-decoration-none teamDeatBtn" style="cursor:pointer;" teamId="{{ $agent->id }}"><h5 class="card-title mb-0">{{  $agent->name }}</h5></a>
                                         <p class="text-sec mb-0">Property Consultant</p>
+                                        <div class="agentDetailCont">
+                                            <div class="d-flex justify-content-between mt-2">
+                                                <div class="d-flex my-auto">
+                                                    <div class="my-auto pe-2">
+                                                        <a href="tel:{{ $agent->contact_number ? str_replace(' ', '', $agent->contact_number) :  str_replace(' ', '', $contact_number)}}">
+                                                            <img src="{{asset('frontend/assets/images/icons/call.svg')}}" alt="{{  $name }}" width="30" height="30">
+                                                        </a>
+                                                    </div>
+                                                    <div class="my-auto pe-2">
+                                                        <a href="{{ $agent->contact_number ? "https://wa.me/". str_replace(' ', '', $agent->contact_number) : "https://wa.me/". str_replace(' ', '', $contact_number)}}">
+                                                            <img src="{{asset('frontend/assets/images/icons/whatsapp.svg')}}" alt="{{  $name }}" width="22" height="22">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex my-auto">
+                                                    <a class="teamDeatBtn text-white" style="cursor:pointer;" teamId="{{ $agent->id }}">
+                                                        <div class="d-flex ">
+                                                            <span class="align-middle ">Find More </span> <img src="{{asset('frontend/assets/images/icons/arrow.svg')}}" alt="{{  $name }}" class="w-auto my-auto" width="16" height="16">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 
                                 </div>
@@ -149,6 +172,77 @@
     </div>
     </div>
 </section>
+
+<section >
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-8 col-md-8 my-auto">
+                        <div class="secHead mb-3">
+                            <h5>Join Our <span>Team</span></h5>
+                        </div>
+                        <div class="shadow p-2 p-md-5 rounded-3">
+                            <div class="text-center">
+                                <h5 class="fw-bold">Submit Your deatils</h5>
+                                <p class="text-sec">Are you ready to join the UAE's leading real estate company? 
+                                    </p>
+                            </div>
+                            <div class="contactForm">
+                                <form action="" id="modalViewForm" method="post">
+                                    @csrf
+                                    <div class="row g-3">
+                                        <div class="col-md-12">
+                                            <label for="name" class="form-label">Full Name*</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                 required>
+                                            <input type="hidden" class="form-control" id="formName" name="formName"
+                                                value="Contact Us Form">
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Email*</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                 required>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <label for="mobile" class="form-label">Phone Number*</label>
+                                            <input id="fullNumber" type="hidden" name="fullNumber">
+                                            <input type="tel" class="form-control contField" id="telephone" name="phone"
+                                                 required>
+        
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="cv" class="form-label">Upload CV*</label>
+                                            <input type="file" class="form-control contField" id="cv" name="cv"
+                                                 required>
+        
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="date" class="form-label">Cover Letter</label>
+                                            <textarea name="message" id="message" rows="4"
+                                                class="form-control contField rounded-3"></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="text-end">
+                                                <button type="submit" class="btn btn-primary text-uppercase">Submit
+                                                    Details</button>
+                                            </div>
+                                          
+                                        </div>
+        
+                                    </div>
+                                </form>
+                               </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="modal fade" id="agentFull" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bgLight border">

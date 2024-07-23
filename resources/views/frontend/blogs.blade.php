@@ -10,21 +10,22 @@
 @section('pageKeyword', $website_keyword)
 @endif
 @section('content')
-<section class="mainBanner"  style="background-image:url('{{asset('frontend/assets/images/banner/blogBg.webp')}}');min-height:80vh;">
-<div class="overlayBG"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-12">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-12 col-md-12">
-                    <div class="bannerHead text-center text-white">
-                        <h5>Take a look at the latest Real Estate  <span> News & Insights</span></h5>
+<section class="mainBanner"
+    style="background-image:url('{{asset('frontend/assets/images/banner/blogBg.webp')}}');min-height:80vh;">
+    <div class="overlayBG"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-12 col-md-12">
+                        <div class="bannerHead text-center text-white">
+                            <h5>Take a look at the latest Real Estate <span> News & Insights</span></h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 <section class="bgGradient pb-5">
     <div class="container-fluid ">
@@ -59,7 +60,7 @@
                                         {{$latest->title}}
                                     </p>
                                 </div>
-    
+
                             </div>
                         </div>
                         @endforeach
@@ -77,35 +78,39 @@
                 @if (($key+1) % 2 != 0)
                 <div class="row my-5 p-relative">
                     <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
-                        <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="img-fluid rounded-5 blogImgMain"
-                            alt="{{$blog->title}}" ></a>
+                        <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}"
+                                class="img-fluid rounded-5 blogImgMain" alt="{{$blog->title}}"></a>
                     </div>
                     <div class="col-12 col-lg-7 col-md-6 my-auto">
                         <div class="bgBlog1"></div>
                         <div class="p-2 p-lg-5 p-md-4 h-100 ">
-                            <a href="{{ url('media/' . $blog->slug) }}"><h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
+                            <a href="{{ url('media/' . $blog->slug) }}">
+                                <h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5>
+                            </a>
                             <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
                             <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold btn btn-primary">Read More...</a>
                         </div>
                     </div>
                 </div>
-              @else
-              <div class="row my-5 p-relative colRev"> 
-                <div class="col-12 col-lg-7 col-md-6 my-auto">
-                    <div class="bgBlog2"></div>
-                    <div class="p-2 p-lg-5 p-md-4 h-100 ">
-                        <a href="{{ url('media/' . $blog->slug) }}"><h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5></a>
-                        <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
-                        <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold btn btn-primary">Read More...</a>
+                @else
+                <div class="row my-5 p-relative colRev">
+                    <div class="col-12 col-lg-7 col-md-6 my-auto">
+                        <div class="bgBlog2"></div>
+                        <div class="p-2 p-lg-5 p-md-4 h-100 ">
+                            <a href="{{ url('media/' . $blog->slug) }}">
+                                <h5 class="fw-bold  text-primary">{{ substr(strip_tags($blog->title), 0, 50) }}</h5>
+                            </a>
+                            <p class="card-text text-sec">{!! substr(strip_tags($blog->content), 0, 200) . '...' !!}</p>
+                            <a href="{{ url('media/' . $blog->slug) }}" class="fw-bold btn btn-primary">Read More...</a>
+                        </div>
                     </div>
+                    <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
+                        <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}"
+                                class="img-fluid rounded-5 blogImgMain" alt="{{$blog->title}}"></a>
+                    </div>
+
                 </div>
-                <div class="col-12 col-lg-5 col-md-6 my-auto py-4">
-                    <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}" class="img-fluid rounded-5 blogImgMain"
-                        alt="{{$blog->title}}" ></a>
-                </div>
-                
-            </div>
-              @endif
+                @endif
                 @endforeach
             </div>
             <div class="col-12 col-lg-12">
@@ -129,8 +134,8 @@
                 <div id="partnerSlide" class="owl-carousel owl-theme">
                     <div class="item my-auto">
                         <div class="partnerImg">
-                            <img src="{{asset('frontend/assets/images/publications/arabian-business.png')}}" class="img-fluid"
-                                alt="{{  $name }}">
+                            <img src="{{asset('frontend/assets/images/publications/arabian-business.png')}}"
+                                class="img-fluid" alt="{{  $name }}">
                         </div>
                     </div>
                     <div class="item my-auto">
@@ -163,17 +168,17 @@
                 <div id="areaguideSlide" class="owl-carousel owl-theme">
                     @foreach ($communities as $comm)
                     <div class="item">
-                        <div class="card border-0 mb-3">
-                            <div class="propCont p-relative">
-                                <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainIMage}}"
-                                        class="card-img-top rounded-0 propIMg" alt="{{  $comm->name }}" /></a>
-                                <div class="commuDetOverlay">
-                                    <a href="{{ url('area/' . $comm->slug) }}">
-                                        <h5 class="card-title mb-0">{{  $comm->name }}</h5>
-                                    </a>
+                        <a href="{{ url('area/' . $comm->slug) }}">
+                            <div class="card border-0 mb-3">
+                                <div class="propCont p-relative">
+                                    <img src="{{$comm->mainIMage}}" class="card-img-top rounded-0 propIMg"
+                                        alt="{{  $comm->name }}" />
+                                    <div class="commuDetOverlay">
+                                        <h5 class="card-title mb-0">{{ $comm->name }}</h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     @endforeach
                 </div>

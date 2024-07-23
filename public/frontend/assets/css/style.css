@@ -52,7 +52,7 @@ small,a, ul li {
     width: 100%;
     left:0;
     right:0;
-    z-index: 1;
+    z-index: 9;
     min-height: 75px;
 }
 .navBarWhite {
@@ -560,6 +560,17 @@ border: 1px solid rgba(255, 255, 255, 1);
     height: 125px;
     object-fit: cover;
 object-position: top;
+}
+.agentDetailCont {
+    visibility: hidden;
+  opacity: 0;
+  height:0px;
+  transition: visibility 0s, height 2s linear;
+}
+.agentContNew:hover .agentDetailCont{
+    visibility: visible;
+  opacity: 1;
+  height:auto;
 }
 .gallerContentSingle {
     display: block;

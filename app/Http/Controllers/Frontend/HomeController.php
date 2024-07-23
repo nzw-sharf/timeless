@@ -26,6 +26,7 @@ class HomeController extends Controller
             ['GET', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/house/type/list', '{}'],
             ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"NEW","size":8,"sort" : "ID",
     "sortType":"DESC"}'],
+
         ];
         $response1 = [];
         foreach ($groupApi as $key => $api) {
@@ -45,7 +46,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                     'Content-Type: application/json'
                 ),
             ));
@@ -79,11 +80,12 @@ class HomeController extends Controller
 
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         $offerType = config('constants.offerType');
+        $bedrooms = config('constants.roomsList');
         $blogs = Article::active()->latest()->take(3)->get();
         $testimonials = Testimonial::active()->latest()->get();
 
 
-        return view('frontend.home', compact('pagemeta', 'offerType', 'developers', 'accomodation', 'communities', 'blogs', 'testimonials', 'properties'));
+        return view('frontend.home', compact('pagemeta', 'offerType', 'developers', 'accomodation', 'communities', 'blogs', 'testimonials', 'properties', 'bedrooms'));
     }
     public function aboutUs()
     {
@@ -96,25 +98,28 @@ class HomeController extends Controller
     {
 
         if ($request->isMethod('post')) {
-
+            $maxPrice = '';
+            if (isset($request->maxPrice)) { 
+                $maxPrice = '"endPrice"'.':'. $request->maxPrice.', ';
+            }
             if (isset($request->category)) {
                 $groupApi = [
-                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",    "listingType":"' . $request->category . '","name":"' . $request->keyword . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',     "sort" : "ID","sortType":"DESC"}'],
-                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",   "listingType":"' . $request->category . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',"sort" : "ID","name":"' . $request->keyword . '",   "sortType":"DESC","size":6}'],
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",    "listingType":"' . $request->category . '","name":"' . $request->keyword . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . ','.$maxPrice.'"sort" : "ID","sortType":"DESC"}'],
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",   "listingType":"' . $request->category . '", "propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . ','.$maxPrice.'"sort" : "ID","name":"' . $request->keyword . '",   "sortType":"DESC","size":6}'],
 
                 ];
             } else {
                 $groupApi = [
                     ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"RENT",
-    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',
+    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . ','.$maxPrice.'
     "sortType":"DESC"}'],
                     ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
     "listingType":"SELL",
-    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . ',
+    "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . ','.$maxPrice.'
     "sortType":"DESC"}'],
                     ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
-    "listingType":"SELL","startPrice":' . ($request->price ? $request->price : 0) . ',
+    "listingType":"SELL","startPrice":' . ($request->minPrice ? $request->minPrice : 0) . ','.$maxPrice.'
     "sort" : "ID","name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],
     "sortType":"DESC","size":6}'],
                 ];
@@ -126,7 +131,7 @@ class HomeController extends Controller
                 ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC","size":6}'],
             ];
         }
-        // dd($groupApi);
+        //  dd($groupApi);
         $response1 = [];
         foreach ($groupApi as $key => $api) {
             $method = $api[0];
@@ -145,7 +150,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                     'Content-Type: application/json'
                 ),
             ));
@@ -190,9 +195,9 @@ class HomeController extends Controller
     {
 
         $groupApi = [
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC"}'],
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC","size":6}'],
-            ];
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC"}'],
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"RENT","sort" : "ID","sortType":"DESC","size":6}'],
+        ];
         // dd($groupApi);
         $response1 = [];
         foreach ($groupApi as $key => $api) {
@@ -212,7 +217,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                     'Content-Type: application/json'
                 ),
             ));
@@ -230,12 +235,12 @@ class HomeController extends Controller
             curl_close($curl);
         }
         $sell = json_decode($response1[0], true);
-            // $propArray = json_decode($response1[0], true);
-            $properties = $sell['data']['list'];
+        // $propArray = json_decode($response1[0], true);
+        $properties = $sell['data']['list'];
 
-            $ExcArray = json_decode($response1[1], true);
-            $exclusive = $ExcArray['data']['list'];
-     
+        $ExcArray = json_decode($response1[1], true);
+        $exclusive = $ExcArray['data']['list'];
+
 
 
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
@@ -246,9 +251,9 @@ class HomeController extends Controller
     {
 
         $groupApi = [
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC"}'],
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC","size":6}'],
-            ];
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC"}'],
+            ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE","listingType":"SELL","sort" : "ID","sortType":"DESC","size":6}'],
+        ];
         // dd($groupApi);
         $response1 = [];
         foreach ($groupApi as $key => $api) {
@@ -268,7 +273,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                     'Content-Type: application/json'
                 ),
             ));
@@ -286,12 +291,12 @@ class HomeController extends Controller
             curl_close($curl);
         }
         $sell = json_decode($response1[0], true);
-            // $propArray = json_decode($response1[0], true);
-            $properties = $sell['data']['list'];
+        // $propArray = json_decode($response1[0], true);
+        $properties = $sell['data']['list'];
 
-            $ExcArray = json_decode($response1[1], true);
-            $exclusive = $ExcArray['data']['list'];
-     
+        $ExcArray = json_decode($response1[1], true);
+        $exclusive = $ExcArray['data']['list'];
+
 
 
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
@@ -305,26 +310,30 @@ class HomeController extends Controller
         } else {
             $page = 1;
         }
-        if ($request->has('keyword') || $request->has('accomodation') || $request->has('bedroom') || $request->has('price')) {
+        if ($request->has('keyword') || $request->has('accomodation') || $request->has('bedroom') || $request->has('maxPrice') || $request->has('minPrice')) {
+            $maxPrice = '';
+            if (isset($request->maxPrice)) { 
+                $maxPrice = '"endPrice"'.':'. $request->maxPrice.', ';
+            }
             $groupApi = [
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":-1,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . '}'],
-    
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":6,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],"startPrice":' . ($request->price ? $request->price : 0) . '}'],
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":-1,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
+
+                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":6,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
             ];
-        }else{
+        } else {
             $groupApi = [
                 ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
         "listingType":"NEW",
         "sort" : "ID",
         "sortType":"DESC","size":-1}'],
-    
+
                 ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
         "listingType":"NEW",
         "sort" : "ID",
         "sortType":"DESC","size":6}'],
             ];
         }
-       
+
         $response1 = [];
         foreach ($groupApi as $key => $api) {
             $method = $api[0];
@@ -343,7 +352,7 @@ class HomeController extends Controller
                 CURLOPT_CUSTOMREQUEST => $method,
                 CURLOPT_POSTFIELDS => $data,
                 CURLOPT_HTTPHEADER => array(
-                    'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                    'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                     'Content-Type: application/json'
                 ),
             ));
@@ -395,12 +404,13 @@ class HomeController extends Controller
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         return view('frontend.thankYou', compact('pagemeta'));
     }
-    public function agentDetails(Request $request) {
+    public function agentDetails(Request $request)
+    {
         $agent = Agent::where('id', $request->teamId)->first();
-     
+
         $html = view('frontend.agentDetails', compact('agent'))->render();
 
-            return response()->json(['success' => true, 'html' => $html,'url' => request()->getRequestUri()]);
+        return response()->json(['success' => true, 'html' => $html, 'url' => request()->getRequestUri()]);
     }
     public function media()
     {
@@ -431,7 +441,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
             ),
         ));
 
@@ -461,7 +471,7 @@ class HomeController extends Controller
                 "developerIds":[' . $devId . ']
             }',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                 'Content-Type: application/json'
             ),
         ));
@@ -484,7 +494,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').''
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . ''
             ),
         ));
 
@@ -509,7 +519,7 @@ class HomeController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').''
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . ''
             ),
         ));
 
@@ -540,7 +550,7 @@ class HomeController extends Controller
                 "developerIds":[' . $devId . ']
             }',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: '.env('PIXXI_TOKEN').'',
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                 'Content-Type: application/json'
             ),
         ));

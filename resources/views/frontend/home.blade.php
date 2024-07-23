@@ -12,8 +12,8 @@
 @section('content')
 
 <section class="homeBanner mainBanner2 ">
-     <div id="carouselExampleControls" class="carousel slide homeCarousel" data-bs-ride="carousel">
-       
+    <div id="carouselExampleControls" class="carousel slide homeCarousel" data-bs-ride="carousel">
+
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{{asset('frontend/assets/images/banner/homeBg1.webp')}}" class="d-block w-100"
@@ -27,29 +27,38 @@
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg2.webp')}}" class="d-block w-100"
                     alt="timeless properties">
-                    <div class="carousel-caption ">
-                        <div class="bannerHead text-center text-white">
-                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
-                        </div>
+                <div class="carousel-caption ">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Your Gateway to <span>Timeless Luxury</span></h5>
                     </div>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg3.webp')}}" class="d-block w-100"
                     alt="timeless properties">
-                    <div class="carousel-caption ">
-                        <div class="bannerHead text-center text-white">
-                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
-                        </div>
+                <div class="carousel-caption ">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Your Gateway to <span>Timeless Luxury</span></h5>
                     </div>
+                </div>
             </div>
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg4.webp')}}" class="d-block w-100"
                     alt="timeless properties">
-                    <div class="carousel-caption ">
-                        <div class="bannerHead text-center text-white">
-                            <h5>Your Gateway to <span>Timeless Luxury</span></h5>
-                        </div>
+                <div class="carousel-caption ">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Your Gateway to <span>Timeless Luxury</span></h5>
                     </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{asset('frontend/assets/images/banner/homeBg5.webp')}}" class="d-block w-100"
+                    alt="timeless properties">
+                <div class="carousel-caption ">
+                    <div class="bannerHead text-center text-white">
+                        <h5>Your Gateway to <span>Timeless Luxury</span></h5>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="searchBottom">
@@ -62,7 +71,7 @@
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -74,7 +83,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    
+
 </section>
 
 <section class="bgDubai">
@@ -86,7 +95,7 @@
                         <div>
                             <div class="sectionHead">
                                 <h5>Luxury Real Estate</br> <span>Timeless
-                                    Properties</span></h5>
+                                        Properties</span></h5>
                             </div>
                             <div class="pe-0 pe-md-3 pe-lg-5">
                                 <p class="text-sec">We are a boutique luxury real estate firm, connecting discerning
@@ -122,22 +131,19 @@
                 <div class="row text-center">
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
-                            <h5 class="fw-bold"><span class="counter"
-                                data-count="2">0</span>Billion AED</h5>
+                            <h5 class="fw-bold"><span class="counter" data-count="2">0</span>Billion AED</h5>
                             <p class="text-sec mb-0"> in Sales Revenue in the UAE alone</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
-                            <h5 class="fw-bold"><span class="counter"
-                                data-count="15000">0</span>+</h5>
+                            <h5 class="fw-bold"><span class="counter" data-count="15000">0</span>+</h5>
                             <p class="text-sec mb-0"> HNWI's in our Network that are ready for business</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
-                            <h5 class="fw-bold"><span class="counter"
-                                data-count="25">0</span>+</h5>
+                            <h5 class="fw-bold"><span class="counter" data-count="25">0</span>+</h5>
                             <p class="text-sec mb-0"> Years of Global Real Estate Experience</p>
                         </div>
                     </div>
@@ -166,7 +172,7 @@
                             </div>
                         </div>
                         <div class="text-start pt-4 px-3">
-                            <p class="text-sec"><button type="submit" class="btn btn-primary">GET  DETAILS</button>
+                            <p class="text-sec"><button type="submit" class="btn btn-primary">GET DETAILS</button>
                             </p>
                         </div>
                     </div>
@@ -213,7 +219,7 @@
                                     </a>
                                     <div class="d-flex justify-content-between">
                                         <div class="my-auto">
-                                            <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
+                                            <p class="mb-0 text-sec">AED {{number_format($prop['price'])}}</p>
                                         </div>
                                         <div class="my-auto">
                                             <a class="btn btn-outline"
@@ -276,25 +282,28 @@
                         <div id="areaguideSlide" class="owl-carousel owl-theme">
                             @foreach ($communities as $comm)
                             <div class="item">
-                                <div class="card border-0 mb-3">
-                                    <div class="propCont p-relative">
-                                        <a href="{{ url('area/' . $comm->slug) }}"><img src="{{$comm->mainImage}}"
-                                                class="card-img-top propIMg" alt="{{$comm->name}}"></a>
-                                        <div class="propDetOverlay">
-                                            <a href="{{ url('area/' . $comm->slug) }}">
+                                <a href="{{ url('area/' . $comm->slug) }}">
+                                    <div class="card border-0 mb-3">
+                                        <div class="propCont p-relative">
+
+                                            <img src="{{$comm->mainImage}}" class="card-img-top propIMg"
+                                                alt="{{$comm->name}}">
+                                            <div class="propDetOverlay">
+
                                                 <h5 class="card-title mb-0">{{$comm->name}}</h5>
-                                            </a>
+                                            </div>
+
                                         </div>
+
                                     </div>
-        
-                                </div>
+                                </a>
                             </div>
                             @endforeach
-        
+
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </div>
