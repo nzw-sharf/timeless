@@ -561,6 +561,17 @@ border: 1px solid rgba(255, 255, 255, 1);
     object-fit: cover;
 object-position: top;
 }
+.agentDetailCont {
+    visibility: hidden;
+  opacity: 0;
+  height:0px;
+  transition: visibility 0s, height 2s linear;
+}
+.agentContNew:hover .agentDetailCont{
+    visibility: visible;
+  opacity: 1;
+  height:auto;
+}
 .gallerContentSingle {
     display: block;
     align-items: center;

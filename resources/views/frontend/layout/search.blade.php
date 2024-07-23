@@ -29,11 +29,48 @@
         </div>
         <div class="col-6 col-md col-lg my-auto">
             <label for="">No.of Bedrooms</label>
-            <input type="number" name="bedroom" id="bedroom" class="form-control">
+            
+            <select class="form-select" name="bedroom" id="bedroom">
+                <option value="" hidden></option>
+                
+                @foreach ($bedrooms as $key => $bedroom)
+                    <option value="{{ $bedroom }}">{{ $bedroom }}
+                    </option>
+                @endforeach
+            </select>
+            {{-- <input type="number" name="bedroom" id="bedroom" class="form-control"> --}}
         </div>
         <div class="col my-auto">
             <label for="">Price</label>
-           <input type="number" name="price" id="price" class="form-control">
+            <div class="dropdown">
+                {{-- <a class="form-control dropdown-toggle show" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-auto-close="outside">
+                    Price
+                </a> --}}
+                <input type="text"  class="form-control dropdown-toggle show" placeholder="Price" readonly role="button" data-bs-toggle="dropdown" aria-expanded="true" data-bs-auto-close="outside">
+                <div class="dropdown-menu"  data-popper-placement="bottom-start">
+                    <div class="p-2">
+                        <div class="row g-2">
+                            <div class="col-lg-6 my-auto">
+                                <div class="">
+                                    <label for="min-price" class="text-black">Min Price</label>
+                                    <input type="number" class="form-control  form-control-sm" id="minPrice" name="minPrice" placeholder=" ">
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 my-auto">
+                                <div class="">
+                                    <label for="max-price" class="text-black">Max Price</label>
+                                    <input type="number" class="form-control  form-control-sm" id="maxPrice" name="maxPrice" placeholder=" ">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           {{-- <input type="number" name="price" id="price" class="form-control"> --}}
         </div>
         <div class="col-auto mt-auto">
             <button type="submit" class="btn btn-primary">SEARCH</button>

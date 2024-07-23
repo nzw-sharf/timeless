@@ -58,7 +58,7 @@
                                                     </center>
                                                 </div>
                                                 <div class="text-primary my-auto">
-                                                    <h6 class="fw-bold mb-0">AED {{ $project['price'] }}</h6>
+                                                    <h6 class="fw-bold mb-0">AED {{ number_format($project['price']) }}</h6>
                                                     <p class="fs-12 text-secondary mb-0">Starting Price</p>
                                                 </div>
                                             </div>
@@ -177,7 +177,7 @@
                                 </h5>
                                 <h6 class="mb-0 text-primary">
                                     @if($project['price'])
-                                    Starting Price: AED {{ $project['price'] }}
+                                    Starting Price: AED {{ number_format($project['price']) }}
                                     @else
 
                                     @endif
@@ -256,7 +256,7 @@
                                             </center>
                                         </div>
                                         <div class="text-primary  my-auto">
-                                            <h6 class="fw-bold mb-0">AED {{ $project['price'] }}</h6>
+                                            <h6 class="fw-bold mb-0">AED {{ number_format($project['price']) }}</h6>
                                             <p class="fs-12 text-secondary mb-0">Starting Price</p>
                                         </div>
                                     </div>
@@ -498,9 +498,11 @@
                                                 <div class="my-auto">
                                                     <p class="text-sec"><i class="fa fa-home"></i> {{ $floorplan['title'] }}</p>
                                                 </div>
+                                                @if($floorplan['price'])
                                                 <div class="my-auto">
                                                     <p class="text-sec"><i class="bi bi-tag"></i> AED {{ $floorplan['price'] }}</p>
                                                 </div>
+                                                @endif
                                                 <div class="my-auto">
                                                     <p class="text-sec"><i
                                                         class="bi bi-arrows-fullscreen"></i> {{ $floorplan['area'] }} Sq.Ft.</p>
@@ -609,7 +611,7 @@ $payment = explode(' ',$rep);
                                                 </a>
                                                 <div class="d-flex justify-content-between">
                                                     <div class="my-auto">
-                                                        <p class="mb-0 text-sec">AED {{$prop['price']}}</p>
+                                                        <p class="mb-0 text-sec">AED {{number_format($prop['price'])}}</p>
                                                     </div>
                                                     <div class="my-auto">
                                                         <a class="btn btn-outline" href="{{ url('project/' . $prop['propertyId']) }}">Details</a>
