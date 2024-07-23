@@ -244,7 +244,7 @@
 </section>
 
 <div class="modal fade" id="agentFull" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bgLight border">
             <div class="modal-header justify-content-center border-0 p-relative">
                 <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>

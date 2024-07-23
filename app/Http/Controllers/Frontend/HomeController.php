@@ -408,7 +408,7 @@ class HomeController extends Controller
     {
         $agent = Agent::where('id', $request->teamId)->first();
 
-        $html = view('frontend.agentDetails', compact('agent'))->render();
+        $html = view('frontend.agentDetail', compact('agent'))->render();
 
         return response()->json(['success' => true, 'html' => $html, 'url' => request()->getRequestUri()]);
     }
