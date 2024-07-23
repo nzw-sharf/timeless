@@ -27,6 +27,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         {{-- Lightbox --}}
 <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 1000, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom',
+    });
+  </script>
     <script>
         $(document).ready(function() {
             
@@ -130,7 +142,7 @@
             dots: false,
             responsive:{
                 0:{
-                    items:2,
+                    items:1,
                 },
                 600:{
                     items:3,
@@ -145,7 +157,7 @@
             loop:true,
             
             margin:30,
-            autoplay:false,
+            autoplay:true,
             autoplayTimeout:3000,
             autoplayHoverPause:true,
             responsiveClass:true,
@@ -252,6 +264,9 @@
         $('#managementSlide').owlCarousel({
             center: false,
             loop:false,
+            autoplay:true,
+            autoplayTimeout:3500,
+            autoplayHoverPause:true,
             margin:20,
             nav:true,
             dots:false,

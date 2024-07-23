@@ -16,7 +16,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="bannerHead text-center text-white">
+                        <div class="bannerHead text-center text-white" data-aos="fade-up">
                             <h5>About<span> Timeless Properties</span></h5>
                         </div>
                     </div>
@@ -31,20 +31,20 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12">
-                        <div class="secHead mb-4 text-center">
+                        <div class="secHead mb-4 text-center" data-aos="fade-up">
                             <h5>Our <span>Story</span></h5>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
                         <div>
 
-                            <div class="p-0 p-md-3 p-lg-5">
+                            <div class="p-0 p-md-3 p-lg-5" data-aos="fade-right">
                                 <p class="text-sec">Welcome to Timeless Properties, where we redefine luxury and convenience in the Dubai real estate market. With a legacy of over 25 years, we specialize in offering exclusive properties that are unavailable through any other agency in the region, thanks to our loyal network of sellers. Our expansive network extends beyond borders, connecting you with esteemed buyers, sellers, and influential figures worldwide. At Timeless Properties, we prioritize your experience, ensuring each step of your real estate journey is effortless and unforgettable. From initial consultation to closing, our expert team provides personalized guidance and support, guaranteeing a seamless transaction tailored to your unique preferences and requirements. Discover the unparalleled service and opportunities that await you with Timeless Properties.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
-                        <div class="aboutImg">
+                        <div class="aboutImg" data-aos="fade-left">
                             <img src="{{asset('frontend/assets/images/aboutNew.webp')}}" alt="{{  $name }}"
                                 srcset="{{asset('frontend/assets/images/aboutNew.webp')}}" class="img-fluid">
                         </div>
@@ -62,7 +62,7 @@
     <div class="container-fluid py-5">
         <div class="row">
             <div class="col-12 col-lg-12 col-md-12">
-                <div class="secHead pb-4  text-center">
+                <div class="secHead pb-4  text-center"  data-aos="fade-up">
                     <h5>Our<span>Management</span></h5>
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead text-center">
+                        <div class="secHead text-center" data-aos="fade-up">
                             <h5>Our<span>Agents</span></h5>
                         </div>
                     </div>
@@ -178,17 +178,17 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-lg-8 col-md-8 my-auto">
-                        <div class="secHead mb-3">
+                    <div class="col-12 col-lg-8 col-md-10 my-auto">
+                        <div class="secHead mb-4 text-center" data-aos="fade-up">
                             <h5>Join Our <span>Team</span></h5>
                         </div>
-                        <div class="shadow p-2 p-md-5 rounded-3">
+                        <div class="shadow p-2 p-md-5 rounded-3" data-aos="fade-up">
                             <div class="text-center">
                                 <h5 class="fw-bold">Submit Your deatils</h5>
                                 <p class="text-sec">Are you ready to join the UAE's leading real estate company? 
                                     </p>
                             </div>
-                            <div class="contactForm">
+                            <div class="contactForm" data-aos="fade-up">
                                 <form action="" id="modalViewForm" method="post">
                                     @csrf
                                     <div class="row g-3">
@@ -244,7 +244,7 @@
 </section>
 
 <div class="modal fade" id="agentFull" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bgLight border">
             <div class="modal-header justify-content-center border-0 p-relative">
                 <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>

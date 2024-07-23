@@ -93,11 +93,11 @@
                 <div class="row">
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div>
-                            <div class="sectionHead">
+                            <div class="sectionHead" data-aos="fade-right">
                                 <h5>Luxury Real Estate</br> <span>Timeless
                                         Properties</span></h5>
                             </div>
-                            <div class="pe-0 pe-md-3 pe-lg-5">
+                            <div class="pe-0 pe-md-3 pe-lg-5" data-aos="fade-right">
                                 <p class="text-sec">We are a boutique luxury real estate firm, connecting discerning
                                     clients to the most desirable homes. We offer a bespoke service
                                     that is built on the highest levels of attention to detail & discretion.
@@ -110,11 +110,11 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
-                        <div class="aboutImg">
+                        <div class="aboutImg" data-aos="fade-left">
                             <img src="{{asset('frontend/assets/images/about.webp')}}" alt="{{  $name }}"
                                 srcset="{{asset('frontend/assets/images/about.webp')}}" class="img-fluid">
                         </div>
-                        <div class="text-center pt-4">
+                        <div class="text-center pt-4" data-aos="fade-left">
                             <p class="text-sec">For Luxury Living &nbsp; <button type="submit"
                                     class="btn btn-primary">GET IN TOUCH</button></p>
                         </div>
@@ -132,19 +132,19 @@
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
                             <h5 class="fw-bold"><span class="counter" data-count="2">0</span>Billion AED</h5>
-                            <p class="text-sec mb-0"> in Sales Revenue in the UAE alone</p>
+                            <p class="text-sec mb-0" data-aos="fade-up"> in Sales Revenue in the UAE alone</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
                             <h5 class="fw-bold"><span class="counter" data-count="15000">0</span>+</h5>
-                            <p class="text-sec mb-0"> HNWI's in our Network that are ready for business</p>
+                            <p class="text-sec mb-0" data-aos="fade-up"> HNWI's in our Network that are ready for business</p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="text-white sectionHeadNew py-3">
                             <h5 class="fw-bold"><span class="counter" data-count="25">0</span>+</h5>
-                            <p class="text-sec mb-0"> Years of Global Real Estate Experience</p>
+                            <p class="text-sec mb-0" data-aos="fade-up"> Years of Global Real Estate Experience</p>
                         </div>
                     </div>
                 </div>
@@ -158,12 +158,12 @@
             <div class="col-12 col-lg-12">
                 <div class="row g-0">
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
-                        <div class="secHead pe-0 pe-md-3 pe-lg-5 pb-4 ps-3">
+                        <div class="secHead pe-0 pe-md-3 pe-lg-5 pb-4 ps-3" data-aos="fade-right">
                             <h5>Discover Our Most
                                 Luxurious <br><span>Villa Retreat!</span></h5>
                         </div>
                         <div class="bgVilla">
-                            <div class="">
+                            <div class="" data-aos="fade-right">
                                 <h4 class="fw-bold">3000+ <span class="text-sec fw-normal">sq. ft.</span></h4>
                                 <h4 class="fw-bold">5 <span class="text-sec fw-normal">Bedrooms</span></h4>
                                 <h4 class="fw-bold">2 <span class="text-sec fw-normal">Kitchens</span></h4>
@@ -171,14 +171,14 @@
                                     garden, Front Patio, Living room, Driveway</p>
                             </div>
                         </div>
-                        <div class="text-start pt-4 px-3">
+                        <div class="text-start pt-4 px-3" data-aos="fade-right">
                             <p class="text-sec"><button type="submit" class="btn btn-primary">GET DETAILS</button>
                             </p>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 p-relative my-auto">
                         <div class="bgVilla2"></div>
-                        <div class="d-flex flex-column justify-content-center py-5  h-100">
+                        <div class="d-flex flex-column justify-content-center py-5  h-100"  data-aos="fade-left">
                             <img src="{{asset('frontend/assets/images/about2.webp')}}" alt="{{  $name }}"
                                 srcset="{{asset('frontend/assets/images/about2.webp')}}" class="img-fluid rounded-4">
                         </div>
@@ -195,7 +195,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead pb-4">
+                        <div class="secHead pb-4" data-aos="fade-right">
                             <h5>Featured<span>Properties</span></h5>
                             <p class="text-sec">Discover the epitome of luxury living with Timeless Properties' featured
                                 listings. Our exclusive portfolio showcases the finest residences in Dubai, meticulously
@@ -209,7 +209,7 @@
                 <div class="row">
                     @foreach ($properties as $prop)
                     <div class="col-12 col-lg-4 col-md-4 col-xl-3">
-                        <div class="card border-0 mb-3">
+                        <div class="card border-0 mb-3" data-aos="fade-up">
                             <div class="propCont p-relative">
                                 <a href="{{ url('project/' . $prop['propertyId']) }}"><img src="{{$prop['photos'][0]}}"
                                         class="card-img-top propIMg" alt="{{$prop['title']}}"></a>
@@ -268,7 +268,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead pb-4">
+                        <div class="secHead pb-4" data-aos="fade-right">
                             <h5>Discover<span>Dubai</span></h5>
                             <p class="text-sec">Get to know the city with our Area Guides!</p>
 
@@ -283,7 +283,7 @@
                             @foreach ($communities as $comm)
                             <div class="item">
                                 <a href="{{ url('area/' . $comm->slug) }}">
-                                    <div class="card border-0 mb-3">
+                                    <div class="card border-0 mb-3"  data-aos="fade-up">
                                         <div class="propCont p-relative">
 
                                             <img src="{{$comm->mainImage}}" class="card-img-top propIMg"
@@ -315,10 +315,10 @@
                 <div class="row">
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div class="py-5">
-                            <div class="sectionHead">
+                            <div class="sectionHead" data-aos="fade-right">
                                 <h5>Founder & Director</br> <span>Adam Farani</span></h5>
                             </div>
-                            <div class="pe-0 pe-md-3 pe-lg-5">
+                            <div class="pe-0 pe-md-3 pe-lg-5" data-aos="fade-right">
                                 <p class="text-sec">With Timeless Properties, you have discovered an agency with over 25
                                     years of unparalleled excellence in the real estate industry. Under the visionary
                                     leadership of CEO & Founder Adam Farani, an esteemed and award-winning pioneer in
@@ -326,13 +326,13 @@
                                     expertise, and discretion. Whether you are buying or selling, experience the
                                     pinnacle of luxury and professionalism with Timeless Properties.</p>
                             </div>
-                            <div class=" pt-4">
+                            <div class=" pt-4" data-aos="fade-right">
                                 <button type="submit" class="btn btn-white">GET IN TOUCH</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 mt-auto">
-                        <div class="">
+                        <div class="" data-aos="fade-left">
                             <img src="{{asset('frontend/assets/images/ceo.png')}}" alt="{{  $name }}"
                                 srcset="{{asset('frontend/assets/images/ceo.png')}}" class="img-fluid">
                         </div>
@@ -349,7 +349,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead text-center">
+                        <div class="secHead text-center" data-aos="fade-right">
                             <h5>Our<span>Partners</span></h5>
                             <p class="text-sec">when an unknown printer took a galley of type and scrambled it to
                                 make a type specimen book. It has survived not only five centuries.when an unknown
@@ -394,7 +394,7 @@
             <div class="col-12 col-lg-12">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead text-center">
+                        <div class="secHead text-center" data-aos="fade-right">
                             <h5>What Our<span>Clients Say</span></h5>
                         </div>
                     </div>
@@ -442,14 +442,14 @@
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead pb-4">
+                        <div class="secHead pb-4" data-aos="fade-right">
                             <h5>Blogs</h5>
                         </div>
                     </div>
                     @foreach ($blogs as $blog)
                     @if ($loop->first)
                     <div class="col-12 col-lg-7 col-md-6">
-                        <div class="card blogCard border-0">
+                        <div class="card blogCard border-0" data-aos="fade-up">
                             <a href="{{ url('media/' . $blog->slug) }}"><img src="{{$blog->mainImage}}"
                                     class="card-img-top" alt="{{$blog->title}}"></a>
                             <div class="card-body rounded-bottom bg-secondary">
@@ -469,7 +469,7 @@
                     <div class="col-12 col-lg-5 col-md-6">
                         @foreach ($blogs as $blog)
                         @if (!$loop->first)
-                        <div class="card mb-4 blogCardSide border-0">
+                        <div class="card mb-4 blogCardSide border-0"  data-aos="fade-up">
                             <div class="row g-0 h-100">
                                 <div class="col-md-5">
                                     <a href="{{ url('media/' . $blog->slug) }}">
