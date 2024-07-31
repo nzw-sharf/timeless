@@ -41,11 +41,11 @@
                     </p>
                 </div>
             </div>
-            <div class="col-12 col-lg-12">
-                <div class="row">
+            <div class="col-12 col-lg-12 pt-4">
+                <div class="row g-3">
                     @foreach ($communities as $comm)
-                    <div class="col-12 col-lg-3 col-md-4">
-                        <a href="{{ url('area/' . $comm->slug) }}">
+                    <div class="col-12 col-lg-3 col-md-4 mb-3">
+                        <a href="{{ url('area/' . $comm->slug) }}" >
                             <div class="card border-0 mb-3">
                                 <div class="propCont p-relative">
                                     <img src="{{$comm->mainIMage}}" class="card-img-top rounded-0 propIMg"
