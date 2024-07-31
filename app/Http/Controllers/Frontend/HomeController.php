@@ -310,30 +310,45 @@ class HomeController extends Controller
         } else {
             $page = 1;
         }
-        if ($request->has('keyword') || $request->has('accomodation') || $request->has('bedroom') || $request->has('maxPrice') || $request->has('minPrice')) {
-            $maxPrice = '';
-            if (isset($request->maxPrice)) { 
-                $maxPrice = '"endPrice"'.':'. $request->maxPrice.', ';
-            }
-            $groupApi = [
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":-1,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
-
-                ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":6,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
-            ];
-        } else {
+        if ($request->has('community')){
             $groupApi = [
                 ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
         "listingType":"NEW",
+        "regionIds": [' . $request->community . '],
         "sort" : "ID",
         "sortType":"DESC","size":-1}'],
 
                 ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
         "listingType":"NEW",
+        "regionIds": [' . $request->community . '],
         "sort" : "ID",
         "sortType":"DESC","size":6}'],
             ];
-        }
+        }else{
+            if ($request->has('keyword') || $request->has('accomodation') || $request->has('bedroom') || $request->has('maxPrice') || $request->has('minPrice')) {
+                $maxPrice = '';
+                if (isset($request->maxPrice)) { 
+                    $maxPrice = '"endPrice"'.':'. $request->maxPrice.', ';
+                }
+                $groupApi = [
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":-1,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
 
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",        "listingType":"NEW","sort" : "ID","sortType":"DESC","size":6,"name":"' . $request->keyword . '","propertyType": [' . $request->accomodation . '],"bedRoomNum": [' . $request->bedroom . '],'.$maxPrice.'"startPrice":' . ($request->minPrice ? $request->minPrice : 0) . '}'],
+                ];
+            } else {
+                $groupApi = [
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+            "listingType":"NEW",
+            "sort" : "ID",
+            "sortType":"DESC","size":-1}'],
+
+                    ['POST', 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/', '{"status" : "ACTIVE",
+            "listingType":"NEW",
+            "sort" : "ID",
+            "sortType":"DESC","size":6}'],
+                ];
+            }
+        }
         $response1 = [];
         foreach ($groupApi as $key => $api) {
             $method = $api[0];
@@ -381,6 +396,12 @@ class HomeController extends Controller
 
         return view('frontend.projects', compact('pagemeta', 'exclusive', 'projects'));
     }
+    public function areaGuide()
+    {
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+        $communities = Community::active()->paginate(12);
+        return view('frontend.areaGuide', compact('pagemeta','communities'));
+    }
     public function contact()
     {
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
@@ -403,6 +424,11 @@ class HomeController extends Controller
     {
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         return view('frontend.thankYou', compact('pagemeta'));
+    }
+    public function listProperty()
+    {
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+        return view('frontend.listProperty', compact('pagemeta'));
     }
     public function agentDetails(Request $request)
     {

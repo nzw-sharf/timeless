@@ -62,7 +62,7 @@
     }
 
     var input = document.querySelector("#telephone");
-
+    if (input) {
     intlTelInput(input, {
         autoHideDialCode: true,
         autoPlaceholder: "ON",
@@ -89,6 +89,37 @@
 
         $("#fullNumber").val(fullNumber);
     });
+    }
+    var input2 = document.querySelector("#telephoneNew");
+
+    if (input2) {
+        intlTelInput(input2, {
+            autoHideDialCode: true,
+            autoPlaceholder: "ON",
+            dropdownContainer: document.body,
+            formatOnDisplay: true,
+            hiddenInput: "full_number2",
+            initialCountry: "auto",
+            nationalMode: true,
+            placeholderNumberType: "MOBILE",
+            preferredCountries: ['UAE'],
+            separateDialCode: true,
+            geoIpLookup: function(success, failure) {
+                $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode1 = (resp && resp.country) ? resp.country : "";
+                    success(countryCode1);
+                });
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+        });
+        var iti2 = window.intlTelInputGlobals.getInstance(input2);
+
+        input2.addEventListener('input', function() {
+            var fullNumber2 = iti2.getNumber();
+
+            $("#fullNumber2").val(fullNumber2);
+        });
+    }
     $(".readMorePropBtn").click(function(e) {
         e.preventDefault();
         $(".textLessProp").removeClass("d-block").addClass("d-none");

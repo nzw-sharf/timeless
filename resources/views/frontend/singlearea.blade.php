@@ -29,10 +29,14 @@
                                     <h5>Your Guide to Living in <span>{{$community->name}}</span></h5>
                                 </div>
                                <div class="d-flex">
-                                <button type="button"
-                                    class="btn btn-primary me-3">List Your Property</button>
-                                <button type="button"
-                                    class="btn btn-outline-dark">Find a Property</button>
+                                <div>
+                                    <a href="{{route('list-your-property')}}"
+                                    class="btn btn-primary me-3">List Your Property</a>
+                                </div>
+                                <div>
+                                    <a href="{{url('projects'.'?community='.$community->id)}}"
+                                        class="btn  btn-outline-dark2">Find a Property</a>
+                                </div>
                                </div>
                             </div>
                         </div>
@@ -82,8 +86,8 @@
                                     <h5>Find Your Next Property in <br/><span>{{$community->name}}</span></h5>
                                 </div>
                                <div class="text-center">
-                                <button type="button"
-                                    class="btn btn-primary">Find a Property</button>
+                                <a href="{{url('projects'.'?community='.$community->id)}}"
+                                    class="btn btn-primary">Find a Property</a>
                                </div>
                             </div>
                         </div>

@@ -37,6 +37,7 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('media', 'HomeController@media')->name('media');
     Route::any('search', 'HomeController@search')->name('search');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
+    Route::any('area-guide', 'HomeController@areaGuide')->name('area-guide');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
     Route::any('terms-conditions', 'HomeController@termsConditions')->name('terms-conditions');
     Route::any('thank-you', 'HomeController@thankYou')->name('thank-you');
@@ -44,7 +45,12 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('project/{slug}', 'HomeController@singleProject')->name('singleProject');
     Route::any('property/{slug}', 'HomeController@singleProperty')->name('singleProperty');
     Route::any('area/{slug}', 'HomeController@singlearea')->name('singlearea');
+    Route::any('list-your-property', 'HomeController@listProperty')->name('list-your-property');
     Route::any('agentDetails', 'HomeController@agentDetails'); 
+    Route::any('listingForm', 'ContactController@listingForm')->name('listingForm'); 
+    Route::any('contactForm', 'ContactController@contactForm')->name('contactForm'); 
+    Route::any('careerForm', 'ContactController@careerForm')->name('careerForm'); 
+    Route::any('bookViewForm', 'ContactController@bookViewForm')->name('bookViewForm'); 
     
 });
 

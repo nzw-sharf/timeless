@@ -189,7 +189,7 @@
                                     </p>
                             </div>
                             <div class="contactForm" data-aos="fade-up">
-                                <form action="" id="modalViewForm" method="post">
+                                <form action="{{route('careerForm')}}" id="modalViewForm" method="post">
                                     @csrf
                                     <div class="row g-3">
                                         <div class="col-md-12">
@@ -197,7 +197,7 @@
                                             <input type="text" class="form-control" id="name" name="name"
                                                  required>
                                             <input type="hidden" class="form-control" id="formName" name="formName"
-                                                value="Contact Us Form">
+                                                value="Career Form">
                                         </div>
         
                                         <div class="col-md-6">
@@ -209,7 +209,7 @@
                                         <div class="col-md-6">
                                             <label for="mobile" class="form-label">Phone Number*</label>
                                             <input id="fullNumber" type="hidden" name="fullNumber">
-                                            <input type="tel" class="form-control contField" id="telephone" name="phone"
+                                            <input type="tel" onkeyup="numbersOnly(this)" class="form-control contField" id="telephone" name="phone"
                                                  required>
         
                                         </div>

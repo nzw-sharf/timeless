@@ -667,7 +667,7 @@ $payment = explode(' ',$rep);
                     </div>
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="modalViewFormCont p-3 pb-5">
-                            <form action="" id="modalViewForm" method="post">
+                            <form action="{{route('contactForm')}}" id="modalViewForm" method="post">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-md-12">
@@ -676,7 +676,6 @@ $payment = explode(' ',$rep);
                                             placeholder="Full Name*" required>
                                         <input type="hidden" class="form-control" id="formName" name="formName" value=""
                                             required>
-                                        <input type="hidden" class="form-control" id="fileUrl" name="fileUrl" value="">
                                         <input type="hidden" class="form-control" id="propName" name="propName" value=""
                                             required>
                                     </div>
@@ -690,9 +689,14 @@ $payment = explode(' ',$rep);
                                     <div class="col-md-6">
                                         <label for="mobile" class="form-label">Mobile*</label>
                                         <input id="fullNumber" type="hidden" name="fullNumber">
-                                        <input type="tel" class="form-control contField" id="telephone" name="phone"
+                                        <input type="tel" onkeyup="numbersOnly(this)" class="form-control contField" id="telephone" name="phone"
                                             placeholder="Mobile*" required>
 
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="date" class="form-label">Message</label>
+                                        <textarea name="message" id="message" rows="3"
+                                            class="form-control contField"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="d-grid ">

@@ -276,8 +276,7 @@
                         <div class="col-12 col-lg-12 col-md-12  my-auto">
                             <div class="mt-3 mb-4">
                                 <button data-bs-toggle="modal" data-bs-target="#bookView"
-                                    propertyUrl="{{ url('property' . '/' . $property['propertyId']) }}"
-                                    class="btn btn-primary  w-100 rounded-2 bookViewingBtn"><i
+                                    class="btn btn-primary  w-100 rounded-2 "><i
                                         class="fa fa-calendar"></i> Book A Viewing</button>
                             </div>
                         </div>
@@ -519,13 +518,8 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-12 col-md-12">
-                        @php
-                        
-                        $url = url('property' . '/' . $property['propertyId']);
-
-                        @endphp
                         <div class="modalViewFormCont p-3">
-                            <form action="" id="modalViewForm" method="post">
+                            <form action="{{route('contactForm')}}" id="modalViewForm" method="post">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-md-12">
@@ -534,8 +528,6 @@
                                             placeholder="Full Name*" required>
                                         <input type="hidden" class="form-control" id="formName" name="formName"
                                             value="Mortgage Consultation">
-                                        <input type="hidden" class="form-control" id="propName" name="propName"
-                                            value="{{ $url }}">
                                     </div>
 
                                     <div class="col-md-6">
@@ -546,8 +538,8 @@
 
                                     <div class="col-md-6">
                                         <label for="mobile" class="form-label">Mobile*</label>
-                                        <input id="fullNumber5" type="hidden" name="fullNumber">
-                                        <input type="tel" class="form-control contField" id="telephone5" name="phone"
+                                        <input id="fullNumber2" type="hidden" name="fullNumber">
+                                        <input type="tel" onkeyup="numbersOnly(this)" class="form-control contField" id="telephone2" name="phone"
                                             placeholder="Mobile*" required>
 
                                     </div>
@@ -591,22 +583,21 @@
                     </div>
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="modalViewFormCont p-3">
-                            <form action="" id="modalViewForm" method="post">
+                            <form action="{{route('bookViewForm')}}" id="modalViewForm" method="post">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-md-12">
                                         <label for="name" class="form-label">Full Name*</label>
-                                        <input type="text" class="form-control" id="name" name="nameCon2"
+                                        <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Full Name*" required>
                                         <input type="hidden" class="form-control" id="formName" name="formFrom"
                                             value="Book A Viewing Properties" required>
-                                        <input type="hidden" class="form-control" id="propName2" name="propName"
-                                            value="" required>
+                                        
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email*</label>
-                                        <input type="email" class="form-control" id="email" name="emailCon2" required
+                                        <input type="email" class="form-control" id="email" name="email" required
                                             placeholder="Email*">
                                     </div>
 
@@ -645,12 +636,7 @@
     </div>
 </div>
 
-<script>
-    $(document).on('click', '.bookViewingBtn', function() {
-            var formName = $(this).attr("propertyUrl");
-            $("#propName2").val(formName);
-        });
-</script>
+
 <script>
     $(document).ready(function() {
             var cat = "<?php echo $property['propertyType']; ?>"
@@ -831,11 +817,6 @@
         function yearsToMonths(year) {
             return year * 12;
         }
-</script>
-
-<script>
-    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyChuU-X16agmkNHRIw5mqaFTcsMsSlASBs", v: "weekly"});
 </script>
 
 @endsection
