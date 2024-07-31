@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead text-center mb-3">
-                            <h5 class="text-primary">{{Session::get('message');}}</h2>
+                            <h5 class="text-primary">{{Session::get('msg');}}</h2>
                         </div>
                         <div class="text-center">
                             <a href="{{ url('/') }}"
