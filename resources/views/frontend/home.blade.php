@@ -115,8 +115,9 @@
                                 srcset="{{asset('frontend/assets/images/about.webp')}}" class="img-fluid">
                         </div>
                         <div class="text-center pt-4" data-aos="fade-left">
-                            <p class="text-sec">For Luxury Living &nbsp; <button type="submit"
-                                    class="btn btn-primary">GET IN TOUCH</button></p>
+                            <p class="text-sec">For Luxury Living &nbsp; <button data-bs-toggle="modal" data-bs-target="#detailModal"
+                                    formName="Get In Touch With Us Form"
+                                    class="btn btn-primary btnHomeClick">GET IN TOUCH</button></p>
                         </div>
                     </div>
                 </div>
@@ -172,7 +173,8 @@
                             </div>
                         </div>
                         <div class="text-start pt-4 px-3" data-aos="fade-right">
-                            <p class="text-sec"><button type="submit" class="btn btn-primary">GET DETAILS</button>
+                            <p class="text-sec"><button data-bs-toggle="modal" data-bs-target="#detailModal"
+                                formName="Luxury Villa Retreat Details Form" class="btn btn-primary btnHomeClick">GET DETAILS</button>
                             </p>
                         </div>
                     </div>
@@ -501,5 +503,74 @@
         </div>
     </div>
 </section>
+<!-- Mortgage Consultation-->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-primary">
+            <div class="modal-header pb-0 border-0 bg-primary justify-content-end">
+                <button type="button" class="bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="bi bi-x-circle text-white fa-2x"></i></button>
+            </div>
+            <div class="modal-body d-flex flex-column justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-12 col-md-12">
+                        <div class="secHead text-center mb-3">
+                            <h5 class="text-white">Get in Touch With <span> Us</span></h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-12 col-md-12">
+                        <div class="modalViewFormCont p-3">
+                            <form action="" id="modalViewForm" method="post">
+                                @csrf
+                                <div class="row g-3">
+                                    <div class="col-md-12">
+                                        <label for="name" class="form-label">Full Name*</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="Full Name*" required>
+                                        <input type="hidden" class="form-control" id="formName" name="formName"
+                                            value="Get in Touch Form" required>
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email*</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email*" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="mobile" class="form-label">Mobile*</label>
+                                        <input id="fullNumber" type="hidden" name="fullNumber">
+                                        <input type="tel" onkeyup="numbersOnly(this)" class="form-control contField" id="telephone" name="phone"
+                                            placeholder="Mobile*" required>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="date" class="form-label">Message</label>
+                                        <textarea name="message" id="message" rows="4"
+                                            class="form-control contField rounded-3"></textarea>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="d-grid ">
+                                            <button type="submit" class="btn btn-white text-uppercase">Submit
+                                                Details</button>
+                                        </div>
+                                      
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on('click', '.btnHomeClick', function() {
+            var formName = $(this).attr("formName");
+            $("#formName").val(formName);
+        });
+</script>
 @endsection

@@ -187,77 +187,7 @@
     <div class="container pt-3 pb-5">
         <div class="row">
             <div class="col-12 col-lg-12">
-                <div class="formCont">
-                    <form action="" method="post" class="listingForm">
-                        @csrf
-                        <div class="row ">
-                            <div class="col-12 col-lg-6 col-md-6">
-                                <label for="">Information</label>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" placeholder="I'm a..." name="purpose"
-                                            required>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="First name" name="fname"
-                                            required>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Last name" name="lname">
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="email" class="form-control" placeholder="Email Address"
-                                            name="email" required>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="telephone" class="form-control" placeholder="Mobile" name="phone"
-                                            required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6 col-md-6">
-                                <label for="">Property</label>
-                                <div class="row">
-                                    <div class="col-12 col-lg-6">
-                                        <select name="property_type" id="property_type" class="form-control" required>
-                                            <option value="" hidden>Property Type</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Location" name="location"
-                                            required>
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Asking Price" name="price">
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Property Size(sq.ft.)"
-                                            name="area">
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Number of Beds"
-                                            name="beds">
-                                    </div>
-                                    <div class="col-12 col-lg-6">
-                                        <input type="text" class="form-control" placeholder="Number of Baths"
-                                            name="baths">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12 col-md-12">
-                                <label for="">Additional Message or Requests</label>
-                                <textarea name="message" id="message" rows="3" class="form-control"
-                                    placeholder=""></textarea>
-                            </div>
-                            <div class="col-12 col-lg-12 col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary my-3">SUBMIT</button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-
+                @include('frontend.layout.listForm')
             </div>
         </div>
     </div>

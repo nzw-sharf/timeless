@@ -43,7 +43,7 @@
                                     </p>
                             </div>
                             <div class="contactForm">
-                                <form action="" id="modalViewForm" method="post">
+                                <form action="{{route('contactForm')}}" id="modalViewForm" method="post">
                                     @csrf
                                     <div class="row g-3">
                                         <div class="col-md-12">
@@ -63,14 +63,14 @@
                                         <div class="col-md-6">
                                             <label for="mobile" class="form-label">Phone Number*</label>
                                             <input id="fullNumber" type="hidden" name="fullNumber">
-                                            <input type="tel" class="form-control contField" id="telephone" name="phone"
+                                            <input type="tel" onkeyup="numbersOnly(this)" class="form-control contField" id="telephone" name="phone"
                                                  required>
         
                                         </div>
                                         <div class="col-md-12">
                                             <label for="date" class="form-label">Message</label>
                                             <textarea name="message" id="message" rows="4"
-                                                class="form-control contField rounded-3"></textarea>
+                                                class="form-control contField"></textarea>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="">
@@ -89,17 +89,17 @@
                         <ul class="list-unstyled">
                             <li class="text-sec mb-3">
                                 <p class="text-para fw-bold mb-1">Call Us</p>
-                                <a class="navbar-brand text-sec" href="tel:+{{$contact_number ? $contact_number :'' }}"> <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/icons/phone.png')}} @endif"
+                                <a class="navbar-brand text-sec" href="tel:+{{$contact_number ? $contact_number :'' }}"> <img src="{{asset('frontend/assets/images/icons/phone.png')}}"
                                     alt="{{  $name }}" width="30" class="img-fluid"> &nbsp;<span class="align-middle">{{$contact_number ? $contact_number :'0000000000' }}</span></a>
                             </li>
                             <li class="text-sec mb-3">
                                 <p class="text-para fw-bold mb-1">Visit Us</p>
-                                <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/icons/gps.png')}} @endif"
+                                <img src="{{asset('frontend/assets/images/icons/gps.png')}}"
                                     alt="{{  $name }}" width="30" class="img-fluid"> &nbsp;<span class="align-middle">{{$address ? $address :'The Opus by Zaha Hadid Office C103 • Business Bay • Dubai' }}</span>
                             </li>
                             <li class="text-sec mb-3">
                                 <p class="text-para fw-bold mb-1">Email Us</p>
-                               <a  class="navbar-brand text-sec" href="mailto:+{{$email ? $email :'' }}"><img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/icons/email.png')}} @endif"
+                               <a  class="navbar-brand text-sec" href="mailto:+{{$email ? $email :'' }}"><img src="{{asset('frontend/assets/images/icons/email.png')}}"
                                 alt="{{  $name }}" width="30" class="img-fluid"> &nbsp;<span class="align-middle">{{$email ? $email :'info@company.com' }}</span></a>
                             </li>
                         </ul>

@@ -82,6 +82,13 @@ small,a, ul li {
     padding: .4rem 1rem .4rem 1rem !important;
     border:1px solid var(--primary-black) !important;
 }
+.btn-outline-dark2, .btn-outline-dark2:hover {
+    background-color: transparent !important;
+    border: 1px solid #001515;
+    font-size: 0.89rem;
+    color: #001515 !important;
+    padding: .4rem .4rem .4rem .4rem !important;
+}
 .btn-success {
     color: var(--primary-white);
     font-size: 0.89rem !important;
