@@ -847,6 +847,9 @@ object-position: top;
         background: var(--primary-black);
         padding: 20px;
     }
+    .navBarWhite.navbar-expand-lg .navbar-nav .nav-link{
+        color: #ffffff !important;
+    }
     .aboutImg {
         margin-right: auto;
     }
