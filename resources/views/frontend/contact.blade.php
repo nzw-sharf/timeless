@@ -42,7 +42,7 @@
                                     that is built on the highest levels of attention to detail & discretion.
                                     </p>
                             </div>
-                            <div class="contactForm">
+                            <div class="contactForm pb-3">
                                 <form action="{{route('contactForm')}}" id="modalViewForm" method="post">
                                     @csrf
                                     <div class="row g-3">
