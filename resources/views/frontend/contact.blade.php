@@ -25,8 +25,8 @@
         </div>
     </div>
 </section>
-<section >
-    <div class="container py-5">
+<section  class="my-5">
+    <div class="container ">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
@@ -121,7 +121,7 @@
                     
                     <div class="col-12 col-lg-12 col-md-12 my-auto">
 
-                        <div class="py-3">
+                        <div class="">
                             <iframe src="https://maps.google.com/maps?q={{ isset($address_latitude) ? $address_latitude : '' }},{{ isset($address_longitude) ? $address_longitude : '' }}&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
