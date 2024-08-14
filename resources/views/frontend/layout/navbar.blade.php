@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg mainNav @yield('navbarType')">
         <div class="container py-3">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif" alt="{{  $name }}" width="140" class="img-fluid">
+                <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif" alt="{{  $name }}" width="130" class="img-fluid">
             </a>
           
           <div class="d-flex rowRev">
