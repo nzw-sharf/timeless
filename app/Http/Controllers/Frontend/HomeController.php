@@ -407,6 +407,11 @@ class HomeController extends Controller
         $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
         return view('frontend.contact', compact('pagemeta'));
     }
+    public function careers()
+    {
+        $pagemeta =  PageTag::where('page_name', Route::current()->getName())->first();
+        return view('frontend.careers', compact('pagemeta'));
+    }
 
     public function termsConditions()
     {

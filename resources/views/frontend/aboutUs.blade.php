@@ -173,7 +173,7 @@
     </div>
 </section>
 
-<section >
+<section id="careers">
     <div class="container py-5">
         <div class="row">
             <div class="col-12 col-lg-12">
@@ -229,7 +229,7 @@
                                                 <button type="submit" class="btn btn-primary text-uppercase">Submit
                                                     Details</button>
                                             </div>
-                                          
+                                            <div class="text-center pt-2 fs-11">By submitting this form, you consent to the collection and use of your personal information as outlined in our Privacy Policy.</div>
                                         </div>
         
                                     </div>

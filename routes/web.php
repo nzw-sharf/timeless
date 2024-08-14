@@ -36,6 +36,7 @@ Route::namespace('App\Http\Controllers\Frontend')->group(function(){
     Route::any('projects', 'HomeController@projects')->name('projects');
     Route::any('media', 'HomeController@media')->name('media');
     Route::any('search', 'HomeController@search')->name('search');
+    Route::any('careers', 'HomeController@careers')->name('careers');
     Route::any('contact-us', 'HomeController@contact')->name('contact-us');
     Route::any('area-guide', 'HomeController@areaGuide')->name('area-guide');
     Route::any('privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');

@@ -17,14 +17,14 @@
 @section('navbarType','navBarWhite')
 @section('content')
 <section class="bgDubai">
-    <div class="container py-5">
+    <div class="container my-5">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row">
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div>
                             
-                            <div class="pe-0 pe-md-3 pe-lg-5">
+                            <div class="pe-0 pe-md-3 pe-lg-5 py-3">
                                 <div class="sectionHead">
                                     <h5>Your Guide to Living in <span>{{$community->name}}</span></h5>
                                 </div>
@@ -53,21 +53,19 @@
         </div>
     </div>
 </section>
-<section class="bgDubai">
-    <div class="container py-5">
+<section class="bgDubai my-5">
+    <div class="container">
         <div class="row">
             <div class="col-12 col-lg-12">
-                <div>
-                    <p class="text-para">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Seci do eiusmod ternpor inci didunt ut la bore et dolore magna al enim ad minim veniam. quis nostrud exerci tation ullamco laboris nisi ut aliquip ex ea commodo conse quat Duis aute irure in reprehenderit in voluptate velit esse cilium dolore eu fugiat nu Ila pariatur. Excepteur sint occaecat cupidatat non proident n culpa qui officia deserunt mollit anirn id est laborurn. Lorern ipsum dolor sit arnet, consectetur adipiscing elit. Sed do eius 
- 
-                    </p>
-                    <h5>
+                <div class="communityDesc">
+                    
+                    {!! $community->description !!}
+                    {{-- <h5>
                         Residential options in {{$community->name}}
                     </h5>
                     <p class="text-para">
                         Hornes in Al Barsha 3 primarily consist of villas. The villas in Al Barsha 3 come in three to six-bedroom units and range from the average size of 4,000 sq. ft. to 18,000 sq. ft. These villas typically feature:
-                    </p>
+                    </p>  --}}
                 </div>
             </div>
         </div>

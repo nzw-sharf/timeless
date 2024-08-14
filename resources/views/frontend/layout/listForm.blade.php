@@ -2,13 +2,13 @@
     <form action="{{route('listingForm')}}" method="post" class="listingForm">
         @csrf
         <div class="row ">
-            <div class="col-12 col-lg-6 col-md-6">
+            <div class="col-12 col-lg-12 col-md-12">
                 <label for="">Information</label>
                 <div class="row">
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <input type="text" class="form-control" placeholder="I'm a..." name="purpose"
                             required>
-                    </div>
+                    </div> --}}
                     <div class="col-12 col-lg-6">
                         <input type="text" class="form-control" placeholder="First name" name="fname"
                             required>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 col-md-6">
+            {{-- <div class="col-12 col-lg-6 col-md-6">
                 <label for="">Property</label>
                 <div class="row">
                     <div class="col-12 col-lg-6">
@@ -64,7 +64,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> --}}
             <div class="col-12 col-lg-12 col-md-12">
                 <label for="">Additional Message or Requests</label>
                 <textarea name="message" id="message" rows="3" class="form-control"
@@ -72,6 +72,7 @@
             </div>
             <div class="col-12 col-lg-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary my-3">SUBMIT</button>
+                <div class="text-center pt-2 fs-11">By submitting this form, you consent to the collection and use of your personal information as outlined in our Privacy Policy.</div>
             </div>
 
         </div>

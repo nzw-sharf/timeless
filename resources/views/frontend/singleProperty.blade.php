@@ -553,7 +553,7 @@
                                             <button type="submit" class="btn btn-white text-uppercase">Submit
                                                 Details</button>
                                         </div>
-                                      
+                                        <div class="text-center pt-1 text-white fs-11">By submitting this form, you consent to the collection and use of your personal information as outlined in our Privacy Policy.</div>
                                     </div>
 
                                 </div>
@@ -623,6 +623,7 @@
                                             <button type="submit" class="btn btn-white text-uppercase">Submit
                                                 Details</button>
                                         </div>
+                                        <div class="text-center pt-1 text-white fs-11">By submitting this form, you consent to the collection and use of your personal information as outlined in our Privacy Policy.</div>
                                     </div>
 
                                 </div>

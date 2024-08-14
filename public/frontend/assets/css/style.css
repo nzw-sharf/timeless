@@ -37,6 +37,9 @@ h6 {
 .fs-14 {
     font-size: 14px;
 }
+.fs-11 {
+    font-size: 11px;
+}
 p,
 small,a, ul li {
     font-family: var(--primary-font);
@@ -82,6 +85,7 @@ small,a, ul li {
     padding: .4rem 1rem .4rem 1rem !important;
     border:1px solid var(--primary-black) !important;
 }
+
 .btn-outline-dark2, .btn-outline-dark2:hover {
     background-color: transparent !important;
     border: 1px solid #001515;
@@ -183,6 +187,21 @@ a {
     height: 100vh;
     object-fit: cover;
 }
+.homeCarousel .carousel-item {
+   position: relative;
+   
+}
+.carouselOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 21, 21, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
 .homeCarousel .carousel-caption {
 left: 50%;
 position: absolute;
@@ -236,7 +255,7 @@ z-index: 5;
 }
 .bannerHead span, .sectionHead span {
     font-family: var(--script-font);
-    font-size: 3rem;
+    font-size: 2.7rem;
 }
 .secHead h5 {
     font-size: 1.5rem;
@@ -255,7 +274,7 @@ z-index: 5;
 }
 .secHeadNew h5 span{
     font-family: var(--script-font);
-    font-size: 2.5rem;
+    font-size: 2.4rem;
 }
 .secHeadNew h5::before,
 .secHeadNew h5::after {
@@ -344,6 +363,14 @@ border: 1px solid rgba(255, 255, 255, 1);
 }
 #partnerSlide .owl-stage{
     display: flex;
+}
+.communityDesc h5, .communityDesc h5 span{
+    font-family: var(--script-font);
+    font-size: 2.3rem !important;
+    font-weight: 500 !important;
+}
+.communityDesc h6{
+    font-weight: 700 !important;
 }
 /* property grid  */
 .propCont {
@@ -509,7 +536,8 @@ border: 1px solid rgba(255, 255, 255, 1);
     border-radius: 5px;
     font-size: 0.87rem;
     color: var(--primary-black) !important;
-    padding: .75rem !important;
+    padding-top: .75rem !important;
+    padding-bottom: .75rem !important;
     margin-bottom: 1.5rem;
 }
 .processRound {
@@ -743,6 +771,9 @@ object-position: top;
     display: flex;
     flex: 1 0 auto;
     height: 100%;
+}
+.iti--allow-dropdown{
+    width: 100% !important;
 }
 .owl-theme .owl-nav [class*=owl-]:hover {
     background: transparent !important;

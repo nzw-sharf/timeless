@@ -10,7 +10,7 @@
 @section('pageKeyword', $website_keyword)
 @endif
 @section('content')
-<section class="mainBanner justify-content-center" style="min-height:80vh;">
+<section class="mainBanner justify-content-center" style="min-height:80vh;{{$pagemeta ? ($pagemeta->bannerImage ? 'background-image:url('.$pagemeta->bannerImage.');' : ''): ''}}">
     <div class="overlayBG"></div>
     <div class="container">
         <div class="row">

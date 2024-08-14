@@ -44,12 +44,17 @@
                     <ul class="list-unstyled mb-0">
                         <li class="d-inline">
                             <a class="navbar-brand" href="mailto:{{ $email ? $email : ''}}">
-                                <img src="{{asset('frontend/assets/images/icons/email.svg')}}" alt="{{  $name }}" width="30" height="30">
+                                <img src="{{asset('frontend/assets/images/icons/email.svg')}}" alt="{{  $name }}" width="27" height="27">
                             </a>
                         </li>
                         <li class="d-inline">
                             <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">
-                                <img src="{{asset('frontend/assets/images/icons/whatsapp.svg')}}" alt="{{  $name }}" width="30" height="30">
+                                <img src="{{asset('frontend/assets/images/icons/whatsapp.webp')}}" alt="{{  $name }}" width="30" height="30">
+                            </a>
+                        </li>
+                        <li class="d-inline">
+                            <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://t.me/+'.$whatsapp_number : '')}}">
+                                <img src="{{asset('frontend/assets/images/icons/telegram.png')}}" alt="{{  $name }}" width="30" height="30">
                             </a>
                         </li>
                     </ul>
