@@ -34,11 +34,10 @@
                 <div class="p-3 p-lg-5 p-md-4 m-auto w-fit-content h-100">
                     <div>
                         <div class="sectionHead lineAfter">
-                            <h5>The Latest</br> <span> News & Insights</span></h5>
+                            <h5>The Latest</br> <span> News  &nbsp; & &nbsp; Insights</span></h5>
                         </div>
                         <div class="text-start pt-4">
-                            <p class="text-sec">Lorem ipsum doler it simit, lorem
-                                ipsum haoe audieos doler.</p>
+                            <p class="text-sec">Stay informed with our latest industry news, market trends, and expert insights.</p>
                             {{-- <p class="text-sec"><button type="button" class="btn btn-primary">Read More</button>
                             </p> --}}
                         </div>

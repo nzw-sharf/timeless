@@ -14,27 +14,33 @@
                             <div class="">
                                 <ul class="list-unstyled">
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $instagram ? $instagram : ''}}">
-                                            <img src="{{asset('frontend/assets/images/icons/instagram.svg')}}"
-                                                alt="{{  $name }}" width="27" height="27">
+                                        <a class="navbar-brand" href="{{ $instagram ? $instagram : ''}}" target="_blank">
+                                            <img src="{{asset('frontend/assets/images/icons/instagram.png')}}"
+                                                alt="{{  $name }}" width="30px">
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">
-                                            <img src="{{asset('frontend/assets/images/icons/whatsapp.svg')}}"
-                                                alt="{{  $name }}" width="27" height="27">
+                                        <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}"  target="_blank">
+                                            <img src="{{asset('frontend/assets/images/icons/whatsapp.png')}}"
+                                                alt="{{  $name }}" width="30px">
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $facebook ? $facebook : ''}}">
-                                            <img src="{{asset('frontend/assets/images/icons/facebook.svg')}}"
-                                                alt="{{  $name }}" width="40" height="40">
+                                        <a class="navbar-brand" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://t.me/+'.$whatsapp_number : '')}}"  target="_blank">
+                                            <img src="{{asset('frontend/assets/images/icons/telegram-2.png')}}"
+                                                alt="{{  $name }}" width="30px">
                                         </a>
                                     </li>
                                     <li class="d-inline px-2">
-                                        <a class="navbar-brand" href="{{ $linkedin ? $linkedin : ''}}">
-                                            <img src="{{asset('frontend/assets/images/icons/linkedin.svg')}}"
-                                                alt="{{  $name }}" width="40" height="40">
+                                        <a class="navbar-brand" href="{{ $facebook ? $facebook : ''}}" target="_blank">
+                                            <img src="{{asset('frontend/assets/images/icons/facebook.png')}}"
+                                                alt="{{  $name }}" width="30px">
+                                        </a>
+                                    </li>
+                                    <li class="d-inline px-2">
+                                        <a class="navbar-brand" href="{{ $linkedin ? $linkedin : ''}}" target="_blank">
+                                            <img src="{{asset('frontend/assets/images/icons/linkedin.png')}}"
+                                                alt="{{  $name }}" width="30px">
                                         </a>
                                     </li>
                                 </ul>
@@ -54,30 +60,21 @@
                             <h6 class="">THE PROPERTIES</h6>
                             <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">
-                                    <a class="navbar-brand text-sec" href="{{route('buy')}}">
-                                        Buy
+                                    <a class="navbar-brand text-sec" href="{{route('projects')}}">
+                                        Off-Plan
                                     </a>
                                 </li>
                                 <li class="list-dot">
-                                    <a class="navbar-brand text-sec" href="">
-                                        Sell
+                                    <a class="navbar-brand text-sec" href="{{route('buy')}}">
+                                        Ready
                                     </a>
                                 </li>
                                 <li class="list-dot">
                                     <a class="navbar-brand text-sec" href="{{route('rent')}}">
-                                        Rent
+                                        Rental
                                     </a>
                                 </li>
-                                <li class="list-bar">
-                                    <a class="navbar-brand text-sec" href="">
-                                        Private Listing
-                                    </a>
-                                </li>
-                                <li class="d-block">
-                                    <a class="navbar-brand text-sec" href="">
-                                        New Developments
-                                    </a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -93,6 +90,9 @@
                                 </li>
                                 <li class="text-sec">
                                     <span class="text-secondary">WhatsApp: </span> <a  class="navbar-brand text-sec" href="{{ $whatsapp ? $whatsapp : ($whatsapp_number ? 'https://api.whatsapp.com/send/?phone='.$whatsapp_number : '')}}">{{ $whatsapp_number ? $whatsapp_number : '000000000000'}}</a>
+                                </li>
+                                <li class="text-sec mt-1">
+                                    <a  class="navbar-brand text-sec fw-bold" href="{{route('careers')}}">Join Us</a>
                                 </li>
                             </ul>
                         </div>

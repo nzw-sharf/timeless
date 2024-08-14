@@ -182,16 +182,11 @@ class ContactController extends Controller
             'fname' => 'First Name is Required ',
             'email' => 'Email is Required ',
             'phone' => 'Mobile No. is Required ',
-            'location' => 'Location is required',
-            'property_type' => 'Property Type is required',
         ];
         $validator = Validator::make($request->all(), [
             'fname' => 'required|min:3|max:60',
             'email' => 'required|email|max:60',
             'phone' => 'required|numeric',
-            'purpose' => 'required',
-            'location' => 'required',
-            'property_type' => 'required'
         ], $messages);
         if ($validator->fails()) {
             return redirect()->back()->with(['error' => $validator->errors()], 401);
@@ -202,7 +197,7 @@ class ContactController extends Controller
             $contact->phone = $request->full_number ? $request->full_number : $request->phone;
             $contact->form_name = 'List Your Property Form';
             $contact->message = $request->message;
-            $contact->detail = 'Location: '.$request->location.'</br> Property Type: '.$request->property_type.'</br> Price: '.$request->price.'</br> Area: '.$request->area.'</br> Beds: '.$request->beds.'</br> Baths: '.$request->baths;
+            // $contact->detail = 'Location: '.$request->location.'</br> Property Type: '.$request->property_type.'</br> Price: '.$request->price.'</br> Area: '.$request->area.'</br> Beds: '.$request->beds.'</br> Baths: '.$request->baths;
             $contact->submit_date = date('Y-m-d H:i:s');
             $contact->page_url = url()->previous();
 
@@ -212,7 +207,6 @@ class ContactController extends Controller
                 'email' => $contact->email,
                 'phone' => $contact->phone,
                 'message' => $contact->message,
-                'detail' => $contact->detail,
                 'page_url' => $contact->page_url,
                 'submit_date' => $contact->submit_date,
                 'form_name' => $contact->form_name

@@ -18,6 +18,7 @@
             <div class="carousel-item active">
                 <img src="{{asset('frontend/assets/images/banner/homeBg1.webp')}}" class="d-block w-100"
                     alt="timeless properties">
+                    <div class="carouselOverlay"></div>
                 <div class="carousel-caption ">
                     <div class="bannerHead text-center text-white">
                         <h5>Your Gateway to <span>Timeless Luxury</span></h5>
@@ -27,6 +28,7 @@
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg2.webp')}}" class="d-block w-100"
                     alt="timeless properties">
+                    <div class="carouselOverlay"></div>
                 <div class="carousel-caption ">
                     <div class="bannerHead text-center text-white">
                         <h5>Your Gateway to <span>Timeless Luxury</span></h5>
@@ -36,6 +38,7 @@
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg3.webp')}}" class="d-block w-100"
                     alt="timeless properties">
+                    <div class="carouselOverlay"></div>
                 <div class="carousel-caption ">
                     <div class="bannerHead text-center text-white">
                         <h5>Your Gateway to <span>Timeless Luxury</span></h5>
@@ -45,6 +48,7 @@
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg4.webp')}}" class="d-block w-100"
                     alt="timeless properties">
+                    <div class="carouselOverlay"></div>
                 <div class="carousel-caption ">
                     <div class="bannerHead text-center text-white">
                         <h5>Your Gateway to <span>Timeless Luxury</span></h5>
@@ -54,6 +58,7 @@
             <div class="carousel-item">
                 <img src="{{asset('frontend/assets/images/banner/homeBg5.webp')}}" class="d-block w-100"
                     alt="timeless properties">
+                    <div class="carouselOverlay"></div>
                 <div class="carousel-caption ">
                     <div class="bannerHead text-center text-white">
                         <h5>Your Gateway to <span>Timeless Luxury</span></h5>
@@ -353,12 +358,7 @@
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead text-center" data-aos="fade-right">
                             <h5>Our<span>Partners</span></h5>
-                            <p class="text-sec">when an unknown printer took a galley of type and scrambled it to
-                                make a type specimen book. It has survived not only five centuries.when an unknown
-                                printer took a galley of type and scrambled it to
-                                make a type specimen book. It has survived not only five centuries.when an unknown
-                                printer took a galley of type and scrambled it to
-                                make a type specimen book. It has survived not only five centuries</p>
+                            <p class="text-sec">At Timeless Properties, we pride ourselves on collaborating with leading developers who share our commitment to excellence and innovation. Our partners are the driving force behind some of Dubai’s most iconic and prestigious real estate projects. By working together with these esteemed developers, we ensure that our clients have access to the highest quality properties and cutting-edge developments. Discover the synergy of our partnerships and the exceptional value they bring to your real estate journey with us.</p>
                         </div>
                     </div>
                 </div>
@@ -520,7 +520,7 @@
                     </div>
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="modalViewFormCont p-3">
-                            <form action="" id="modalViewForm" method="post">
+                            <form action="{{route('contactForm')}}" id="modalViewForm" method="post">
                                 @csrf
                                 <div class="row g-3">
                                     <div class="col-md-12">
@@ -554,7 +554,7 @@
                                             <button type="submit" class="btn btn-white text-uppercase">Submit
                                                 Details</button>
                                         </div>
-                                      
+                                        <div class="text-center pt-1 text-white fs-11">By submitting this form, you consent to the collection and use of your personal information as outlined in our Privacy Policy.</div>
                                     </div>
 
                                 </div>
