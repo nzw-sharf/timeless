@@ -240,7 +240,7 @@
                                 </div> --}}
                                 <div class="ps-1">
                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}" alt="{{  $name }}"
-                                        width="20" class="img-fluid"> <span class="align-middle">
+                                        width="20" class="img-fluid"> <span class="align-middle text-black">
                                         &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].'
                                         Sq.Ft.'}}</span>
                                 </div>

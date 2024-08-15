@@ -71,7 +71,7 @@
                                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
                                                         alt="{{$exclu['title']}}" width="20"
                                                         class="img-fluid filterInverse">
-                                                    <span class="align-middle">&nbsp; {{$exclu['size'].'
+                                                    <span class="align-middle text-white">&nbsp; {{$exclu['size'].'
                                                         Sq.Ft.'}}</span>
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                                 <div class="ps-1">
                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
                                         alt="{{$prop['title']}}" width="25" height="25"> <span
-                                        class="align-middle">&nbsp;{{$prop['size'].' Sq.Ft.'}}</span>
+                                        class="align-middle text-black">&nbsp;{{$prop['size'].' Sq.Ft.'}}</span>
                                 </div>
                             </div>
                         </div>

@@ -19,7 +19,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="bannerHead text-center text-white">
-                            <h5>Take a look at the latest Real Estate <span> News & Insights</span></h5>
+                            <h5>Take a look at the latest Real Estate <span> News  &nbsp; & &nbsp; Insights</span></h5>
                         </div>
                     </div>
                 </div>
