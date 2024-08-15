@@ -53,7 +53,7 @@
                             <div class="col-lg-6 my-auto">
                                 <div class="">
                                     <label for="min-price" class="text-black">Min Price</label>
-                                    <input type="number" class="form-control  form-control-sm" id="minPrice" name="minPrice" placeholder=" ">
+                                    <input type="number" class="form-control  form-control-sm" id="minPrice" name="minPrice" placeholder="400000" min="400000">
 
 
                                 </div>
@@ -61,9 +61,7 @@
                             <div class="col-lg-6 my-auto">
                                 <div class="">
                                     <label for="max-price" class="text-black">Max Price</label>
-                                    <input type="number" class="form-control  form-control-sm" id="maxPrice" name="maxPrice" placeholder=" ">
-
-
+                                    <input type="number" class="form-control  form-control-sm" id="maxPrice" name="maxPrice" placeholder="500000" min="500000">
                                 </div>
                             </div>
                         </div>
