@@ -62,7 +62,7 @@ small,a, ul li {
     background: #ffffff !important;
     position:  relative !important;
 }
-.navBarWhite img{
+.navBarWhite .invertIcon{
    filter: invert(1);
 }
 .navBarWhite.navbar-expand-lg .navbar-nav .nav-link {

@@ -3,7 +3,8 @@
     <nav class="navbar navbar-expand-lg mainNav @yield('navbarType')">
         <div class="container py-3">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif" alt="{{  $name }}" width="130" class="img-fluid">
+                <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif" alt="{{  $name }}" width="130" class="img-fluid invertIcon">
+
             </a>
           
           <div class="d-flex rowRev">
@@ -44,7 +45,7 @@
                     <ul class="list-unstyled mb-0">
                         <li class="d-inline">
                             <a class="navbar-brand" href="mailto:{{ $email ? $email : ''}}">
-                                <img src="{{asset('frontend/assets/images/icons/email.svg')}}" alt="{{  $name }}" width="27" height="27">
+                                <img src="{{asset('frontend/assets/images/icons/email.svg')}}" alt="{{  $name }}" class="invertIcon" width="27" height="27">
                             </a>
                         </li>
                         <li class="d-inline">
