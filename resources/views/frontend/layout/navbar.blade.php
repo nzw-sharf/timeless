@@ -4,6 +4,7 @@
         <div class="container py-3">
             <a class="navbar-brand" href="{{url('/')}}">
                 <img src="@if($logo) {{  $logo }} @else {{asset('frontend/assets/images/logo.png')}} @endif" alt="{{  $name }}" width="130" class="img-fluid invertIcon">
+
             </a>
           
           <div class="d-flex rowRev">
