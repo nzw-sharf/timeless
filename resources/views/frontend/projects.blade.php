@@ -71,7 +71,7 @@
                                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
                                                         alt="{{$exclu['title']}}" width="20"
                                                         class="img-fluid filterInverse">
-                                                    <span class="align-middle">&nbsp; {{$exclu['newParam']['minSize'] . '-'. $exclu['newParam']['maxSize'].' Sq.Ft.'}}</span>
+                                                    <span class="align-middle text-white">&nbsp; {{$exclu['newParam']['minSize'] . '-'. $exclu['newParam']['maxSize'].' Sq.Ft.'}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,7 +142,7 @@
                                 </div> --}}
                                 <div class="ps-1">
                                     <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle"> &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].' Sq.Ft.'}}</span>
+                                        alt="{{  $name }}" width="20" class="img-fluid"> <span class="align-middle text-black"> &nbsp;{{$prop['newParam']['minSize'] . '-'. $prop['newParam']['maxSize'].' Sq.Ft.'}}</span>
                                 </div>
                             </div>
                         </div>
