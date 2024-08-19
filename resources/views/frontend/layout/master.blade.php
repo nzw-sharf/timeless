@@ -162,24 +162,20 @@
         });
         $('#agentSlide').owlCarousel({
            
-            loop:true,
+            loop:false,
             center: false,
             margin:30,
-            autoplay:true,
-            autoplayTimeout:4000,
-            autoplayHoverPause:true,
-            responsiveClass:true,
             nav:false,
             dots: false,
             responsive:{
                 0:{
                     items:1,
                 },
-                600:{
+                720:{
                     items:3,
                 },
-                1000:{
-                    items:5,
+                1200:{
+                    items:4,
                 }
             }
         });
