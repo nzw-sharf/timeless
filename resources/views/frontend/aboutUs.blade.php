@@ -58,7 +58,7 @@
         </div>
     </div>
 </section>
-<section>
+{{-- <section>
     <div class="container-fluid py-5">
         <div class="row">
             <div class="col-12 col-lg-12 col-md-12">
@@ -99,7 +99,7 @@
     </div>
     </div>
     </div>
-</section>
+</section> --}}
 <section>
     <div class="container py-5">
         <div class="row">
@@ -107,14 +107,14 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead text-center" data-aos="fade-up">
-                            <h5>Our<span>Agents</span></h5>
+                            <h5>Our<span>Team</span></h5>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid pb-5">
+    <div class="container pb-5">
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div id="agentSlide" class="owl-carousel owl-theme">

@@ -707,6 +707,10 @@ object-position: top;
     width: 20px !important;
     display: inline-flex !important;
 }
+#agentSlide .owl-stage-outer {
+    display: flex;
+    justify-content: center;
+}
 /* footer  */
 .footHead {
     margin: 0 auto;
@@ -846,6 +850,10 @@ object-position: top;
     border-radius: 0px !important;
   }
 @media screen and (max-width: 720px) {
+    #agentSlide .owl-stage-outer {
+        display: inherit !important;
+        justify-content: center;
+    }
     .homeCarousel .carousel-caption {
         left: 10%;
         -webkit-transform: translate(-5%, -50%);
