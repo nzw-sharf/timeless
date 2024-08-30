@@ -145,6 +145,7 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="nationality">Nationality</label>
@@ -159,11 +160,23 @@
                                         </div>
                                     </div>
 
-                                    
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="specialization">Specialization</label>
+                                            <input type="specialization" value="{{ old('specialization') }}"
+                                                class="form-control @error('name') is-invalid @enderror" id="specialization"
+                                                placeholder="Enter specialization" name="specialization">
+                                            @error('specialization')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="communityIds">Area Specialization</label>
+                                            <label for="communityIds">Community</label>
                                             <select multiple="multiple" data-placeholder="Select Communities" style="width: 100%;" class="select2 form-control @error('communityIds') is-invalid @enderror" id="communityIds" name="communityIds[]">
                                                 @foreach ($communities as $community)
                                                 <option value="{{ $community->id }}">{{ $community->name }}</option>

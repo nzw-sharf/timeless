@@ -198,7 +198,7 @@
 
                                     <div class="">
                                         <div>
-                                            <p class="mb-0">Area Specialization : {{$agent->communities ? $agent->communities->implode('name', ',') : ''}}</p>
+                                            <p class="mb-0">Area Specialization : {{$agent->specialization ? $agent->specialization : ''}}</p>
                                         </div>
                                         <div>
                                             <p class="mb-0">Nationality : {{$agent->nationality ? $agent->nationality : ''}}</p>
