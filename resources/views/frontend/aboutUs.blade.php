@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12">
                         <div class="secHead mb-4 text-center" data-aos="fade-up">
-                            <h5>Our <span>Story</span></h5>
+                            <h5>Our Story</h5>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 col-md-6">
@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead text-center" data-aos="fade-up">
-                            <h5>Our<span>Team</span></h5>
+                            <h5>Our Team</h5>
                         </div>
                     </div>
                 </div>
