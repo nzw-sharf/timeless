@@ -20,21 +20,18 @@
                     <a class="nav-link {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}">Properties</a>
                   </li> --}}
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ (request()->route()->named('rent') || request()->route()->named('buy') || request()->route()->named('projects')) ? 'active' : '' }}"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Properties
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{route('projects')}}">Off-Plan</a></li>
-                      <li><a class="dropdown-item" href="{{route('rent')}}">Rent</a></li>
-                      <li><a class="dropdown-item" href="{{route('buy')}}">Buy</a></li>
+                      <li><a class="dropdown-item {{request()->route()->named('off-plan') ? 'active' : '' }}" href="{{route('off-plan')}}">Off-Plan</a></li>
+                      <li><a class="dropdown-item {{ request()->route()->named('buy') ? 'active' : '' }}" href="{{route('buy')}}">Ready</a></li>
+                      <li><a class="dropdown-item {{ request()->route()->named('rent') ? 'active' : '' }}"  href="{{route('rent')}}">Rent</a></li>
                     </ul>
                   </li>
           
                   <li class="nav-item">
-                    <a class="nav-link {{ request()->route()->named('media') ? 'active' : '' }}" href="{{route('media')}}">Media</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link {{ request()->route()->named('about-us') ? 'active' : '' }}" href="{{route('about-us')}}">About Us</a>
+                    <a class="nav-link {{ request()->route()->named('about-us') ? 'active' : '' }}" href="{{route('about-us')}}">Our Team</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link {{ request()->route()->named('contact-us') ? 'active' : '' }}" href="{{route('contact-us')}}">Contact Us</a>

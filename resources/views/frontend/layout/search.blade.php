@@ -1,5 +1,5 @@
 
-<form action="{{route('properties')}}" method="post" class="searchForm" id="searchForm">
+<form action="{{route('search')}}" method="post" class="searchForm" id="searchForm">
     @csrf
     <div class="row g-2">
         <div class="col-6 col-md col-lg  my-auto">
