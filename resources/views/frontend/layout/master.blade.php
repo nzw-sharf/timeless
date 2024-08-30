@@ -351,7 +351,53 @@
             margin:30,
             nav:true,
             dots:false,
-            items:1
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:2,
+                }
+            }
+        })
+        $('#exclusiveSlide2').owlCarousel({
+            center: false,
+            loop:false,
+            margin:30,
+            nav:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:2,
+                }
+            }
+        })
+        $('#exclusiveSlide3').owlCarousel({
+            center: false,
+            loop:false,
+            margin:30,
+            nav:true,
+            dots:false,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:2,
+                },
+                1000:{
+                    items:2,
+                }
+            }
         })
         $('#projDetailSlide').owlCarousel({
             center: false,
@@ -379,8 +425,13 @@
             
             let val= this.value ;
             if(val == "NEW"){
-                $('#searchForm').attr('action','{{route('projects')}}');
-            }});
+                $('#searchForm').attr('action','{{route('off-plan')}}');
+            }else if(val == "SELL"){
+                $('#searchForm').attr('action','{{route('buy')}}');
+            }else if(val == "RENT"){
+                $('#searchForm').attr('action','{{route('rent')}}');
+            }
+        });
     </script>
     <script>
          if (window.location.pathname == "/" ) {

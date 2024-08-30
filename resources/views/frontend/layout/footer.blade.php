@@ -60,7 +60,7 @@
                             <h6 class="">THE PROPERTIES</h6>
                             <ul class="footList list-unstyled  ps-0">
                                 <li class="list-unstyled">
-                                    <a class="navbar-brand text-sec" href="{{route('projects')}}">
+                                    <a class="navbar-brand text-sec" href="{{route('off-plan')}}">
                                         Off-Plan
                                     </a>
                                 </li>

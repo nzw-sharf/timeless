@@ -10,15 +10,15 @@
 @section('pageKeyword', $website_keyword)
 @endif
 @section('content')
-<section class="mainBanner justify-content-center" style="min-height:80vh;">
+<section class="mainBanner3" >
     <div class="overlayBG"></div>
-    <div class="container">
+    <div class="container z-index-3">
         <div class="row">
             <div class="col-12 col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="bannerHead text-center text-white">
-                            <h5>Find your most ideal investment opportunity with <span> Timeless Properties</span></h5>
+                <div class="row">
+                    <div class="col-12 col-lg-7 col-md-7">
+                        <div class="bannerHead py-3">
+                            <h5>Find your most ideal investment opportunity with Timeless Properties</h5>
                         </div>
                     </div>
                 </div>
@@ -26,70 +26,7 @@
         </div>
     </div>
 </section>
-@if(count($exclusive) > 0)
-<section>
-    <div class="container">
-        <div class="row p-relative">
-            <div class="col-12 col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHead py-4">
-                            <h5>Exclusive<span>Projects</span></h5>
-                        </div>
-                    </div>
 
-                    <div class="col-12 col-lg-10 col-md-11">
-                        <div class="bgBlog1" style="right: -50%;"></div>
-                        <div id="exclusiveSlide" class="owl-carousel owl-theme pb-5">
-                            @foreach ($exclusive as $exclu)
-                            <div class="item">
-                                <div class="card border-0 mb-3">
-                                    <div class="propCont p-relative">
-                                        <a href="{{ url('project/' . $exclu['propertyId']) }}"><img
-                                                src="{{$exclu['photos'][0]}}" class="card-img-top propIMg"
-                                                alt="{{$exclu['title']}}"></a>
-                                        <div class="propDetOverlay">
-                                            <div class="border-bottom">
-                                                <a href="{{ url('project/' . $exclu['propertyId']) }}">
-                                                    <h5 class="card-title text-uppercase">{{$exclu['title']}}</h5>
-                                                </a>
-                                            </div>
-                                            <div class="d-flex justify-content-start pt-2">
-                                                <div class="pe-2">
-                                                    <img src="{{asset('frontend/assets/images/icons/bed.svg')}}"
-                                                        alt="{{$exclu['title']}}" class="img-fluid filterInverse"
-                                                        width="20">
-                                                    <span class="align-middle">&nbsp; {{$exclu['newParam']['bedroomMin'] . '-' .$exclu['newParam']['bedroomMax'] }}</span>
-                                                </div>
-                                                {{-- <div class="px-2">
-                                                    <img src="{{asset('frontend/assets/images/icons/bath.svg')}}"
-                                                        alt="{{$exclu['title']}}" width="20"
-                                                        class="img-fluid filterInverse">
-                                                    <span class="align-middle">&nbsp; 3</span>
-                                                </div> --}}
-                                                <div class="ps-2">
-                                                    <img src="{{asset('frontend/assets/images/icons/area.svg')}}"
-                                                        alt="{{$exclu['title']}}" width="20"
-                                                        class="img-fluid filterInverse">
-                                                    <span class="align-middle text-white">&nbsp; {{$exclu['newParam']['minSize'] . '-'. $exclu['newParam']['maxSize'].' Sq.Ft.'}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-@endif
 <section>
     <div class="container">
         <div class="row">
@@ -97,13 +34,7 @@
                 <div class="row">
                     <div class="col-12 col-lg-12 col-md-12">
                         <div class="secHead pb-4">
-                            <h5>Off Plan <span>Developments</span></h5>
-                            <p class="text-sec">Discover the epitome of luxury living with Timeless Properties' featured
-                                listings. Our exclusive portfolio showcases the finest residences in Dubai, meticulously
-                                curated to meet the highest standards of elegance and sophistication. Each property
-                                reflects our commitment to excellence, offering unparalleled comfort and style for
-                                discerning buyers. Explore these exceptional homes and find your perfect sanctuary with
-                                Timeless Properties.</p>
+                            <h4>Off Plan Developments</h4>
                         </div>
                     </div>
                 </div>
@@ -168,120 +99,5 @@
     </div>
     </div>
 </section>
-<section>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHeadNew text-center py-4">
-                            <h5>List <span> With Us!</span></h5>
-                        </div>
-                    </div>
 
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="container pt-3 pb-5">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="formCont">
-                    @include('frontend.layout.listForm')
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="container-fluid ">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-12 col-md-12">
-                        <div class="secHeadNew text-center py-4">
-                            <h5>Our <span>Process</span></h5>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="container pt-3 pb-5">
-        <div class="row">
-            <div class="col-12 col-lg-12">
-                <div class="owl-carousel owl-theme" id="processSlide">
-                    <div class="item">
-                        <div class="card p-2 p-lg-4 p-md-3 shadow">
-                            <div class="card-body">
-                                <div class="processRound shadow mb-3">
-                                    1
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold  text-primary">Property Appraisal</h5>
-                                    <p class="card-text text-sec">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.Some quick example text to build on the
-                                        card
-                                        title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card p-2 p-lg-4 p-md-3 shadow">
-                            <div class="card-body">
-                                <div class="processRound shadow mb-3">
-                                    2
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold  text-primary">Marketing Preperation</h5>
-                                    <p class="card-text text-sec">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.Some quick example text to build on the
-                                        card
-                                        title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card p-2 p-lg-4 p-md-3 shadow">
-                            <div class="card-body">
-                                <div class="processRound shadow mb-3">
-                                    3
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold  text-primary">Professional Photography & Listing</h5>
-                                    <p class="card-text text-sec">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.Some quick example text to build on the
-                                        card
-                                        title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card p-2 p-lg-4 p-md-3 shadow">
-                            <div class="card-body">
-                                <div class="processRound shadow mb-3">
-                                    4
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold  text-primary">Property Appraisal</h5>
-                                    <p class="card-text text-sec">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content.Some quick example text to build on the
-                                        card
-                                        title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
