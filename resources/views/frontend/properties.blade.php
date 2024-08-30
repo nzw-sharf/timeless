@@ -16,9 +16,18 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="row ">
-                    <div class="col-12 col-lg-7 col-md-8">
+                    <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div class="bannerHead py-3">
                             <h5>Find your most ideal investment opportunity with Timeless Properties</h5>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 col-md-6 my-auto">
+                        <div class="">
+                            <ul class="list-unstyled listPropertySel mb-0">
+                                <li class="d-inline"><a href="{{route('off-plan')}}" class="">Off-Plan</a></li>
+                                <li class="d-inline"><a href="{{route('buy')}}" class="">Ready</a></li>
+                                <li class="d-inline"><a href="{{route('rent')}}" class="">Rent</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

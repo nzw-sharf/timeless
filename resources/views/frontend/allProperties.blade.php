@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-6 my-auto">
                         <div class="">
-                            <ul class="list-unstyled listPropertySel">
+                            <ul class="list-unstyled listPropertySel mb-0">
                                 <li class="d-inline"><a href="{{route('off-plan')}}" class="">Off-Plan</a></li>
                                 <li class="d-inline"><a href="{{route('buy')}}" class="">Ready</a></li>
                                 <li class="d-inline"><a href="{{route('rent')}}" class="">Rent</a></li>
