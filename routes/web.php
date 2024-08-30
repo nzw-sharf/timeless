@@ -74,10 +74,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Dashboard', 'prefix' => 'dash
     Route::get('developer/{developer}/details/{detail}/edit', 'DeveloperController@editDetail')->name('dashboard.developer.details.edit');
     Route::put('developer/{developer}/details/{detail}', 'DeveloperController@updateDetail')->name('dashboard.developer.details.update');
     Route::delete('developer/{developer}/details/{detail}', 'DeveloperController@destroyDetail')->name('dashboard.developer.details.destroy');
-    Route::delete('agents', 'AgentController@getAgents')->name('dashboard.agents.getAgents');
+
 
 
     Route::resource('agents', AgentController::class, ['as' => 'dashboard']);
+    Route::get('getAgents', 'AgentController@getAgents')->name('dashboard.agents.getAgents');
     Route::resource('completion-statuses', CompletionStatusController::class, ['as' => 'dashboard']);
     Route::resource('amenities', AmenityController::class, ['as' => 'dashboard']);
     Route::resource('neighbours', NeighbourController::class, ['as' => 'dashboard']);

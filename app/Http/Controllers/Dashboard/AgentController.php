@@ -20,7 +20,7 @@ class AgentController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:'.config('constants.Permissions.real_estate'), ['only' => ['index','create', 'edit', 'update', 'destroy']]);
+        $this->middleware('permission:'.config('constants.Permissions.real_estate'), ['only' => ['index','create', 'edit', 'update', 'destroy','getAgents']]);
     }
     /**
      * Display a listing of the resource.
@@ -49,61 +49,7 @@ class AgentController extends Controller
 
         return view('dashboard.realEstate.agents.create', compact('communities','languages'));
     }
-    public function getAgents(Request $request)
-    {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => '{"status":"ACTIVE"}',
-            CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
-                'Content-Type: application/json'
-            ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        
-        $communitiesArray = json_decode($response, true);
-        
-        
-        $communityVal = $communitiesArray['data']['list'];
-        
-        foreach ($communityVal as $key => $comm) {
-                $community = Agent::where('id', $comm['agent']['id'])->first();
-                if (!empty($community)) {
-                } else {
-                    $comnty = new Agent();
-                    $comnty->id = $comm['agent']['id'];
-                    $comnty->name = $comm['agent']['name'];
-                    $comnty->email = $comm['agent']['email'];
-                    $comnty->contact_number = $comm['agent']['phone'];
-                    $comnty->avatar = $comm['agent']['avatar'];
-                    $comnty->status = config('constants.active');
-                    $comnty->user_id = 1;
-                    $comnty->save();
-                }
     
-           
-        }
-       
-
-        $agents = Agent::with('user')
-            ->applyFilters($request->only(['status']))
-            ->latest()
-            ->get();
-
-        return view('dashboard.realEstate.agents.index', compact('agents'));
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -252,5 +198,61 @@ class AgentController extends Controller
         }catch(\Exception $error){
             return redirect()->route('dashboard.agents.index')->with('error',$error->getMessage());
         }
+    }
+    public function getAgents(Request $request)
+    {
+  
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://dataapi.pixxicrm.ae/pixxiapi/v1/properties/Timeless%20Properties/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => '{"status":"ACTIVE"}',
+            CURLOPT_HTTPHEADER => array(
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        
+        $communitiesArray = json_decode($response, true);
+        
+        
+        $communityVal = $communitiesArray['data']['list'];
+        
+        foreach ($communityVal as $key => $comm) {
+                $community = Agent::where('id', $comm['agent']['id'])->first();
+                if (!empty($community)) {
+                } else {
+                    $comnty = new Agent();
+                    $comnty->id = $comm['agent']['id'];
+                    $comnty->name = $comm['agent']['name'];
+                    $comnty->email = $comm['agent']['email'];
+                    $comnty->contact_number = $comm['agent']['phone'];
+                    $comnty->avatar = $comm['agent']['avatar'];
+                    $comnty->status = config('constants.active');
+                    $comnty->user_id = 1;
+                    $comnty->save();
+                }
+    
+           
+        }
+       
+
+        $agents = Agent::with('user')
+            ->applyFilters($request->only(['status']))
+            ->latest()
+            ->get();
+
+        return view('dashboard.realEstate.agents.index', compact('agents'));
     }
 }
