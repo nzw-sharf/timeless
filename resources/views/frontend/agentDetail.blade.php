@@ -5,6 +5,9 @@ $watsapp = $agent->contact_number ? "https://wa.me/". str_replace(' ', '', $agen
 $email = $agent->email ? $agent->email : $email ;
 $phone = $agent->contact_number ? str_replace(' ', '', $agent->contact_number) :  str_replace(' ', '', $contact_number) ;
 $image = $agent->image ? $agent->image : $agent->avatar;
+$nationality = $agent->nationality ? $agent->nationality : '';
+$language = $agent->languages ? $agent->languages->implode('name', ',') : '';
+$community = $agent->communities ? $agent->communities->implode('name', ',') : '';
 $output .= '<div class="row">
                 <div class="col-12 col-lg-12">
                     <div class="p-3 propCard">
@@ -16,15 +19,24 @@ $output .= '<div class="row">
                                     <p class="text-para">  '.$agent->designation.' </p>
                                 </div>
                                 <div class="mt-2">
-                                    <a href="tel:'.$phone.'"
-                                        class="text-decoration-none text-primary fs-14"><i
-                                            class="fa fa-phone"></i> '.$phone.'
+                                    <a href="t'.$watsapp.'"
+                                        class="text-decoration-none text-primary"><i
+                                            class="fa fa-whatsapp"></i> '.$watsapp.'
                                             </a>
                                 </div>
                                 <div class="mb-2 ">
                                     <a href="mailto:'.$email.'"
-                                        class="text-decoration-none text-primary fs-14"><i
+                                        class="text-decoration-none text-primary"><i
                                             class="fa fa-envelope"></i> '.$email.'</a>
+                                </div>
+                                <div class="mb-2 ">
+                                    <p>Area Specialization : '.$community.'</p>
+                                </div>
+                                <div class="mb-2 ">
+                                    <p>Nationality : '.$nationality.'</p>
+                                </div>
+                                <div class="mb-2 ">
+                                    <p>Language : '.$language.'</p>
                                 </div>
                                 <div class="my-3">
                                     <div class="row ">

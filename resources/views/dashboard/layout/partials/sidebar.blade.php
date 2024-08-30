@@ -172,7 +172,7 @@
                     </li>
                 @endcan
 
-                @can(config('constants.Permissions.tags'))
+                {{-- @can(config('constants.Permissions.tags'))
                     <li class="nav-item">
                         <a href="{{ url('dashboard/tags') }}" class="nav-link {{ activeChildNavBar('dashboard.tags') }}">
                             <i class="nav-icon fa fa-tags"></i>
@@ -188,7 +188,7 @@
                             <p>Awards</p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 @can(config('constants.Permissions.languages'))
                     <li class="nav-item">
@@ -199,13 +199,13 @@
                         </a>
                     </li>
                 @endcan
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ url('dashboard/defaultStats') }}"
                         class="nav-link {{ activeChildNavBar('dashboard.defaultStats') }}">
                         <i class="nav-icon fa fa-language"></i>
                         <p>Default Stat Data</p>
                     </a>
-                </li>
+                </li> --}}
                 @can(config('constants.Permissions.content_management'))
                     <li class="nav-item {{ activeParentNavBar('contentManagement', 'menu-open') }}">
                         <a href="#" class="nav-link {{ activeParentNavBar('contentManagement', 'active') }}">
@@ -223,13 +223,13 @@
                                     <p>Articles</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ url('dashboard/video-gallery') }}"
                                     class="nav-link {{ activeChildNavBar('dashboard.video-gallery') }}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Video Gallery</p>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </li>
                 @endcan
@@ -242,7 +242,7 @@
                         </a>
                     </li>
                 @endcan
-                @can(config('constants.Permissions.services'))
+                {{-- @can(config('constants.Permissions.services'))
                     <li class="nav-item">
                         <a href="{{ url('dashboard/services') }}"
                             class="nav-link {{ activeChildNavBar('dashboard.services') }}">
@@ -250,7 +250,7 @@
                             <p>Services</p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
                 @can(config('constants.Permissions.career_management'))
                     <li class="nav-item">
                         <a href="{{ url('dashboard/careers') }}"
@@ -280,7 +280,7 @@
                         </ul>
                     </li>
                 @endcan
-                @can(config('constants.Permissions.page_contents'))
+                {{-- @can(config('constants.Permissions.page_contents'))
                     <li class="nav-item {{ activeParentNavBar('pageContents', 'menu-open') }}">
                         <a href="#" class="nav-link {{ activeParentNavBar('pageContents', 'active') }}">
 
@@ -421,7 +421,7 @@
 
                         </ul>
                     </li>
-                @endcan
+                @endcan --}}
                 @can(config('constants.Permissions.website_setting'))
                     <li class="nav-item {{ activeParentNavBar('websiteSettings', 'menu-open') }}">
                         <a href="#" class="nav-link {{ activeParentNavBar('websiteSettings', 'active') }}">

@@ -20,7 +20,7 @@
                     <a class="nav-link {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}">Properties</a>
                   </li> --}}
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ request()->route()->named('properties') ? 'active' : '' }}" href="{{route('properties')}}"  role="button" aria-expanded="false">
                       Properties
                     </a>
                     <ul class="dropdown-menu">
