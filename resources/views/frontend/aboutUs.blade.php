@@ -189,7 +189,7 @@
                         <div class="card border-0 mb-3 shadow-sm rounded-0">
 
                             <div class="propCont agentContNew">
-                                <img src="{{$agent->image ? $agent->image : $agent->avatar}}"
+                                <img src="{{$agent->image ? $agent->image : ($agent->avatar ? $agent->avatar : asset('frontend/assets/images/no-user.webp')) }}"
                                     class="card-img-top rounded-0 propIMg" alt="{{ $name }}">
 
                                 <div class="card-body">
@@ -213,24 +213,24 @@
                                     <div class="row g-1">
                                         
                                         <div class="col-4 col-lg-4 my-auto">
-                                            <div class="mt-1">
+                                            <div class="mt-1 agentBtn">
                                                 <a href="mailto:{{$agent->email ? $agent->email : $email}}"
                                                     class="btn btn-primary btn-sm  w-100 fs-11  rounded-0 text-decoration-none"><i
-                                                        class="fa fa-envelope"></i> E-mail</a>
+                                                        class="fa fa-envelope"></i> <span>E-mail</span> </a>
                                             </div>
                                         </div>
                                         <div class="col-4 col-lg-4 my-auto">
-                                            <div class="mt-1">
+                                            <div class="mt-1 agentBtn">
                                                 <a href="{{$agent->contact_number ? "https://wa.me/". str_replace(' ', '', $agent->contact_number) : "https://wa.me/". str_replace(' ', '', $contact_number)}}" target="_blank"
-                                                    class="btn btn-primary btn-sm  w-100  fs-11 rounded-0 text-decoration-none"><i
-                                                        class="fa fa-whatsapp"></i> WhatsApp</a>
+                                                    class="btn btn-primary px-1 btn-sm  w-100  fs-11 rounded-0 text-decoration-none"><i
+                                                        class="fa fa-whatsapp"></i> <span>WhatsApp</span></a>
                                             </div>
                                         </div>
                                         <div class="col-4 col-lg-4 my-auto">
-                                            <div class="mt-1">
+                                            <div class="mt-1 agentBtn">
                                                 <a href="{{$agent->linkedin ? $agent->linkedin : $linkedin}}"
                                                     class="btn btn-primary rounded-0 btn-sm  fs-=11 w-100 text-decoration-none"><i
-                                                        class="fa fa-linkedin"></i> Linkedin</a>
+                                                        class="fa fa-linkedin"></i> <span>Linkedin</span></a>
                                             </div>
                                         </div>
                                     </div>
