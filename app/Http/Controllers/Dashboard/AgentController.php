@@ -69,6 +69,7 @@ class AgentController extends Controller
             $agent->nationality = $request->nationality;
             $agent->linkedin_profile = $request->linkedin_profile;
             $agent->license_number = $request->license_number;
+            $agent->specialization = $request->specialization;
             $agent->user_id = Auth::user()->id;
             if ($request->hasFile('image')) {
                 $img =  $request->file('image');
@@ -143,6 +144,7 @@ class AgentController extends Controller
             $agent->designation = $request->designation;
             $agent->nationality = $request->nationality;
             $agent->linkedin_profile = $request->linkedin_profile;
+            $agent->specialization = $request->specialization;
             $agent->license_number = $request->license_number;
             $agent->user_id = Auth::user()->id;
             if ($request->hasFile('image')) {
