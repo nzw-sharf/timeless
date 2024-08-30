@@ -68,7 +68,7 @@ class CommunityController extends Controller
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => '{"size":2}',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                 'Content-Type: application/json'
             ),
         ));

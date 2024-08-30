@@ -44,6 +44,13 @@ class AgentController extends Controller
      */
     public function create(Request $request)
     {
+        $languages = Language::active()->latest()->get();
+        $communities = Community::active()->latest()->get();
+
+        return view('dashboard.realEstate.agents.create', compact('communities','languages'));
+    }
+    public function getAgents(Request $request)
+    {
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -57,7 +64,7 @@ class AgentController extends Controller
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => '{"status":"ACTIVE"}',
             CURLOPT_HTTPHEADER => array(
-                'X-PIXXI-TOKEN: xQ8oe4vlTTFP63ci_mBaEMIqoNkFFDn8',
+                'X-PIXXI-TOKEN: ' . env('PIXXI_TOKEN') . '',
                 'Content-Type: application/json'
             ),
         ));
@@ -65,7 +72,9 @@ class AgentController extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
+        
         $communitiesArray = json_decode($response, true);
+        
         
         $communityVal = $communitiesArray['data']['list'];
         
@@ -95,7 +104,6 @@ class AgentController extends Controller
 
         return view('dashboard.realEstate.agents.index', compact('agents'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -109,21 +117,12 @@ class AgentController extends Controller
             $agent->name = $request->name;
             $agent->status = $request->status;
             $agent->email = $request->email;
-            $agent->is_display_home = $request->is_display_home;
-            $agent->orderBy = $request->orderBy;
             $agent->contact_number = $request->contact_number;
             $agent->whatsapp_number = $request->whatsapp_number;
             $agent->designation = $request->designation;
-            $agent->specialization = $request->specialization;
             $agent->nationality = $request->nationality;
-            $agent->experience = $request->experience;
-            $agent->start_working = $request->start_working;
             $agent->linkedin_profile = $request->linkedin_profile;
             $agent->license_number = $request->license_number;
-            $agent->message = $request->message;
-            $agent->meta_title = $request->meta_title;
-            $agent->meta_keywords = $request->meta_keywords;
-            $agent->meta_description = $request->meta_description;
             $agent->user_id = Auth::user()->id;
             if ($request->hasFile('image')) {
                 $img =  $request->file('image');
@@ -135,17 +134,8 @@ class AgentController extends Controller
             if($request->has('languageIds')){
                 $agent->languages()->attach($request->languageIds);
             }
-            if($request->has('serviceIds')){
-                $agent->services()->attach($request->serviceIds);
-            }
             if($request->has('communityIds')){
                 $agent->communities()->attach($request->communityIds);
-            }
-            if($request->has('developerIds')){
-                $agent->developers()->attach($request->developerIds);
-            }
-            if($request->has('projectIds')){
-                $agent->projects()->attach($request->projectIds);
             }
             return response()->json([
                 'success' => true,
@@ -201,22 +191,13 @@ class AgentController extends Controller
             $agent->name = $request->name;
             $agent->generateSlug();
             $agent->status = $request->status;
-            $agent->orderBy = $request->orderBy;
-            $agent->is_display_home = $request->is_display_home;
             $agent->email = $request->email;
             $agent->contact_number = $request->contact_number;
             $agent->whatsapp_number = $request->whatsapp_number;
             $agent->designation = $request->designation;
-            $agent->specialization = $request->specialization;
             $agent->nationality = $request->nationality;
-            $agent->experience = $request->experience;
-            $agent->start_working = $request->start_working;
             $agent->linkedin_profile = $request->linkedin_profile;
             $agent->license_number = $request->license_number;
-            $agent->message = $request->message;
-            $agent->meta_title = $request->meta_title;
-            $agent->meta_keywords = $request->meta_keywords;
-            $agent->meta_description = $request->meta_description;
             $agent->user_id = Auth::user()->id;
             if ($request->hasFile('image')) {
                 $agent->clearMediaCollection('images');
@@ -232,22 +213,9 @@ class AgentController extends Controller
                 $agent->languages()->attach($request->languageIds);
 
             }
-            if($request->has('serviceIds')){
-                $agent->services()->detach();
-                $agent->services()->attach($request->serviceIds);
-
-            }
             if($request->has('communityIds')){
                 $agent->communities()->detach();
                 $agent->communities()->attach($request->communityIds);
-            }
-            if($request->has('developerIds')){
-                $agent->developers()->detach();
-                $agent->developers()->attach($request->developerIds);
-            }
-            if($request->has('projectIds')){
-                $agent->projects()->detach();
-                $agent->projects()->attach($request->projectIds);
             }
             return response()->json([
                 'success' => true,

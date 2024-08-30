@@ -24,9 +24,13 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="row float-right">
-                                <a href="{{ route('dashboard.agents.create') }}" class="btn btn-block btn-primary">
+                                <a href="{{ route('dashboard.agents.getAgents') }}" class="btn btn-block btn-primary">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                     Get Agents
+                                </a>
+                                <a href="{{ route('dashboard.agents.create') }}" class="btn btn-block btn-primary">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                   Create Agents
                                 </a>
                             </div>
                         </div>
